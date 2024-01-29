@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Trang_Chu extends AppCompatActivity {
-     Button btnOK;
+     Button btnOK,btnOk2;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -20,10 +20,18 @@ public class Trang_Chu extends AppCompatActivity {
         setContentView(R.layout.activity_trang_chu);
 
         btnOK = findViewById(R.id.btnOK);
+        btnOk2= findViewById(R.id.btnOk2);
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Trang_Chu.this, Menu.class);
+                startActivity(i);
+            }
+        });
+        btnOk2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Trang_Chu.this, Content.class);
                 startActivity(i);
             }
         });

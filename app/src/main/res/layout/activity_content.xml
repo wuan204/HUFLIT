@@ -4,6 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Content">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#BF4444"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="10dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/txtChapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:text="Chapter:..."
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgMenu2"
+            android:layout_width="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/menu2" />
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnPrevous"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:background="@drawable/buttoncontent"
+                    app:backgroundTint="@null"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
+
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Chapter 2"
+                    android:background="@drawable/buttoncontent"
+                    app:backgroundTint="@null"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="90dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
