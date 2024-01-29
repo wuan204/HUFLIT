@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Truyen_da_follow extends AppCompatActivity {
+public class Y_kien extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_truyen_da_follow);
+        setContentView(R.layout.activity_y_kien);
     }
 }

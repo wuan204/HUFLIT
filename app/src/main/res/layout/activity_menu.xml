@@ -11,20 +11,36 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <!-- Các thành phần khác trong layout -->
 
-            <TextView
-                android:id="@+id/txtM"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Menu"
-            android:textSize="30dp"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtM"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Menu"
+                    android:textSize="30dp" />
+
+                <ImageView
+                    android:id="@+id/imgSetting"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/setting"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="-40dp">
+                </ImageView>
+            </LinearLayout>
+
         </FrameLayout>
         <ScrollView
             android:layout_width="match_parent"
@@ -122,6 +138,97 @@
                         android:layout_marginLeft="30dp"/>
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp">
+
+                    <TextView
+                        android:id="@+id/txtTruyen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Truyện"
+                        android:textSize="22dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="-80dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp">
+
+                    <LinearLayout
+                        android:layout_width="350dp"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="50dp"
+                        android:id="@+id/ThemTruyen"
+                        >
+                        <ImageView
+                            android:id="@+id/imgThemTruyen"
+                            android:layout_width="10dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/post" />
+
+                        <TextView
+                            android:id="@+id/txtThemTruyen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Thêm truyện"
+                            android:textSize="20dp"/>
+
+                        <ImageView
+                            android:id="@+id/imgNext10"
+                            android:layout_width="10dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/next"
+                            android:layout_marginLeft="50dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="350dp"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/Truyen_cua_toi">
+                        <ImageView
+                            android:id="@+id/imgTruyen_cua_toi"
+                            android:layout_width="10dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/list" />
+
+                        <TextView
+                            android:id="@+id/txtTruyen_cua_toi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Truyện của tôi"
+                            android:textSize="20dp"/>
+
+                        <ImageView
+                            android:id="@+id/imgNext11"
+                            android:layout_width="10dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/next"
+                            android:layout_marginLeft="50dp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -149,7 +256,8 @@
                         android:layout_width="350dp"
                         android:layout_height="30dp"
                         android:orientation="horizontal"
-                        android:layout_marginLeft="50dp">
+                        android:layout_marginLeft="50dp"
+                        android:id="@+id/History">
 
                         <ImageView
                             android:id="@+id/imgHistory"
@@ -181,7 +289,8 @@
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/Heart">
                         <ImageView
                             android:id="@+id/imgHeart"
                             android:layout_width="10dp"
@@ -211,7 +320,8 @@
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/Down">
                         <ImageView
                             android:id="@+id/imgDown"
                             android:layout_width="10dp"
@@ -224,7 +334,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Truyện đã thích"
+                            android:text="Truyện đã tải"
                             android:textSize="20dp"/>
 
                         <ImageView
@@ -263,7 +373,8 @@
                         android:layout_height="30dp"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:id="@+id/List">
 
                         <ImageView
                             android:id="@+id/imgList"
@@ -317,7 +428,8 @@
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/Star">
                         <ImageView
                             android:id="@+id/imgStar"
                             android:layout_width="10dp"
@@ -371,7 +483,8 @@
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/GiaoDien">
                         <ImageView
                             android:id="@+id/imgGiaoDien"
                             android:layout_width="20dp"
@@ -402,7 +515,8 @@
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/Background">
                         <ImageView
                             android:id="@+id/imgBackground"
                             android:layout_width="20dp"
@@ -436,7 +550,8 @@
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/ThongTin">
                         <ImageView
                             android:id="@+id/imgThongTin"
                             android:layout_width="8dp"
@@ -468,7 +583,8 @@
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/YKien">
                         <ImageView
                             android:id="@+id/imgYKien"
                             android:layout_width="10dp"
@@ -506,7 +622,8 @@
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:layout_marginLeft="20dp"
+                android:id="@+id/TrangChu">
                 <ImageView
                     android:id="@+id/imgTrangChu"
                     android:layout_width="50dp"
@@ -530,7 +647,8 @@
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
-                android:layout_marginLeft="25dp">
+                android:layout_marginLeft="25dp"
+                android:id="@+id/Search">
                 <ImageView
                     android:id="@+id/imgSearch"
                     android:layout_width="50dp"
@@ -553,19 +671,20 @@
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
-                android:layout_marginLeft="25dp">
+                android:layout_marginLeft="25dp"
+                android:id="@+id/TheLoai">
                 <ImageView
-                    android:id="@+id/imgPost"
+                    android:id="@+id/imgTheLoai"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/post"
+                    android:src="@drawable/category"
                     android:layout_marginLeft="15dp"/>
 
                 <TextView
-                    android:id="@+id/txtPost"
+                    android:id="@+id/txtTheLoai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Đăng bài"
+                    android:text="Thể loại"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="18dp"/>
@@ -575,7 +694,8 @@
                 android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
-                android:layout_marginLeft="25dp">
+                android:layout_marginLeft="25dp"
+                android:id="@+id/Menu">
                 <ImageView
                     android:id="@+id/imgMenu"
                     android:layout_width="50dp"
