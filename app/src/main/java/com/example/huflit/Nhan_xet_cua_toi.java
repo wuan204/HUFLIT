@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Truyen extends AppCompatActivity {
+public class Nhan_xet_cua_toi extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_truyen);
+        setContentView(R.layout.nhan_xet_cua_toi);
     }
 }

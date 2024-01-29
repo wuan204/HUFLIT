@@ -120,6 +120,4 @@ public class MainActivity extends AppCompatActivity {
         return entername.equals(saveName) && enterpassword.equals(savePassword);
     }*/
 
-
-
 }

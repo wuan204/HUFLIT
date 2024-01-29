@@ -61,12 +61,8 @@ public class Register extends AppCompatActivity {
                 else{
                     PrintToast("Đăng kí thành công");
                 }
-
-
             }
         });
-
-
     }
     public void PrintToast(String message) {
         // Inflate the custom layout
