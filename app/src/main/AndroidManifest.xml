@@ -13,6 +13,15 @@
         android:theme="@style/Theme.HUFLIT"
         tools:targetApi="31">
         <activity
+            android:name=".Diolog_dang_ki_truyen"
+            android:exported="false" />
+        <activity
+            android:name=".Dang_bai_truyen_tranh"
+            android:exported="false" />
+        <activity
+            android:name=".Diolog_Them_Truyen"
+            android:exported="false" />
+        <activity
             android:name=".The_loai"
             android:exported="false" />
         <activity
@@ -64,7 +73,7 @@
             android:name=".Y_kien"
             android:exported="false" />
         <activity
-            android:name=".Dang_bai"
+            android:name=".Dang_bai_truyen_chu"
             android:exported="false" />
         <activity
             android:name=".Seach"

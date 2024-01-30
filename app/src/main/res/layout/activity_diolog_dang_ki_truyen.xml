@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="180dp"
+    tools:context=".Diolog_Them_Truyen"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/dialog_them_truyen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtxxx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đăng bài"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="25dp"/>
+
+            <!-- View để tạo đường viền -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtxxx"
+                android:background="#000000"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/txtxxxx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bạn có chắc chắn muốn đăng truyện không?"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:text="Không"
+                android:textStyle="bold"
+                android:textColor="@color/Blue"
+                android:background="@drawable/buttondiolog"
+                app:backgroundTint="@null"
+                android:layout_marginRight="5dp"/>
+
+            <Button
+                android:id="@+id/btnNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Có"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:background="@drawable/buttondiolog"
+                app:backgroundTint="@null"
+                android:textColor="@color/Blue"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
