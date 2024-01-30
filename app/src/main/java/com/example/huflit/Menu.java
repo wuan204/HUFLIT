@@ -1,10 +1,13 @@
 package com.example.huflit;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -45,6 +48,7 @@ public class Menu extends AppCompatActivity {
         ThemTruyen = findViewById(R.id.ThemTruyen);
         imgSetting = findViewById(R.id.imgSetting);
 
+
         imgSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,8 +59,7 @@ public class Menu extends AppCompatActivity {
         ThemTruyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Content.class);
-                startActivity(i);
+                showCustomDialog();
             }
         });
         Truyen_cua_toi.setOnClickListener(new View.OnClickListener() {
@@ -155,6 +158,38 @@ public class Menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Menu.this,Menu.class);
                 startActivity(i);
+            }
+        });
+    }
+    private void showCustomDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.activity_diolog_them_truyen, null);
+        builder.setView(dialogView);
+        builder.setPositiveButton(null, null);
+        builder.setNegativeButton(null, null);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        Button btnTranh = dialogView.findViewById(R.id.btnTranh);
+        Button btnChu = dialogView.findViewById(R.id.btnChu);
+
+        btnTranh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentTranh = new Intent(Menu.this, Dang_bai_truyen_tranh.class);
+                startActivity(intentTranh);
+                alertDialog.dismiss();
+            }
+        });
+
+        btnChu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentChu = new Intent(Menu.this, Dang_bai_truyen_chu.class);
+                startActivity(intentChu);
+                alertDialog.dismiss();
             }
         });
     }
