@@ -95,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openGoogleSignIn();
+                //openGoogleSignIn();
+                Intent intent=new Intent(MainActivity.this,Trang_Chu.class);
+                startActivity(intent);
             }
         });
 

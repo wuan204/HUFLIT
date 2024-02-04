@@ -37,7 +37,7 @@
                 android:textSize="22dp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btRp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -52,11 +52,12 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imgStory"
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:src="@drawable/truyen1" />
+                android:src="@drawable/person"
+                android:layout_margin="5dp"
+                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -292,7 +293,7 @@ Tham gia cùng Natsu, Gray và Erza, Lucy thấy mình giữa những kẻ lạc
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/edtCmt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -301,11 +302,11 @@ Tham gia cùng Natsu, Gray và Erza, Lucy thấy mình giữa những kẻ lạc
                     android:inputType="text" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btCmt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:text="Gửi" />
             </LinearLayout>
 
             <TextView
