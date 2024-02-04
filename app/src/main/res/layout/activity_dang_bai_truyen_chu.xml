@@ -40,19 +40,134 @@
             android:textStyle="bold"
             android:textSize="30dp"
             android:textColor="@color/black"/>
+
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:text=""
-            android:inputType="textMultiLine"
-            android:backgroundTint="@android:color/transparent"/>
+        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bìa"
+                    android:textSize="40dp"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="100dp">
+
+                    <Button
+                        android:id="@+id/btnUp"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:background="@drawable/btnanh"
+                        app:backgroundTint="@null" />
+
+                    <ImageView
+                        android:id="@+id/imgUp"
+                        android:layout_width="1150dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="50dp"
+                        android:src="@drawable/plus" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:id="@+id/txtTieuDe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tiêu đề:   "
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/edtTieuDe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="Nhập tiêu đề truyện" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/txtGioiThieu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Giới thiệu:"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/edtGioiThieu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="Nhập giới thiệu truyện" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/txtNoiDung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:text="Nội dung:  "
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/editTextText3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text|textMultiLine"
+                    android:hint="Nhập nội dung truyện"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
