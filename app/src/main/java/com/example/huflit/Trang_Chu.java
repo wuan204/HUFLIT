@@ -40,7 +40,7 @@ public class Trang_Chu extends AppCompatActivity {
         btviewstr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Trang_Chu.this,ViewStory.class);
+                Intent i=new Intent(Trang_Chu.this, ViewStory.class);
                 startActivity(i);
             }
         });
