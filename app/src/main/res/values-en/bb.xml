@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HUFLIT</string>
-
     <string name="language">Language</string>
-    <string name="vietnamese">Tiếng Việt</string>
+    <string name="vietnamese">Vietnamese</string>
     <string name="english">English</string>
 </resources>
