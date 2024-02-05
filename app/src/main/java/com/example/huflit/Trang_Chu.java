@@ -36,6 +36,7 @@ public class Trang_Chu extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         // Chuyển về màn hình chính của điện thoại khi nhấn nút Back ở trang này
+        super.onBackPressed();
         finishAffinity();
     }
 
