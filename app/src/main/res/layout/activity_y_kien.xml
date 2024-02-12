@@ -1,9 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutykien"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Y_kien">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".trangsauvietykien">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+
+        android:id="@+id/layoutthanhtieudeykien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DB8C8C"
+        android:contentDescription="hjshsjh"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:theme="?attr/actionBarTheme">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/thanhdanhgia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#DB8C8C"
+            android:contentDescription="danhgia"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
+
+
+            <Button
+                android:id="@+id/btnbackykien"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="left"
+                android:background="@drawable/back"
+                android:backgroundTint="#F2FFFFFF"
+                android:contentDescription="nut back"
+                android:textColorHighlight="#EC407A"
+                android:textColorLink="#26A69A"
+
+                />
+
+            <TextView
+                android:id="@+id/dongtieudeykiendanhgia"
+                android:layout_width="200dp"
+
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Đánh giá của tôi"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnxoadanhgia"
+                android:layout_width="45dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:background="@drawable/delete"
+                android:backgroundTint="#F7FFFFFF"
+                android:contentDescription=" nút xóa nhận xét " />
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutvietykien"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/loiykien"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="50dp"
+            android:background="#03A9F4"
+            android:backgroundTint="#03A9F4"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="text"
+            android:text="Viết đánh giá"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnXacnhanykien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#E74D4D"
+            android:text="xác nhận đánh giá" />
+
+    </LinearLayout>
+
+</LinearLayout>
