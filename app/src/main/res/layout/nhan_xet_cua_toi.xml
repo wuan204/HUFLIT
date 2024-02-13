@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Nhan_xet_cua_toi">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/thanhdanhgia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DB8C8C"
+        android:contentDescription="hjshsjh"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+
+
+        <Button
+            android:contentDescription="nut back"
+            android:id="@+id/btnbackykien"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:background="@drawable/back"
+            android:backgroundTint="#F2FFFFFF"
+            android:textColorHighlight="#EC407A"
+            android:textColorLink="#26A69A"
+
+            />
+        <TextView
+            android:id="@+id/dongtieudeykiendanhgia"
+            android:layout_width="200dp"
+
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Đánh giá của tôi"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnxoadanhgia"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:background="@drawable/delete"
+            android:backgroundTint="#F7FFFFFF"
+            android:contentDescription=" nút xóa nhận xét "
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutbuttom"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="85dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnvietnhanxet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="140dp"
+            android:backgroundTint="#E74D4D"
+            android:text="Viết nhận xét"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.268"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
