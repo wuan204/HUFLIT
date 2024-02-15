@@ -2,18 +2,21 @@ package com.example.huflit;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
+
+import com.example.huflit.adapter.TruyenTranhAdapter;
+import com.example.huflit.truyen_tranh.Truyen_tranh;
 
 public class Menu extends AppCompatActivity {
 
@@ -142,7 +145,7 @@ public class Menu extends AppCompatActivity {
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Seach.class);
+                Intent i = new Intent(Menu.this, Search.class);
                 startActivity(i);
             }
         });
