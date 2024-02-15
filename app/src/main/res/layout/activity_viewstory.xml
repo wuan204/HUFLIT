@@ -280,11 +280,12 @@
                 android:textSize="18dp"
                 android:text="Tóm tắt truyện:" />
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextMultiLine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:textSize="18dp"
                 android:text="Trong vương quốc đầy mê hoặc của Fiore, Lucy Heartfilia sôi động có một mong muốn: Tham gia vào Tai Tai Tiên nổi tiếng - một trong nhiều Hiệp hội Phù thủy ma thuật trải rộng trên khắp lục địa. May mắn thay, một cuộc gặp gỡ ngẫu nhiên với Natsu Dragneel,Salamandra của Fairy Tail, dẫn đến Guila huyền thoại.
 
 Kể từ khi đối thủ của đối thủ của Natsu với pháp sư màu xám, sự hiện diện đáng sợ của nữ thần chiến đấu vô song Erza Scarlet, các phù thủy mạnh mẽ của Fairy Tail có xu hướng nhỏ cho các vấn đề. Thông qua tất cả các công việc sinh lợi và những cuộc phiêu lưu kỳ lạ để cứu thế giới khỏi sự hủy diệt, có sự tự tin tuyệt đối và không linh hoạt mạnh mẽ hơn gia đình hình thành giữa mỗi thành viên của Guilda.
