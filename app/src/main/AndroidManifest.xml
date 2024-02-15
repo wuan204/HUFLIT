@@ -15,6 +15,9 @@
         android:theme="@style/Theme.HUFLIT"
         tools:targetApi="31">
         <activity
+            android:name=".filter"
+            android:exported="false" />
+        <activity
             android:name=".viewstory"
             android:exported="false" />
         <activity
