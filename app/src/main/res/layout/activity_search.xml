@@ -38,11 +38,12 @@
 
 
         <ImageView
-            android:id="@+id/Search"
+
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="400dp"
-            android:src="@drawable/search"
+            android:src="@drawable/update"
+            android:onClick="Update"
             app:tint="@android:color/white" />
 
     </RelativeLayout>

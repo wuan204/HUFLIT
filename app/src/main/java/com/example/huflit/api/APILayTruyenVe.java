@@ -24,7 +24,8 @@ public class APILayTruyenVe extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... voids) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("https://api.jsonserve.com/JdMKAx")
+                //.url("https://api.jsonserve.com/JdMKAx")
+                .url("https://huf-android.000webhostapp.com/layTruyen.php")
                 .build();
         data = null;
         try {

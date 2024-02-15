@@ -15,12 +15,7 @@
         <activity
             android:name=".Login"
             android:exported="false" />
-        <activity
-            android:name=".View_Story"
-            android:exported="false" />
-        <activity
-            android:name=".View_Story2"
-            android:exported="false" />
+
         <activity
             android:name=".Diolog_dang_ki_truyen"
             android:exported="false" />
@@ -48,9 +43,7 @@
         <activity
             android:name=".Truyen_da_tai"
             android:exported="false" />
-        <activity
-            android:name=".Review"
-            android:exported="false" />
+
         <activity
             android:name=".Confirm_Register_Author"
             android:exported="false" />

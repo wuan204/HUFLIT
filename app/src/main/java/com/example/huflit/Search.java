@@ -30,7 +30,7 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
     TruyenTranhAdapter adapter;
     ArrayList<Truyen_tranh> truyenTranhArrayList;
     EditText edtTimKiem;
-    ImageView imgBack,imgSearch;
+    ImageView imgBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +53,7 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
         gridTruyenTranh = findViewById(R.id.gridTruyenTranh);
         edtTimKiem = findViewById(R.id.edtTimKiem);
         imgBack = findViewById(R.id.imgBack);
-        imgSearch = findViewById(R.id.imgSearch);
+
     }
     private void setUp(){
         gridTruyenTranh.setAdapter(adapter);
@@ -111,5 +111,8 @@ imgBack.setOnClickListener(new View.OnClickListener() {
     @Override
     public void biLoi() {
         Toast.makeText(this,"Loi ket noi", Toast.LENGTH_LONG).show();
+    }
+    public  void Update(View view){
+        new APILayTruyenVe(this).execute();
     }
 }
