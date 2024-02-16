@@ -1,118 +1,87 @@
 package com.example.huflit;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
+
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.content.Intent;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.net.URL;
-import java.sql.CallableStatement;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 public class Login extends AppCompatActivity {
-    //khai bao cac bien o day
-    EditText edtName, edtPassword;
-    Button btnLogin,btnGoogle;
-    TextView txtForgot,txtRegister;
-    CheckBox cbRemember;
-    ImageView imgEye;
-    SharedPreferences preferences;
-    private String firstPassword = "";
+    private EditText PW, name, enterPW , phone;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //khai bao anh xa o day
-        edtName= findViewById(R.id.edtName);
-        edtPassword = findViewById(R.id.edtPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnGoogle = findViewById(R.id.btnGoogle);
-        txtForgot= findViewById(R.id.txtForgot);
-        txtRegister= findViewById(R.id.txtRegister);
-        cbRemember= findViewById(R.id.cbRemember);
-        imgEye= findViewById(R.id.imgEye);
-        preferences = getSharedPreferences("user_data", MODE_PRIVATE);
+        setContentView(R.layout.activity_login);
 
-        // xu li giao dien nguoi dung
 
-        edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-        imgEye.setImageResource(R.drawable.eye);
-        imgEye.setOnClickListener(new View.OnClickListener() {
+        PW = findViewById(R.id.LGpassword);
+        name = findViewById(R.id.LGusername);
+        enterPW=findViewById(R.id.LGenterpw);
+        phone=findViewById(R.id.Lgnumberp);
+        button=findViewById(R.id.btnLogin);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                togglePasswordVisibility();
-            }
-
-            private void togglePasswordVisibility() {
-                if(edtPassword.getTransformationMethod()== PasswordTransformationMethod.getInstance()){
-                    edtPassword.setTransformationMethod(null);
-                    imgEye.setImageResource(R.drawable.eye);
-                }else{
-                    edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    imgEye.setImageResource(R.drawable.eye);}
+                // Lưu thông tin hoặc hiển thị thông báo tùy thuộc vào EditText có rỗng không
+                saveDataOrShowMessage();
             }
         });
-        txtRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Login.this, Register.class);
-                startActivity(i);
-            }
-        });
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String entername = edtName.getText().toString();
-                String enterpassword = edtPassword.getText().toString();
 
-                startActivity(new Intent(Login.this, Trang_Chu.class));
-                if(firstPassword.isEmpty()){
-                    firstPassword = enterpassword;
-                }
-                else {
-                    if(enterpassword.equals(firstPassword)){
-
-                    }
-                    else{
-                        Toast.makeText(Login.this,"Sai mật khẩu", Toast.LENGTH_SHORT).show();
-                        edtPassword.getText().clear();
-                        firstPassword= " ";
-                    }
-                }
-            }
-
-        });
-        btnGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGoogleSignIn();
-
-            }
-        });
+        // Load dữ liệu đã lưu vào EditText khi Activity khởi động
+        loadSavedData();
 
     }
-    private void PrintToast(String message) {
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-    }
-    public void openGoogleSignIn(){
-        String googleSignIn = "http://accounts.google.com";
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(googleSignIn));
-        if(i.resolveActivity(getPackageManager()) != null){
-            startActivity(i);
+
+    //set điều kiện
+    private void saveDataOrShowMessage() {
+
+        // neu chua dien thong tin
+        if (TextUtils.isEmpty(name.getText().toString())) {
+            Toast.makeText(this, "Vui lòng nhập name", Toast.LENGTH_SHORT).show();
         }
+        else if (TextUtils.isEmpty(PW.getText().toString())) {
+            Toast.makeText(this, "Vui lòng nhập thông tin Password", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(enterPW.getText().toString())) {
+            Toast.makeText(this, "Vui lòng nhập thông tin enter Password", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(phone.getText().toString())) {
+            Toast.makeText(this, "Vui lòng nhập thông tin SDT", Toast.LENGTH_SHORT).show();
+        }
+
+        //neu dien thong tin
         else {
-            Toast.makeText(Login.this, "Không tìm thấy ứng dụng", Toast.LENGTH_LONG).show();
+            // Chuyển sang Activity khác nếu EditText có dữ liệu
+            startActivity(new Intent(Login.this, Trang_Chu.class));
+            // Lưu dữ liệu từ EditText khi chuyển Activity
+            saveData();
         }
     }
+
+    private void saveData() {
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(getString(R.string.saved_data_key), name.getText().toString());
+        editor.apply();
+    }
+
+    private void loadSavedData() {
+        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        String savedData = sharedPref.getString(getString(R.string.saved_data_key), "");
+        name.setText(savedData);
+    }
+
 
 }
