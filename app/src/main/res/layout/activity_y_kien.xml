@@ -2,94 +2,87 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutykien"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".trangsauvietykien">
+    tools:context=".Y_kien">
+
 
     <LinearLayout
 
         android:id="@+id/layoutthanhtieudeykien"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#DB8C8C"
-        android:contentDescription="hjshsjh"
-        android:minHeight="?attr/actionBarSize"
-        android:orientation="vertical"
-        android:theme="?attr/actionBarTheme">
+        android:layout_height="50dp"
+        android:background="#BF4444"
+        android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+        <LinearLayout
             android:id="@+id/thanhdanhgia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#DB8C8C"
-            android:contentDescription="danhgia"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme">
+            android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btnbackykien"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="left"
-                android:background="@drawable/back"
-                android:backgroundTint="#F2FFFFFF"
-                android:contentDescription="nut back"
-                android:textColorHighlight="#EC407A"
-                android:textColorLink="#26A69A"
-
-                />
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/back" />
 
             <TextView
                 android:id="@+id/dongtieudeykiendanhgia"
-                android:layout_width="200dp"
-
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="Đánh giá của tôi"
-                android:textSize="20sp" />
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold"
+               android:layout_marginLeft="-30dp"/>
 
             <Button
                 android:id="@+id/btnxoadanhgia"
-                android:layout_width="45dp"
-                android:layout_height="50dp"
-                android:layout_gravity="right"
-                android:background="@drawable/delete"
-                android:backgroundTint="#F7FFFFFF"
-                android:contentDescription=" nút xóa nhận xét " />
-        </androidx.appcompat.widget.Toolbar>
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/recycle"
+                android:layout_marginLeft="-50dp"/>
+        </LinearLayout>
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutvietykien"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
 
         <EditText
             android:id="@+id/loiykien"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
             android:layout_marginTop="50dp"
-            android:background="#03A9F4"
-            android:backgroundTint="#03A9F4"
+            android:background="#CAD8DF"
+            android:backgroundTint="#CAD8DF"
             android:ems="10"
-            android:gravity="center"
-            android:inputType="text"
-            android:text="Viết đánh giá"
-            android:textSize="20sp" />
+            android:layout_gravity="center"
+            android:hint="Viết đánh giá"
+            android:inputType="textMultiLine"
+            android:textSize="23dp" />
 
         <Button
             android:id="@+id/btnXacnhanykien"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#E74D4D"
-            android:text="xác nhận đánh giá" />
+            android:text="Xác nhận đánh giá"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"/>
 
     </LinearLayout>
 
