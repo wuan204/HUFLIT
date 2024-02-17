@@ -1,0 +1,11 @@
+<!-- res/drawable/edit_text_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#D88080" /> <!-- Màu nền đen -->
+    <corners android:radius="5dp" /> <!-- Điều này làm cho góc bo tròn -->
+    <stroke
+        android:width="3dp"
+        android:color="#100F0F"
+        />
+    <!-- Màu đường viền -->
+
+</shape>
