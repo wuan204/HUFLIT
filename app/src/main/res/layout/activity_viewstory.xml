@@ -18,21 +18,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="#BF4444">
 
             <ImageView
                 android:id="@+id/btBack"
                 android:layout_width="30dp"
                 android:layout_height="50dp"
-                android:src="@drawable/back" />
+                android:src="@drawable/back"
+                android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:id="@+id/textDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
                 android:text="Chi tiết truyện"
+                android:textStyle="bold"
                 android:textSize="30dp" />
 
             <ImageView
@@ -40,7 +45,8 @@
                 android:layout_width="30dp"
                 android:layout_height="50dp"
                 android:src="@drawable/rp1"
-                android:text="Rp" />
+                android:text="Rp"
+                android:layout_marginRight="10dp"/>
 
         </LinearLayout>
 
@@ -102,8 +108,8 @@
 
                     <ImageView
                         android:id="@+id/btLove"
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="10dp"
+                        android:layout_height="30dp"
                         android:layout_weight="1"
                         android:src="@drawable/heart"
                         android:text="Love" />
@@ -111,7 +117,7 @@
                     <ImageView
                         android:id="@+id/btFl"
                         android:layout_width="30dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="30dp"
                         android:layout_weight="1"
                         android:src="@drawable/plus"
                         android:text="Flow" />
@@ -119,7 +125,7 @@
                     <ImageView
                         android:id="@+id/btDown"
                         android:layout_width="30dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:src="@drawable/down"
                         android:layout_weight="1"
                         android:text="Down" />
@@ -152,6 +158,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Tác giả:"
+                    android:textStyle="bold"
                     android:textSize="18dp" />
 
                 <TextView
@@ -172,6 +179,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Số chương:"
+                    android:textStyle="bold"
                     android:textSize="18dp" />
 
                 <TextView
@@ -199,6 +207,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Trạng thái: "
+                    android:textStyle="bold"
                     android:textSize="18dp" />
 
                 <TextView
@@ -227,6 +236,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Lượt xem: "
+                    android:textStyle="bold"
                     android:textSize="18dp" />
 
                 <TextView
@@ -254,6 +264,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Lượt thích: "
+                    android:textStyle="bold"
                     android:textSize="18dp" />
 
                 <TextView
@@ -278,7 +289,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:text="Tóm tắt truyện:" />
+                android:text="Tóm tắt truyện:"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/editTextTextMultiLine"
