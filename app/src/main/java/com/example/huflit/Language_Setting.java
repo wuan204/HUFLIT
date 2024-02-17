@@ -15,6 +15,7 @@ import java.util.Locale;
 
 public class Language_Setting extends AppCompatActivity {
 
+
     ImageView imgBack;
 
     @Override
@@ -33,5 +34,6 @@ public class Language_Setting extends AppCompatActivity {
         });
     }
 }
+
 
 

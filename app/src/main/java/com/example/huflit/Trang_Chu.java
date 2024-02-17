@@ -46,7 +46,7 @@ public class Trang_Chu extends AppCompatActivity {
         btnOk4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Trang_Chu.this, filter.class);
+                Intent i = new Intent(Trang_Chu.this, Loc_Truyen.class);
                 startActivity(i);
             }
         });
