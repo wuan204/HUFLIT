@@ -1,5 +1,6 @@
 package com.example.huflit;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -54,6 +55,7 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
         edtTimKiem = findViewById(R.id.edtTimKiem);
         imgBack = findViewById(R.id.imgBack);
 
+
     }
     private void setUp(){
         gridTruyenTranh.setAdapter(adapter);
@@ -85,6 +87,7 @@ imgBack.setOnClickListener(new View.OnClickListener() {
     }
 });
 
+
     }
 
     @Override
@@ -112,7 +115,13 @@ imgBack.setOnClickListener(new View.OnClickListener() {
     public void biLoi() {
         Toast.makeText(this,"Loi ket noi", Toast.LENGTH_LONG).show();
     }
-    public  void Update(View view){
+    /*public  void Loc(View view){
         new APILayTruyenVe(this).execute();
+    }*/
+
+    public void Loc(View view){
+        Intent i =  new Intent(Search.this, Loc_Truyen.class);
+        startActivity(i);
     }
+
 }

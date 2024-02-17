@@ -40,11 +40,13 @@
         <ImageView
 
             android:layout_width="40dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_marginLeft="400dp"
-            android:src="@drawable/update"
-            android:onClick="Update"
-            app:tint="@android:color/white" />
+            android:src="@drawable/filter1"
+            android:onClick="Loc"
+            app:tint="@android:color/white"
+            android:layout_marginTop="15dp"
+            />
 
     </RelativeLayout>
 
