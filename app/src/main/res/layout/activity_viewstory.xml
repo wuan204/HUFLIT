@@ -111,7 +111,7 @@
                         android:layout_width="10dp"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        android:src="@drawable/heart"
+                        android:src="@drawable/h1"
                         android:text="Love" />
 
                     <ImageView

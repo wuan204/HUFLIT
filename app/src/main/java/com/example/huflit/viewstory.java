@@ -2,9 +2,13 @@ package com.example.huflit;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +40,27 @@ public class viewstory extends AppCompatActivity {
 
             }
         });
+        ImageView btLove = findViewById(R.id.btLove);
+        final boolean[] isRed = {false}; // Biến để kiểm tra màu sắc hiện tại
+
+        btLove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Đảo ngược trạng thái màu sắc
+                isRed[0] = !isRed[0];
+
+                if (isRed[0]) {
+                    // Nếu là màu trắng, thì đặt màu đỏ
+                    btLove.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+                } else {
+                    // Nếu là màu đỏ, thì trở lại màu ban đầu
+                    btLove.clearColorFilter();
+                }
+            }
+        });
+
+
+
 
     }
     private void ShowDialogRp(){
