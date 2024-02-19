@@ -4,57 +4,653 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FDFDFD"
     android:orientation="vertical"
     tools:context=".Trang_Chu">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="680dp"
+        android:contentDescription="sjkjsj">
 
-        <Button
-            android:id="@+id/btnOK"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layoutcrollview"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="176dp"
-            android:text="Button"
-            app:layout_constraintBottom_toTopOf="@+id/btnOk2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnOk2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="332dp"
-            android:text="oke2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btviewstory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:text="view story"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.846"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:id="@+id/thanhtieude"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btcometofilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:text="Filter here"
-            app:layout_constraintEnd_toStartOf="@+id/btviewstory"
-            app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tieudetrangchu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Trang Chủ"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--SlideShow-->
+            <LinearLayout
+                android:id="@+id/slideshow"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical">
+
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autoStart="true"
+                    android:flipInterval="2000"
+                    android:inAnimation="@android:anim/slide_in_left"
+                    android:outAnimation="@android:anim/slide_out_right">
+
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        app:srcCompat="@drawable/truyen1" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        app:srcCompat="@drawable/biatruyen" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        app:srcCompat="@drawable/sololvl" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        app:srcCompat="@drawable/bersek" />
+
+                </ViewFlipper>
+
+            </LinearLayout>
+            <!--End SlideShow-->
+
+            <!--Hoan thanh-->
+            <LinearLayout
+                android:id="@+id/thanhhoanthanh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="Hoàn thành"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/menu"
+                    android:backgroundTint="#FF4081"
+
+                    android:contentDescription="sfsfs"
+                    android:padding="6dp"
+                    android:textColorHighlight="#FF4081"
+                    android:textColorLink="#FF4081" />
+            </LinearLayout>
+            <!--End Hoan thanh-->
+
+            <!--list hoanThanh-->
+
+
+
+            <LinearLayout
+                android:id="@+id/gridviewhoanthanh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/white"
+                    android:contentDescription="sfsf">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal" />
+
+                        <LinearLayout
+                            android:id="@+id/thanhdexuat"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/black"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginHorizontal="8dp"
+                                android:text="Đề xuất"
+                                android:textAlignment="center"
+                                android:textColor="@color/white" />
+
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="8dp"
+                                android:background="@color/white"
+                                android:contentDescription="sfsf"
+                                android:padding="6dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+            <!--End list hoanThanh-->
+
+            <!--De Xuat-->
+            <LinearLayout
+                android:id="@+id/thanhDexuat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="Đề xuất"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/layoutdexuat"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+
+                    android:background="@drawable/menu"
+                    android:contentDescription="sfsfsfs"
+                    android:padding="6dp" />
+            </LinearLayout>
+
+
+            <!--End De Xuat-->
+
+            <!--list deXuat-->
+            <LinearLayout
+                android:id="@+id/gridviewdexuat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/white"
+                    android:contentDescription="wrwr">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+            <!--End list deXuat-->
+
+
+            <!--MoiNhat-->
+            <LinearLayout
+                android:id="@+id/thanhmoinhat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="Mới nhất"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/menu"
+                    android:contentDescription="sffs"
+
+                    android:padding="6dp" />
+            </LinearLayout>
+            <!--End MoiNhat-->
+
+            <!--list MoiNhat-->
+            <LinearLayout
+                android:id="@+id/gridviewmoinhat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/white"
+                    android:contentDescription="dhfkjhdkjfd">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+            <!--End list MoiNhat-->
+
+            <!--Xem Nhieu-->
+            <LinearLayout
+                android:id="@+id/thanhxemnhieu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="8dp"
+                    android:text="Xem nhiều"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/menu"
+
+                    android:contentDescription="sfsfsf"
+                    android:padding="6dp" />
+            </LinearLayout>
+            <!--End MoiNhat-->
+
+            <!--list Xem Nhieu-->
+            <LinearLayout
+                android:id="@+id/gridviewxemnhieu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="70dp"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/white"
+                    android:contentDescription="sfsfsf">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+
+                        <View
+                            android:layout_width="200px"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:background="#D9D9D9" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+            <!--End list Xem Nhieu-->
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layoutnavbottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/buttomtrangchu"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:contentDescription="adada"
+                android:scaleType="fitCenter"
+                android:src="@drawable/giaodien" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Trang chủ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/buttomtim"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:contentDescription="sâ"
+                android:scaleType="fitCenter"
+                android:src="@drawable/search" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Tìm kiếm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/butomdangbai"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:contentDescription="gfgfgf"
+                android:scaleType="fitCenter"
+                android:src="@drawable/post" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Đăng bài" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/buttommenu"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:contentDescription="djjdjsdjdj"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menu2" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Menu" />
+        </LinearLayout>
+    </LinearLayout>
+
+
 </LinearLayout>
