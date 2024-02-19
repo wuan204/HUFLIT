@@ -19,8 +19,8 @@
             android:name=".truyen_da_loc"
             android:exported="false" />
         <activity
-            android:name=".Login"
             android:name=".Loc_Truyen"
+
             android:exported="false" />
         <activity
             android:name=".viewstory"
