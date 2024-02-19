@@ -2,23 +2,28 @@ package com.example.huflit;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.example.huflit.adapter.TruyenTranhAdapter;
+import com.example.huflit.truyen_tranh.Truyen_tranh;
 
 public class Menu extends AppCompatActivity {
 
     Button btnTaiKhoan,btnXu,btnDoiXu;
     ImageView imgSetting;
+    TextView txtAuthor;
     LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen;
 
     @SuppressLint("MissingInflatedId")
@@ -47,6 +52,7 @@ public class Menu extends AppCompatActivity {
         Truyen_cua_toi= findViewById(R.id.Truyen_cua_toi);
         ThemTruyen = findViewById(R.id.ThemTruyen);
         imgSetting = findViewById(R.id.imgSetting);
+        txtAuthor = findViewById(R.id.txtAuthor);
 
 
         imgSetting.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +148,7 @@ public class Menu extends AppCompatActivity {
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Seach.class);
+                Intent i = new Intent(Menu.this, Search.class);
                 startActivity(i);
             }
         });
@@ -157,6 +163,13 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Menu.this,Menu.class);
+                startActivity(i);
+            }
+        });
+        txtAuthor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Menu.this, Register_Author.class);
                 startActivity(i);
             }
         });

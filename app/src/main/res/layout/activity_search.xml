@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Search">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#363F44"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:layout_marginLeft="10dp"
+            app:tint="@android:color/white" />
+
+        <EditText
+            android:id="@+id/edtTimKiem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="80dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_edtsearch"
+        android:hint="   Nhập tên truyện cần tìm..."
+        android:textColor="#fff"
+        android:textColorHint="#B3ADAD"
+        android:textSize="20dp" />
+
+
+        <ImageView
+
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="400dp"
+            android:src="@drawable/filter1"
+            android:onClick="Loc"
+            app:tint="@android:color/white"
+            android:layout_marginTop="15dp"
+            />
+
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gridTruyenTranh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3">
+
+    </GridView>
+</LinearLayout>

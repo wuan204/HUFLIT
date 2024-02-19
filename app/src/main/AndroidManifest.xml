@@ -2,27 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/huflit"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HUFLIT"
         tools:targetApi="31">
         <activity
+
             android:name=".truyen_da_loc"
             android:exported="false" />
         <activity
             android:name=".Login"
+            android:name=".Loc_Truyen"
             android:exported="false" />
         <activity
-            android:name=".View_Story"
+            android:name=".viewstory"
             android:exported="false" />
         <activity
-            android:name=".View_Story2"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".Diolog_dang_ki_truyen"
@@ -50,9 +54,6 @@
             android:exported="false" />
         <activity
             android:name=".Truyen_da_tai"
-            android:exported="false" />
-        <activity
-            android:name=".Review"
             android:exported="false" />
         <activity
             android:name=".Confirm_Register_Author"
@@ -88,7 +89,7 @@
             android:name=".Dang_bai_truyen_chu"
             android:exported="false" />
         <activity
-            android:name=".Seach"
+            android:name=".Search"
             android:exported="false" />
         <activity
             android:name=".Truyen_da_thich"

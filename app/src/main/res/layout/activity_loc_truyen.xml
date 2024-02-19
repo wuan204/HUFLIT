@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".Loc_Truyen">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#BF4444">
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/back"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trạng thái"
+                    android:textStyle="bold"
+                    android:textSize="22dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioButton9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="Tất cả"
+
+                            android:textSize="18dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Hoàn thành"
+                            android:textSize="18dp" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Đang ra"
+                            android:textSize="18dp" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sắp xếp"
+                    android:textStyle="bold"
+                    android:textSize="22dp"
+                    android:layout_marginTop="10dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Mới cập nhật" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Yêu thích" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Xem nhiều" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Đánh giá" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Loại truyện"
+                    android:textStyle="bold"
+                    android:textSize="22dp"
+                    android:layout_marginTop="10dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Tất cả"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Truyện tranh"
+                        android:textSize="18dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Truyện chữ"
+                        android:textSize="18dp" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Thể loại"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+
+                <GridView
+                    android:id="@+id/gvCate"
+                    android:layout_width="match_parent"
+                    android:layout_height="304dp"
+                    android:gravity="center"
+                    android:numColumns="3"
+                    android:paddingBottom="5dp" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Áp dụng"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:background="@drawable/btn_apdung"
+                    app:backgroundTint="@null"
+                    android:textSize="22dp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
