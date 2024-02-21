@@ -1,5 +1,6 @@
 package com.example.huflit.adapter;
 
+import static com.example.huflit.R.layout.item_trang_chu;
 import static com.example.huflit.R.layout.item_truyentranh;
 
 import android.annotation.SuppressLint;
@@ -57,9 +58,9 @@ public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
 
         if (arr.size() > 0) {
             Truyen_tranh truyenTranh = this.arr.get(position);
-            TextView tenTenTruyen = convertView.findViewById(R.id.txtTenTruyen);
-            TextView tenTenChap = convertView.findViewById(R.id.txtTenChap);
-            ImageView imgBia = convertView.findViewById(R.id.imgBia);
+            TextView tenTenTruyen = convertView.findViewById(R.id.tentruyentrangchu);
+            TextView tenTenChap = convertView.findViewById(R.id.tenchaptrangchu);
+            ImageView imgBia = convertView.findViewById(R.id.anhbiatrangchu);
 
             tenTenTruyen.setText(truyenTranh.getTenTruyen());
             tenTenChap.setText(truyenTranh.getTenChap());

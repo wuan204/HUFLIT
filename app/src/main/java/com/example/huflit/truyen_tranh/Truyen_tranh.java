@@ -44,4 +44,6 @@ public class Truyen_tranh {
     public void setLinkAnh(String linkAnh) {
         this.linkAnh = linkAnh;
     }
+
+
 }

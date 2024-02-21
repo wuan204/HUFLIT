@@ -123,113 +123,31 @@
                     android:padding="6dp"
                     android:textColorHighlight="#FF4081"
                     android:textColorLink="#FF4081" />
+
             </LinearLayout>
             <!--End Hoan thanh-->
 
             <!--list hoanThanh-->
 
 
-
             <LinearLayout
-                android:id="@+id/gridviewhoanthanh"
+                android:id="@+id/layoutviewhoanthanh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="160dp"
                 android:orientation="vertical">
 
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/viewhoanthanh"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="@color/white"
-                    android:contentDescription="sfsf">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal" />
-
-                        <LinearLayout
-                            android:id="@+id/thanhdexuat"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/black"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginHorizontal="8dp"
-                                android:text="Đề xuất"
-                                android:textAlignment="center"
-                                android:textColor="@color/white" />
-
-
-                            <View
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
-
-                            <Button
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_gravity="center"
-                                android:layout_margin="8dp"
-                                android:background="@color/white"
-                                android:contentDescription="sfsf"
-                                android:padding="6dp" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </HorizontalScrollView>
             </LinearLayout>
+
+
+
             <!--End list hoanThanh-->
 
             <!--De Xuat-->
@@ -272,72 +190,17 @@
 
             <!--list deXuat-->
             <LinearLayout
-                android:id="@+id/gridviewdexuat"
+                android:id="@+id/layoutviewdexuat"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="160dp"
                 android:orientation="vertical">
 
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/viewdexuat"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="@color/white"
-                    android:contentDescription="wrwr">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </LinearLayout>
             <!--End list deXuat-->
 
@@ -379,72 +242,17 @@
 
             <!--list MoiNhat-->
             <LinearLayout
-                android:id="@+id/gridviewmoinhat"
+                android:id="@+id/layoutviewmoinhat"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="160dp"
                 android:orientation="vertical">
 
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/viewmoinhat"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="@color/white"
-                    android:contentDescription="dhfkjhdkjfd">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </LinearLayout>
             <!--End list MoiNhat-->
 
@@ -485,72 +293,18 @@
 
             <!--list Xem Nhieu-->
             <LinearLayout
-                android:id="@+id/gridviewxemnhieu"
+                android:id="@+id/layoutviewxemnhieu"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="160dp"
                 android:layout_marginBottom="70dp"
                 android:orientation="vertical">
 
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/viewxemnhieu"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="@color/white"
-                    android:contentDescription="sfsfsf">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-
-                        <View
-                            android:layout_width="200px"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:background="#D9D9D9" />
-                    </LinearLayout>
-                </HorizontalScrollView>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
             </LinearLayout>
             <!--End list Xem Nhieu-->
         </LinearLayout>

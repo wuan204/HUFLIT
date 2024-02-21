@@ -33,7 +33,18 @@ public class viewstory extends AppCompatActivity {
         mbtCmt= (ImageView) findViewById(R.id.btCmt);
         mbtRead=(Button) findViewById(R.id.btRead);
         mbtViewChapter=(Button) findViewById(R.id.btViewChapter);
+
+
         //action
+         //quay lại trang chủ
+        mbtBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+            }
+        });
+
         mbtRp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {ShowDialogRp();
