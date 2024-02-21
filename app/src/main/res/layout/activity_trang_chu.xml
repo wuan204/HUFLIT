@@ -118,7 +118,6 @@
                     android:layout_margin="8dp"
                     android:background="@drawable/menu"
                     android:backgroundTint="#FF4081"
-
                     android:contentDescription="sfsfs"
                     android:padding="6dp"
                     android:textColorHighlight="#FF4081"

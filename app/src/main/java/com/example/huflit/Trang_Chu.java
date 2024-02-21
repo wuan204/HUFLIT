@@ -61,7 +61,6 @@ public class Trang_Chu extends AppCompatActivity {
                 startActivity(intent);
             }
 
-
         });
 
 
