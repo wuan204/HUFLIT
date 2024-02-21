@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.huflit.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ADTFilterGrV extends BaseAdapter {
@@ -58,6 +59,15 @@ public class ADTFilterGrV extends BaseAdapter {
         viewHolder.textViewName.setText(item.getNameitem());
         return convertView;
 
+    }
+    public ArrayList<String> getCheckedItems() {
+        ArrayList<String> checkedItems = new ArrayList<>();
+        for (Itemft item : mItems) {
+            if (item.isChecked()) {
+                checkedItems.add(item.getNameitem());
+            }
+        }
+        return checkedItems;
     }
 }
 

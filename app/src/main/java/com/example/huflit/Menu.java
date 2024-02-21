@@ -191,7 +191,7 @@ public class Menu extends AppCompatActivity {
         btnTranh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentTranh = new Intent(Menu.this, Dang_bai_truyen_tranh.class);
+                Intent intentTranh = new Intent(Menu.this, create_comic.class);
                 startActivity(intentTranh);
                 alertDialog.dismiss();
             }
