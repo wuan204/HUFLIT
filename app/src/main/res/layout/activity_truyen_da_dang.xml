@@ -51,40 +51,11 @@
             android:orientation="vertical"
             android:layout_marginTop="60dp">
 
-            <Button
-                android:id="@+id/Truyen1"
+            <GridView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text=""
-                android:layout_marginTop="40dp"/>
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/Truyen2"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text=""
-                android:layout_marginTop="40dp"/>
-
-            <Button
-                android:id="@+id/Truyen3"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text=""
-                android:layout_marginTop="40dp"/>
-
-            <Button
-                android:id="@+id/Truyen4"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text=""
-                android:layout_marginTop="40dp"/>
-
-            <Button
-                android:id="@+id/Truyen5"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text=""
-                android:layout_marginTop="40dp"/>
+            </GridView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
