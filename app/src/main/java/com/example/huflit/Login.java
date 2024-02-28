@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -14,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.huflit.database.Database;
 
 import java.net.URL;
 import java.sql.CallableStatement;
@@ -27,6 +30,7 @@ public class Login extends AppCompatActivity {
     ImageView imgEye;
     SharedPreferences preferences;
     private String firstPassword = "";
+    Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,8 @@ public class Login extends AppCompatActivity {
         cbRemember= findViewById(R.id.cbRemember);
         imgEye= findViewById(R.id.imgEye);
         preferences = getSharedPreferences("user_data", MODE_PRIVATE);
+
+        database = new Database(this);
 
         // xu li giao dien nguoi dung
 
@@ -72,23 +78,32 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String entername = edtName.getText().toString();
-                String enterpassword = edtPassword.getText().toString();
+                String name = edtName.getText().toString();
+                String password = edtPassword.getText().toString();
+                Cursor cursor = database.getdata();
 
-                startActivity(new Intent(Login.this, Trang_Chu.class));
-                if(firstPassword.isEmpty()){
-                    firstPassword = enterpassword;
-                }
-                else {
-                    if(enterpassword.equals(firstPassword)){
+
+                while(cursor.moveToNext()){
+                    String dataTenTaiKhoan = cursor.getString(1);
+                    String dataMatKhau = cursor.getString(2);
+                    if(dataTenTaiKhoan.equals(name)  && dataMatKhau.equals(password)){
+                        int idd = cursor.getInt(0);
+                        int phanq = cursor.getInt(4);
+                        String email = cursor.getString(3);
+                        String tentk = cursor.getString(1);
+
+                        Intent i = new Intent(Login.this, Trang_Chu.class);
+                        i.putExtra("idd",idd);
+                        i.putExtra("email",email);
+                        i.putExtra("tentk",tentk);
+                        i.putExtra("phanq",phanq);
+
+                        startActivity(i);
+
 
                     }
-                    else{
-                        Toast.makeText(Login.this,"Sai mật khẩu", Toast.LENGTH_SHORT).show();
-                        edtPassword.getText().clear();
-                        firstPassword= " ";
-                    }
                 }
+
             }
 
         });
