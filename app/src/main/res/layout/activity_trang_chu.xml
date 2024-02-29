@@ -7,10 +7,25 @@
     android:background="#FDFDFD"
     android:orientation="vertical"
     tools:context=".Trang_Chu">
+    <LinearLayout
+        android:id="@+id/thanhtieude"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tieudetrangchu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Trang Chủ"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="680dp"
+        android:layout_height="670dp"
         android:contentDescription="sjkjsj">
 
         <LinearLayout
@@ -20,21 +35,6 @@
             android:orientation="vertical">
 
 
-            <LinearLayout
-                android:id="@+id/thanhtieude"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tieudetrangchu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="Trang Chủ"
-                    android:textSize="20sp" />
-            </LinearLayout>
 
             <!--SlideShow-->
             <LinearLayout
@@ -310,100 +310,105 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/layoutnavbottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/buttomtrangchu"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/TrangChu">
+            <ImageView
+                android:id="@+id/imgTrangChu"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:contentDescription="adada"
-                android:scaleType="fitCenter"
-                android:src="@drawable/giaodien" />
+                android:src="@drawable/giaodien"
+                android:layout_marginLeft="15dp"/>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/txtTrangChu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Trang chủ"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Trang chủ" />
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/buttomtim"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/Search">
+            <ImageView
+                android:id="@+id/imgSearch"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:contentDescription="sâ"
-                android:scaleType="fitCenter"
-                android:src="@drawable/search" />
+                android:src="@drawable/search"
+                android:layout_marginLeft="15dp"/>
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/txtSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Tìm"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Tìm kiếm" />
+                android:textStyle="bold"
+                android:textSize="18dp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/butomdangbai"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/TheLoai">
+            <ImageView
+                android:id="@+id/imgTheLoai"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:contentDescription="gfgfgf"
-                android:scaleType="fitCenter"
-                android:src="@drawable/post" />
+                android:src="@drawable/category"
+                android:layout_marginLeft="15dp"/>
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/txtTheLoai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Thể loại"
                 android:gravity="center"
-                android:text="Đăng bài" />
+                android:textStyle="bold"
+                android:textSize="18dp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/buttommenu"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/Menu">
+            <ImageView
+                android:id="@+id/imgMenu"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:contentDescription="djjdjsdjdj"
-                android:scaleType="fitCenter"
-                android:src="@drawable/menu2" />
-
+                android:src="@drawable/menu"
+                android:layout_marginLeft="15dp"/>
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/txtMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Menu"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Menu" />
+                android:textStyle="bold"
+                android:textSize="18dp"/>
         </LinearLayout>
     </LinearLayout>
-
 
 </LinearLayout>

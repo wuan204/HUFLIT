@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.huflit.adapter.TrangChuAdapter;
 import com.example.huflit.truyen_tranh.Truyen_tranh;
@@ -18,22 +19,22 @@ import com.example.huflit.truyen_tranh.Truyen_tranh;
 import java.util.ArrayList;
 
 public class Trang_Chu extends AppCompatActivity {
-    ImageButton trangchu, timkiem, dangbai, menu;
+    LinearLayout TrangChu, Search, TheLoai, Menu;
 
     RecyclerView grvhoanthanh,grvdexuat,grvmoinhat,grvxemnhieu;
 
     TrangChuAdapter adapter; ArrayList<Truyen_tranh> TruyenTranhArraylist;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
 
-        trangchu=findViewById(R.id.buttomtrangchu);
-        timkiem=findViewById(R.id.buttomtim);
-        dangbai=findViewById(R.id.butomdangbai);
-        menu=findViewById(R.id.buttommenu);
+        TrangChu=findViewById(R.id.TrangChu);
+        Search=findViewById(R.id.Search);
+        TheLoai=findViewById(R.id.TheLoai);
+        Menu=findViewById(R.id.Menu);
 
 
         //noi hien ham gridview
@@ -59,7 +60,7 @@ public class Trang_Chu extends AppCompatActivity {
         setclickxemnhieu();
 
         // onclick
-        trangchu.setOnClickListener(new View.OnClickListener() {
+        TrangChu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Trang_Chu.this, Trang_Chu.class);
@@ -68,7 +69,7 @@ public class Trang_Chu extends AppCompatActivity {
         });
 
 
-        timkiem.setOnClickListener(new View.OnClickListener() {
+        Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Trang_Chu.this, Search.class);
@@ -78,17 +79,17 @@ public class Trang_Chu extends AppCompatActivity {
 
 
 
-        dangbai.setOnClickListener(new View.OnClickListener()
+        TheLoai.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Intent intent =new Intent(Trang_Chu.this, Diolog_dang_ki_truyen.class);
+                Intent intent =new Intent(Trang_Chu.this, The_loai.class);
                  startActivity(intent);
             }
         });
 
-        menu.setOnClickListener(new View.OnClickListener()
+        Menu.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -98,17 +99,7 @@ public class Trang_Chu extends AppCompatActivity {
             }
 
         });
-
-
-
-
     }
-
-
-
-
-    /// hiển thị gridview
-
     //truyen hoan thanh
     public  void  initHoanthanh(){
         TruyenTranhArraylist=new ArrayList<>();
