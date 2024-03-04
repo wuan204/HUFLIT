@@ -24,7 +24,7 @@
             android:name=".mycomic"
             android:exported="false" />
         <activity
-            android:name=".create_comic"
+            android:name=".create_story"
             android:exported="false" />
         <activity
             android:name=".truyen_da_loc"

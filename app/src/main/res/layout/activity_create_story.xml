@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".create_comic">
+    tools:context=".create_story">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,6 +116,36 @@
             android:layout_width="match_parent"
             android:textSize="18dp"
             android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Loại truyện" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdoword"
+                android:layout_width="wrap_content"
+                android:text="Truyện tranh"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textSize="18dp"
+                android:layout_height="match_parent" />
+
+            <RadioButton
+                android:id="@+id/rdicomic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Truyện chữ"
+                android:textSize="18dp"
+                android:layout_weight="1"/>
+        </RadioGroup>
 
         <TextView
             android:id="@+id/textView8"

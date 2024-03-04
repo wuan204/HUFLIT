@@ -6,6 +6,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -40,7 +41,6 @@ public class viewstory extends AppCompatActivity {
         mbtBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
             }
         });
@@ -48,7 +48,6 @@ public class viewstory extends AppCompatActivity {
         mbtRp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {ShowDialogRp();
-
             }
         });
         ImageView btLove = findViewById(R.id.btLove);
@@ -69,8 +68,25 @@ public class viewstory extends AppCompatActivity {
                 }
             }
         });
+        mbtRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(viewstory.this, Content.class);
+                startActivity(i);
+            }
+        });
+        mbtViewChapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-
+            }
+        });
+        mbtViewCmt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(viewstory.this, Content.class);
+            }
+        });
 
 
     }
