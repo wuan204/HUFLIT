@@ -82,6 +82,7 @@
                     </RelativeLayout>
 
                     <LinearLayout
+                        android:id="@+id/LoginSignIn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
@@ -91,71 +92,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="-0dp"
+                            android:layout_marginTop="20dp"
                             android:layout_weight="1"
-                            android:text="Tài khoản"
-                            android:textSize="30dp" />
-
-                        <TextView
-                            android:id="@+id/txtAuthor"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Đăng kí tác giả"
-                            android:textSize="18dp"
-                            android:layout_marginBottom="20dp"
-                            android:layout_marginLeft="15dp"/>
+                            android:text="Đăng nhập / Đăng kí"
+                            android:textSize="25dp" />
 
                     </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="40dp">
 
-                    <ImageView
-                        android:id="@+id/imgDolar"
-                        android:layout_width="10dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="60dp"
-                        android:layout_weight="0.1"
-                        android:src="@drawable/dolar"
-                        android:layout_marginTop="6dp"/>
-
-                    <Button
-                        android:id="@+id/btnXu"
-                        android:layout_width="8dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.4"
-                        android:text=""
-                        android:background="@drawable/buttonmenu"
-                        app:backgroundTint="@null"/>
-
-                    <TextView
-                        android:id="@+id/txtXu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="Xu"
-                        android:textStyle="bold"
-                        android:textSize="20dp" />
-
-                    <Button
-                        android:id="@+id/btnDoiXu"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:background="@drawable/buttonmenu"
-                        app:backgroundTint="@null"
-                        android:text="Đổi xu"
-                        android:textSize="20dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="30dp"/>
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

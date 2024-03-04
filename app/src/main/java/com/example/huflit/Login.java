@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.huflit.database.Database;
 
 import java.net.URL;
 import java.sql.CallableStatement;
@@ -30,7 +29,7 @@ public class Login extends AppCompatActivity {
     ImageView imgEye;
     SharedPreferences preferences;
     private String firstPassword = "";
-    Database database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class Login extends AppCompatActivity {
         imgEye= findViewById(R.id.imgEye);
         preferences = getSharedPreferences("user_data", MODE_PRIVATE);
 
-        database = new Database(this);
+
 
         // xu li giao dien nguoi dung
 
@@ -78,34 +77,9 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = edtName.getText().toString();
-                String password = edtPassword.getText().toString();
-                Cursor cursor = database.getdata();
-
-
-                while(cursor.moveToNext()){
-                    String dataTenTaiKhoan = cursor.getString(1);
-                    String dataMatKhau = cursor.getString(2);
-                    if(dataTenTaiKhoan.equals(name)  && dataMatKhau.equals(password)){
-                        int idd = cursor.getInt(0);
-                        int phanq = cursor.getInt(4);
-                        String email = cursor.getString(3);
-                        String tentk = cursor.getString(1);
-
-                        Intent i = new Intent(Login.this, Trang_Chu.class);
-                        i.putExtra("idd",idd);
-                        i.putExtra("email",email);
-                        i.putExtra("tentk",tentk);
-                        i.putExtra("phanq",phanq);
-
-                        startActivity(i);
-
-
-                    }
-                }
-
+                Intent i = new Intent(Login.this, Trang_Chu.class);
+                startActivity(i);
             }
-
         });
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
