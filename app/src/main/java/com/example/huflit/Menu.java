@@ -2,22 +2,16 @@ package com.example.huflit;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.example.huflit.adapter.TruyenTranhAdapter;
-import com.example.huflit.truyen_tranh.Truyen_tranh;
 
 public class Menu extends AppCompatActivity {
 
@@ -54,7 +48,6 @@ public class Menu extends AppCompatActivity {
         imgSetting = findViewById(R.id.imgSetting);
         txtAuthor = findViewById(R.id.txtAuthor);
 
-
         imgSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +58,8 @@ public class Menu extends AppCompatActivity {
         ThemTruyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog();
+                Intent i =new Intent(Menu.this, create_story.class);
+                startActivity(i);
             }
         });
         Truyen_cua_toi.setOnClickListener(new View.OnClickListener() {
@@ -191,7 +185,7 @@ public class Menu extends AppCompatActivity {
         btnTranh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentTranh = new Intent(Menu.this, create_comic.class);
+                Intent intentTranh = new Intent(Menu.this, create_story.class);
                 startActivity(intentTranh);
                 alertDialog.dismiss();
             }

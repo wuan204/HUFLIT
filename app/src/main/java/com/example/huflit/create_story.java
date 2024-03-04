@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class create_comic extends AppCompatActivity {
+public class create_story extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     ImageButton mbtnselect;
     ImageView mbtnCreateComic,mbtbackComic;
@@ -27,7 +27,7 @@ public class create_comic extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_comic);
+        setContentView(R.layout.activity_create_story);
         // anh xa 11
         mbtnselect=(ImageButton) findViewById(R.id.btselectimg);
         mbtnSelectCate=(Button)findViewById(R.id.btselectCate);
@@ -57,7 +57,7 @@ public class create_comic extends AppCompatActivity {
         mbtnSelectCate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(create_comic.this, category.class);
+                Intent i = new Intent(create_story.this, category.class);
                 startActivity(i);
             }
         });
@@ -68,7 +68,7 @@ public class create_comic extends AppCompatActivity {
                 bundle1.putString("namestory",medtnamestory.getText().toString());
                 bundle1.putString("descripts",medtdescripts.getText().toString());
                 if(selectedImageUri!=null){ bundle1.putString("imguri",selectedImageUri.toString()); }
-                Intent i = new Intent(create_comic.this, mycomic.class);
+                Intent i = new Intent(create_story.this, mycomic.class);
                 i.putExtras(bundle1);
                 startActivity(i);
 

@@ -44,7 +44,7 @@ public class category extends AppCompatActivity {
                 ArrayList<String> checkedItems= adtckbgrview.getCheckedItems();
                 Bundle bundle = new Bundle();
                 bundle.putStringArrayList("checkedItems", (ArrayList<String>) checkedItems);
-                Intent intent = new Intent(category.this, create_comic.class);
+                Intent intent = new Intent(category.this, create_story.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
