@@ -21,10 +21,9 @@ import com.example.huflit.truyen_tranh.Truyen_tranh;
 
 public class Menu extends AppCompatActivity {
 
-    Button btnTaiKhoan,btnXu,btnDoiXu;
+    Button btnTaiKhoan;
     ImageView imgSetting;
-    TextView txtAuthor;
-    LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen;
+    LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,8 +32,7 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
 
-        btnDoiXu = findViewById(R.id.btnDoiXu);
-        btnXu = findViewById(R.id.btnXu);
+
         btnTaiKhoan= findViewById(R.id.btnTaiKhoan);
         History = findViewById(R.id.History);
         Heart = findViewById(R.id.Heart);
@@ -52,7 +50,7 @@ public class Menu extends AppCompatActivity {
         Truyen_cua_toi= findViewById(R.id.Truyen_cua_toi);
         ThemTruyen = findViewById(R.id.ThemTruyen);
         imgSetting = findViewById(R.id.imgSetting);
-        txtAuthor = findViewById(R.id.txtAuthor);
+        LoginSignIn=findViewById(R.id.LoginSignIn);
 
 
         imgSetting.setOnClickListener(new View.OnClickListener() {
@@ -166,10 +164,11 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        txtAuthor.setOnClickListener(new View.OnClickListener() {
+
+        LoginSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Register_Author.class);
+                Intent i = new Intent(Menu.this, Login.class);
                 startActivity(i);
             }
         });
