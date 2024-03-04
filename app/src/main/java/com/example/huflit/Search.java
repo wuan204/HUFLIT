@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -59,36 +60,28 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
     }
     private void setUp(){
         gridTruyenTranh.setAdapter(adapter);
+        gridTruyenTranh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Lấy đối tượng Truyen_tranh đã được chọn
+                Truyen_tranh selectedTruyen = truyenTranhArrayList.get(position);
+
+                // Giả sử bạn có một định danh cho mỗi câu chuyện, bạn có thể chuyển nó đến hoạt động tiếp theo
+               //int storyId = selectedTruyen.getStrId();
+
+                // Tạo một intent để bắt đầu hoạt động ViewStory
+                Intent intent = new Intent(Search.this, viewstory.class);
+
+                // Truyền dữ liệu cần thiết tới hoạt động tiếp theo, ví dụ: storyId
+                //intent.putExtra("STORY_ID", strId);
+
+                // Bắt đầu hoạt động ViewStory
+                startActivity(intent);
+            }
+        });
 
     }
-    private void setClick(){
-edtTimKiem.addTextChangedListener(new TextWatcher() {
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-    }
-
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable editable) {
-       String s = edtTimKiem.getText().toString();
-       adapter.sortTruyen(s);
-    }
-    });
-imgBack.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        finish();
-    }
-});
-
-
-    }
 
     @Override
     public void batDau() {
@@ -124,4 +117,32 @@ imgBack.setOnClickListener(new View.OnClickListener() {
         startActivity(i);
     }
 
+
+    private void setClick(){
+        edtTimKiem.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String s = edtTimKiem.getText().toString();
+                adapter.sortTruyen(s);
+            }
+        });
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
 }
