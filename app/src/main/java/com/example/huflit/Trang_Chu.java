@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.jar.JarException;
 
 public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
@@ -162,65 +163,84 @@ public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
     public void ketThuc(String data) {
         // Xử lý dữ liệu trả về từ API
 
-        //hoanthanh
-        try {
-            hoanthanhList.clear();
-            JSONArray arrhoanthanh = new JSONArray(data);
-            for(int i=0;i<arrhoanthanh.length();i++){
-                JSONObject o= arrhoanthanh.getJSONObject(i);
-                hoanthanhList.add(new Truyen_tranh(o));
-            }
-            TrangChuAdapter adapter = new TrangChuAdapter(this, hoanthanhList);
-            grvhoanthanh.setAdapter(adapter);
-        }catch (JSONException | JarException e){
+
+            //hoanthanh
+            try {
+                hoanthanhList.clear();
+                JSONArray arrhoanthanh = new JSONArray(data);
+                for (int i = 0; i < arrhoanthanh.length(); i++) {
+                    JSONObject o = arrhoanthanh.getJSONObject(i);
+                    hoanthanhList.add(new Truyen_tranh(o));
+                }
+
+                // Sắp xếp danh sách ngẫu nhiên
+                Collections.shuffle(hoanthanhList);
+
+                // Đặt adapter cho RecyclerView
+                TrangChuAdapter adapter = new TrangChuAdapter(this, hoanthanhList);
+                grvhoanthanh.setAdapter(adapter);
+            } catch (JSONException | JarException e) {
+                // Xử lý khi có lỗi xảy ra
 
         }
+
 
         //moi nhat
         try {
-            moinhatList.clear();
-            JSONArray arrmoinhat = new JSONArray(data);
-            for(int i=0;i<arrmoinhat.length();i++){
-                JSONObject o= arrmoinhat.getJSONObject(i);
-                moinhatList.add(new Truyen_tranh(o));
-            }
-            TrangChuAdapter adapter = new TrangChuAdapter(this, moinhatList);
-            grvmoinhat.setAdapter(adapter);
-        }catch (JSONException | JarException e){
-
-        }
-
-        //xem nhieu
-        try {
-            xemnhieuList.clear();
-            JSONArray arrxemnhieu = new JSONArray(data);
-            for(int i=0;i<arrxemnhieu.length();i++){
-                JSONObject o= arrxemnhieu.getJSONObject(i);
-                xemnhieuList.add(new Truyen_tranh(o));
-            }
-            TrangChuAdapter adapter = new TrangChuAdapter(this, xemnhieuList);
-            grvxemnhieu.setAdapter(adapter);
-        }catch (JSONException | JarException e){
-
-        }
-
-        //de xuat
-        try {
             dexuatList.clear();
             JSONArray arrdexuat = new JSONArray(data);
-            for(int i=0;i<arrdexuat.length();i++){
-                JSONObject o= arrdexuat.getJSONObject(i);
+            for (int i = 0; i < arrdexuat.length(); i++) {
+                JSONObject o = arrdexuat.getJSONObject(i);
                 dexuatList.add(new Truyen_tranh(o));
             }
+
+            // Sắp xếp danh sách ngẫu nhiên
+            Collections.shuffle(dexuatList);
+
+            // Đặt adapter cho RecyclerView
             TrangChuAdapter adapter = new TrangChuAdapter(this, dexuatList);
             grvdexuat.setAdapter(adapter);
-        }catch (JSONException | JarException e){
-
+        } catch (JSONException | JarException e) {
+            // Xử lý khi có lỗi xảy ra
         }
+            //xemnhieu
 
+            try {
+                xemnhieuList.clear();
+                JSONArray arrxemnhieu = new JSONArray(data);
+                for (int i = 0; i < arrxemnhieu.length(); i++) {
+                    JSONObject o = arrxemnhieu.getJSONObject(i);
+                    xemnhieuList.add(new Truyen_tranh(o));
+                }
 
+                // Sắp xếp danh sách ngẫu nhiên
+                Collections.shuffle(xemnhieuList);
 
-    }
+                // Đặt adapter cho RecyclerView
+                TrangChuAdapter adapter = new TrangChuAdapter(this, xemnhieuList);
+                grvxemnhieu.setAdapter(adapter);
+            } catch (JSONException | JarException e) {
+                // Xử lý khi có lỗi xảy ra
+            }
+                //de xuat
+                try {
+                    moinhatList.clear();
+                    JSONArray arrmoinhat = new JSONArray(data);
+                    for (int i = 0; i < arrmoinhat.length(); i++) {
+                        JSONObject o = arrmoinhat.getJSONObject(i);
+                        moinhatList.add(new Truyen_tranh(o));
+                    }
+
+                    // Sắp xếp danh sách ngẫu nhiên
+                    Collections.shuffle(moinhatList);
+
+                    // Đặt adapter cho RecyclerView
+                    TrangChuAdapter adapter = new TrangChuAdapter(this, moinhatList);
+                    grvmoinhat.setAdapter(adapter);
+                } catch (JSONException | JarException e) {
+                    // Xử lý khi có lỗi xảy ra
+                }
+            }
 
     @Override
     public void biLoi() {
