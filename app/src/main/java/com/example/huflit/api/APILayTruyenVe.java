@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import java.io.IOException;
 
+import com.example.huflit.Trang_Chu;
 import com.example.huflit.interfaces.LayTruyenVe;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -20,6 +21,8 @@ public class
         this.LayTruyenVe = layTruyenVe;
         this.LayTruyenVe.batDau();
     }
+
+
 
 
     @Override
