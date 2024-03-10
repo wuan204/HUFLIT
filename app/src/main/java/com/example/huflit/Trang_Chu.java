@@ -1,7 +1,6 @@
 package com.example.huflit;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -24,6 +23,7 @@ import java.util.Collections;
 import java.util.jar.JarException;
 
 public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
+
     LinearLayout TrangChu, Search, TheLoai, Menu;
 
     RecyclerView grvhoanthanh, grvdexuat, grvmoinhat, grvxemnhieu;

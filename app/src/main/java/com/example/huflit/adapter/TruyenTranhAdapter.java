@@ -1,6 +1,5 @@
 package com.example.huflit.adapter;
 
-import static com.example.huflit.R.layout.item_trang_chu;
 import static com.example.huflit.R.layout.item_truyentranh;
 
 import android.annotation.SuppressLint;
@@ -20,7 +19,7 @@ import java.util.List;
 
 import com.bumptech.glide.Glide;
 import com.example.huflit.R;
-import com.example.huflit.truyen_tranh.Truyen_tranh;
+import com.example.huflit.item.Truyen_tranh;
 
 public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
 
