@@ -28,7 +28,6 @@ public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
     private ArrayList<Truyen_tranh> arr;
     public TruyenTranhAdapter(@NonNull Context context, int resource, @NonNull List<Truyen_tranh> objects) {
         super(context, resource, objects);
-
         this.ct = context;
         this.arr = new ArrayList<>(objects);
     }
@@ -55,13 +54,11 @@ public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
             LayoutInflater inflater = (LayoutInflater) ct.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(item_truyentranh, null);
         }
-
         if (arr.size() > 0) {
             Truyen_tranh truyenTranh = this.arr.get(position);
             TextView tenTenTruyen = convertView.findViewById(R.id.tentruyentrangchu);
             TextView tenTenChap = convertView.findViewById(R.id.tenchaptrangchu);
             ImageView imgBia = convertView.findViewById(R.id.anhbiatrangchu);
-
             tenTenTruyen.setText(truyenTranh.getTenTruyen());
             tenTenChap.setText(truyenTranh.getTenChap());
             Glide.with(this.ct).load(truyenTranh.getLinkAnh()).into(imgBia);

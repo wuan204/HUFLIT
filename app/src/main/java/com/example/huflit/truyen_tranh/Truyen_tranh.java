@@ -12,7 +12,6 @@ public class Truyen_tranh {
     }
     public Truyen_tranh(JSONObject o) throws JarException, JSONException {
         tenTruyen = o.getString("tenTruyen");
-        tenChap = o.getString("tenChap");
         linkAnh = o.getString("linkAnh");
     }
     public Truyen_tranh(String tenTruyen, String tenChap, String linkAnh) {

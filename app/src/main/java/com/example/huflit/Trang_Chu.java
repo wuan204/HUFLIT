@@ -6,13 +6,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.PixelCopy;
 import android.view.View;
 import android.widget.LinearLayout;
 
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.huflit.adapter.ShowStoryAdapter;
 import com.example.huflit.adapter.TrangChuAdapter;
 import com.example.huflit.adapter.TruyenTranhAdapter;
 import com.example.huflit.api.APILayTruyenVe;
 import com.example.huflit.interfaces.LayTruyenVe;
+import com.example.huflit.truyen_tranh.Story;
 import com.example.huflit.truyen_tranh.Truyen_tranh;
 
 import org.json.JSONArray;
@@ -21,6 +31,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.jar.JarException;
 
 public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
@@ -30,7 +41,10 @@ public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
 
     TrangChuAdapter hoanthanhAdapter, moinhatAdapter, dexuatAdapter, xemnhieuAdapter;
     ArrayList<Truyen_tranh> hoanthanhList, moinhatList, dexuatList, xemnhieuList;
-
+    ShowStoryAdapter myadapter;
+    List<Story> myarraylist;
+    RequestQueue queue;
+    private String urlget="https://huf-android.000webhostapp.com/layTruyen.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +54,43 @@ public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
         Search = findViewById(R.id.Search);
         TheLoai = findViewById(R.id.TheLoai);
         Menu = findViewById(R.id.Menu);
+/////
+        myarraylist=new ArrayList<Story>();
+       myadapter=new ShowStoryAdapter(myarraylist,this);
+        grvhoanthanh=findViewById(R.id.viewhoanthanh);
+        queue= Volley.newRequestQueue(this);
+        StringRequest request=new StringRequest(Request.Method.GET, urlget,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray array=new JSONArray(response);
+                            for(int i=0;i<array.length();i++)
+                            {
+                                JSONObject o=array.getJSONObject(i);
+                                int id= o.getInt("ID");
+                                String name=o.getString("tenTruyen");
+                                String anh=o.getString("linkAnh");
+                                Story story=new Story(id,name,anh);
+                                myarraylist.add(story);
+                            }
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                        myadapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+            queue.add(request);
+
+
+
 
         // Gọi API để lấy danh sách truyện
         new APILayTruyenVe(this).execute();
@@ -162,7 +213,6 @@ public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
     @Override
     public void ketThuc(String data) {
         // Xử lý dữ liệu trả về từ API
-
 
             //hoanthanh
             try {

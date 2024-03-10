@@ -24,7 +24,7 @@
             android:layout_alignParentBottom="true"
             android:background="#A8000000"
             android:gravity="center"
-            android:text="Chap"
+            android:text=""
             android:textColor="#fff"
             android:textSize="14sp" />
 
