@@ -1,4 +1,4 @@
-package com.example.huflit.truyen_tranh;
+package com.example.huflit.item;
 
 import org.json.JSONException;
 import org.json.JSONObject;

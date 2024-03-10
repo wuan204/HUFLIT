@@ -15,14 +15,14 @@ import com.example.huflit.itemfilter.Itemft;
 import java.util.ArrayList;
 import java.util.List;
 
-public class category extends AppCompatActivity {
+public class showcate extends AppCompatActivity {
     private GridView gridView;
     Button mbtnDone;
     ImageView mbtnbackcate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_showcate);
         gridView=findViewById(R.id.grvCate);
         mbtnDone=findViewById(R.id.btnDone);
         //   mbtBack=findViewById(R.id.btBack)
@@ -44,7 +44,7 @@ public class category extends AppCompatActivity {
                 ArrayList<String> checkedItems= adtckbgrview.getCheckedItems();
                 Bundle bundle = new Bundle();
                 bundle.putStringArrayList("checkedItems", (ArrayList<String>) checkedItems);
-                Intent intent = new Intent(category.this, create_story.class);
+                Intent intent = new Intent(showcate.this, create_story.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 

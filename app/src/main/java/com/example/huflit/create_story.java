@@ -57,7 +57,7 @@ public class create_story extends AppCompatActivity {
         mbtnSelectCate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(create_story.this, category.class);
+                Intent i = new Intent(create_story.this, showcate.class);
                 startActivity(i);
             }
         });
