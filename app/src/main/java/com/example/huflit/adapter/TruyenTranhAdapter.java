@@ -24,7 +24,7 @@ import com.example.huflit.object.Truyen;
 import com.example.huflit.object.Truyen_tranh;
 import com.example.huflit.viewstory;
 
-import com.example.huflit.item.Truyen_tranh;
+
 
 
 public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {

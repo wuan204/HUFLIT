@@ -19,7 +19,7 @@ import com.example.huflit.api.APILayTruyenVe;
 
 import com.example.huflit.object.Truyen_tranh;
 
-import com.example.huflit.item.Truyen_tranh;
+
 
 
 import org.json.JSONArray;
