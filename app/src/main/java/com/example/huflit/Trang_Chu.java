@@ -4,16 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.huflit.adapter.TrangChuAdapter;
-import com.example.huflit.adapter.TruyenTranhAdapter;
 import com.example.huflit.api.APILayTruyenVe;
 import com.example.huflit.interfaces.LayTruyenVe;
-import com.example.huflit.truyen_tranh.Truyen_tranh;
+import com.example.huflit.object.Truyen_tranh;
 
 import org.json.JSONArray;
 import org.json.JSONException;

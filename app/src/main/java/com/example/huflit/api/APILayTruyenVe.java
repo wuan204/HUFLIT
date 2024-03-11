@@ -16,6 +16,7 @@ public class
  APILayTruyenVe extends AsyncTask<Void, Void, String> {
     String data;
     LayTruyenVe LayTruyenVe;
+    String StrID;
 
     public APILayTruyenVe(LayTruyenVe layTruyenVe) {
         this.LayTruyenVe = layTruyenVe;
@@ -30,7 +31,7 @@ public class
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 //.url("https://api.jsonserve.com/JdMKAx")
-                .url("https://huf-android.000webhostapp.com/layTruyen.php")
+                .url("https://huf-android.000webhostapp.com/layTruyen.php?StrID=" + StrID)
                 .build();
         data = null;
         try {

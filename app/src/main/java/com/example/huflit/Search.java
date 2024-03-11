@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.huflit.adapter.TruyenTranhAdapter;
 import com.example.huflit.api.APILayTruyenVe;
-import com.example.huflit.truyen_tranh.Truyen_tranh;
+import com.example.huflit.object.Truyen_tranh;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,16 +46,13 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
 
     }
     private void init(){
-        truyenTranhArrayList = new ArrayList<>();
-
-
+        truyenTranhArrayList = new ArrayList<Truyen_tranh>();
         adapter = new TruyenTranhAdapter(this,0, truyenTranhArrayList);
     }
     private void anhXa(){
         gridTruyenTranh = findViewById(R.id.gridTruyenTranh);
         edtTimKiem = findViewById(R.id.edtTimKiem);
         imgBack = findViewById(R.id.imgBack);
-
 
     }
     private void setUp(){

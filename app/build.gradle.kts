@@ -44,6 +44,7 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.4.0")
     annotationProcessor ("androidx.room:room-compiler:2.4.0")
     implementation ("androidx.core:core:1.7.0")
+    implementation ("com.android.volley:volley:1.2.1")
 
 
 
