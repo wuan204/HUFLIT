@@ -22,10 +22,6 @@ public class
         this.LayTruyenVe = layTruyenVe;
         this.LayTruyenVe.batDau();
     }
-
-
-
-
     @Override
     protected String doInBackground(Void... voids) {
         OkHttpClient client = new OkHttpClient();

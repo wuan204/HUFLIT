@@ -67,7 +67,6 @@ public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
             Truyen_tranh truyenTranh = arr.get(position);
             TextView tenTenTruyen = convertView.findViewById(R.id.tentruyentrangchu);
             ImageView imgBia = convertView.findViewById(R.id.anhbiatrangchu);
-
             tenTenTruyen.setText(truyenTranh.getTenTruyen());
             Glide.with(this.ct).load(truyenTranh.getLinkAnh()).into(imgBia);
         }

@@ -20,8 +20,10 @@ import org.json.JSONObject;
 import java.util.jar.JarException;
 
 public class viewstory extends AppCompatActivity {
-    private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt;
+    private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt,mimgStory;
+
     private Button mbtViewCmt, mbtRead, mbtViewChapter;
+    TextView mtxtStrName;
     private String StrID;
     private RequestQueue requestQueue;
 
@@ -31,9 +33,18 @@ public class viewstory extends AppCompatActivity {
         setContentView(R.layout.activity_viewstory);
 
         requestQueue = Volley.newRequestQueue(this);
-        init();
+     //   init();
         anhxa();
         setclick();
+
+        //
+        Intent intent=getIntent();
+        if(intent!=null){
+            String tentruyen=intent.getStringExtra("ten_truyen");
+            mtxtStrName.setText(tentruyen);
+
+
+        }
     }
 
     private void init() {
@@ -59,6 +70,8 @@ public class viewstory extends AppCompatActivity {
         mbtCmt = findViewById(R.id.btCmt);
         mbtRead = findViewById(R.id.btRead);
         mbtViewChapter = findViewById(R.id.btViewChapter);
+        mtxtStrName=findViewById(R.id.txtStrName);
+        mimgStory=findViewById(R.id.imgStory);
     }
 
     private void setclick() {
