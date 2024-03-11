@@ -19,7 +19,13 @@ import java.util.List;
 
 import com.bumptech.glide.Glide;
 import com.example.huflit.R;
+
+import com.example.huflit.object.Truyen;
+import com.example.huflit.object.Truyen_tranh;
+import com.example.huflit.viewstory;
+
 import com.example.huflit.item.Truyen_tranh;
+
 
 public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
 
@@ -31,6 +37,8 @@ public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
         this.ct = context;
         this.arr = new ArrayList<>(objects);
     }
+
+
     public void sortTruyen(String s){
  s = s.toUpperCase();
  int k = 0;
@@ -56,13 +64,11 @@ public class TruyenTranhAdapter extends ArrayAdapter<Truyen_tranh> {
         }
 
         if (arr.size() > 0) {
-            Truyen_tranh truyenTranh = this.arr.get(position);
+            Truyen_tranh truyenTranh = arr.get(position);
             TextView tenTenTruyen = convertView.findViewById(R.id.tentruyentrangchu);
-            TextView tenTenChap = convertView.findViewById(R.id.tenchaptrangchu);
             ImageView imgBia = convertView.findViewById(R.id.anhbiatrangchu);
 
             tenTenTruyen.setText(truyenTranh.getTenTruyen());
-            tenTenChap.setText(truyenTranh.getTenChap());
             Glide.with(this.ct).load(truyenTranh.getLinkAnh()).into(imgBia);
         }
 

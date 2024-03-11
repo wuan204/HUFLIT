@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="50dp"
         android:background="#BF4444"
         android:orientation="horizontal">
 
@@ -22,7 +22,7 @@
             android:src="@drawable/back" />
 
         <TextView
-            android:id="@+id/txtChapter"
+            android:id="@+id/txtTenChapter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -51,38 +51,38 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/txtConTent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_height="186dp"
+                android:text="Nội Dung" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
 
-                <Button
-                    android:id="@+id/btnPrevous"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text=""
-                    android:background="@drawable/buttoncontent"
-                    app:backgroundTint="@null"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="10dp"/>
+<!--                <Button-->
+<!--                    android:id="@+id/btnPrevous"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text=""-->
+<!--                    android:background="@drawable/buttoncontent"-->
+<!--                    app:backgroundTint="@null"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:layout_marginLeft="10dp"/>-->
 
-                <Button
-                    android:id="@+id/btnNext"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:text="Chapter 2"
-                    android:background="@drawable/buttoncontent"
-                    app:backgroundTint="@null"
-                    android:textSize="18dp"
-                    android:layout_marginLeft="90dp"/>
-            </LinearLayout>
+<!--                <Button-->
+<!--                    android:id="@+id/btnNext"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Chapter 2"-->
+<!--                    android:background="@drawable/buttoncontent"-->
+<!--                    app:backgroundTint="@null"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:layout_marginLeft="90dp"/>-->
+<!--            </LinearLayout>-->
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

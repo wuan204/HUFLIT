@@ -1,119 +1,100 @@
 package com.example.huflit;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.drawable.DrawableCompat;
-
-import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.huflit.object.Truyen;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.jar.JarException;
 
 public class viewstory extends AppCompatActivity {
-    ImageView mbtBack,mbtRp,mbtLove,mbtFl,mbtDown,mbtCmt;
-    Button mbtViewCmt,mbtRead,mbtViewChapter;
-    @SuppressLint("MissingInflatedId")
+    private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt;
+    private Button mbtViewCmt, mbtRead, mbtViewChapter;
+    private String StrID;
+    private RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewstory);
-        mbtBack= (ImageView) findViewById(R.id.btBack);
-        mbtRp= (ImageView) findViewById(R.id.btReport);
-        mbtLove= (ImageView) findViewById(R.id.btLove);
-        mbtFl= (ImageView) findViewById(R.id.btFl);
-        mbtDown= (ImageView) findViewById(R.id.btDown);
-        mbtViewCmt=(Button) findViewById(R.id.btViewCmt);
-        mbtCmt= (ImageView) findViewById(R.id.btCmt);
-        mbtRead=(Button) findViewById(R.id.btRead);
-        mbtViewChapter=(Button) findViewById(R.id.btViewChapter);
 
-
-        //action
-         //quay lại trang chủ
-        mbtBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        mbtRp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {ShowDialogRp();
-            }
-        });
-        ImageView btLove = findViewById(R.id.btLove);
-        final boolean[] isRed = {false}; // Biến để kiểm tra màu sắc hiện tại
-
-        btLove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Đảo ngược trạng thái màu sắc
-                isRed[0] = !isRed[0];
-
-                if (isRed[0]) {
-                    // Nếu là màu trắng, thì đặt màu đỏ
-                    btLove.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-                } else {
-                    // Nếu là màu đỏ, thì trở lại màu ban đầu
-                    btLove.clearColorFilter();
-                }
-            }
-        });
-        mbtRead.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(viewstory.this, Content.class);
-                startActivity(i);
-            }
-        });
-        mbtViewChapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        mbtViewCmt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(viewstory.this, Content.class);
-            }
-        });
-
-
+        requestQueue = Volley.newRequestQueue(this);
+        init();
+        anhxa();
+        setclick();
     }
-    private void ShowDialogRp(){
 
-        AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        LayoutInflater layoutInflater=this.getLayoutInflater();
-        View dialogview=layoutInflater.inflate(R.layout.dialog_report,null);
-        builder.setView(dialogview);
-        AlertDialog alertDialog=builder.create();
-        alertDialog.show();
-        Button mbtCancel= dialogview.findViewById(R.id.btCancel);
-        Button mbtSendRp= dialogview.findViewById(R.id.btSendRp);
-        mbtCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.cancel();
-            }
+    private void init() {
+        Bundle b = getIntent().getBundleExtra("data");
+        if (b != null && b.containsKey("StrID")) {
+            StrID = b.getString("StrID");
+            // Tiếp tục xử lý dữ liệu...
+        } else {
+            // Xử lý trường hợp key "StrID" không tồn tại (nếu cần)
+        }
+    }
+
+
+
+    private void anhxa() {
+        // Initialize your UI components here
+        mbtBack = findViewById(R.id.btBack);
+        mbtRp = findViewById(R.id.btReport);
+        mbtLove = findViewById(R.id.btLove);
+        mbtFl = findViewById(R.id.btFl);
+        mbtDown = findViewById(R.id.btDown);
+        mbtViewCmt = findViewById(R.id.btViewCmt);
+        mbtCmt = findViewById(R.id.btCmt);
+        mbtRead = findViewById(R.id.btRead);
+        mbtViewChapter = findViewById(R.id.btViewChapter);
+    }
+
+    private void setclick() {
+        mbtBack.setOnClickListener(v -> finish());
+
+        mbtRp.setOnClickListener(v -> {
+            // Handle Report button click
+            // ShowDialogRp();
         });
-        mbtSendRp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder dialog=new AlertDialog.Builder(viewstory.this);
-                dialog.setMessage("Cảm ơn bạn đã báo cáo. ^.^");
-                dialog.show();
-                alertDialog.cancel();
-            }
+
+//        mbtLove.setOnClickListener(v -> {
+//            // Handle Love button click
+//            // Toggle the love state and update UI
+//            boolean isLoved = // Determine the state based on your data
+//            if (isLoved) {
+//                mbtLove.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+//            } else {
+//                mbtLove.clearColorFilter();
+//            }
+//        });
+
+        mbtRead.setOnClickListener(v -> {
+            // Handle Read button click
+            Intent i = new Intent(viewstory.this, Content.class);
+            startActivity(i);
+        });
+
+        mbtViewChapter.setOnClickListener(v -> {
+            // Handle View Chapter button click
+            // Implement your logic here
+        });
+
+        mbtViewCmt.setOnClickListener(v -> {
+            // Handle View Comment button click
+            // Implement your logic here
         });
     }
+
 }

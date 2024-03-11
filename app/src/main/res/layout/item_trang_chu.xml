@@ -17,16 +17,16 @@
             android:scaleType="centerCrop"
             android:src="@drawable/biatruyen" />
 
-        <TextView
-            android:id="@+id/tenchaptrangchu"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:background="#A8000000"
-            android:gravity="center"
-            android:text="Chap"
-            android:textColor="#fff"
-            android:textSize="14sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/tenchaptrangchu"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:background="#A8000000"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Chap"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="14sp" />-->
 
     </RelativeLayout>
 
