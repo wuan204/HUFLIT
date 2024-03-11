@@ -46,14 +46,11 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
             public void onClick(View v) {
                 // Lấy tên truyện và tên chương từ đối tượng truyện
                 String tenTruyen = truyenTranh.getTenTruyen();
-
-
                 // Chuyển sang activity viewstory
                 Intent intent = new Intent(mContext, viewstory.class);
 
                 // truyền tên truyện và tên chương
                 intent.putExtra("ten_truyen", tenTruyen);
-
                 mContext.startActivity(intent);
             }
         });

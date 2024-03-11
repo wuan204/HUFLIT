@@ -211,7 +211,6 @@ public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
                     JSONObject o = arrxemnhieu.getJSONObject(i);
                     xemnhieuList.add(new Truyen_tranh(o));
                 }
-
                 // Sắp xếp danh sách ngẫu nhiên
                 Collections.shuffle(xemnhieuList);
 
@@ -229,10 +228,8 @@ public class Trang_Chu extends AppCompatActivity implements LayTruyenVe {
                         JSONObject o = arrmoinhat.getJSONObject(i);
                         moinhatList.add(new Truyen_tranh(o));
                     }
-
                     // Sắp xếp danh sách ngẫu nhiên
                     Collections.shuffle(moinhatList);
-
                     // Đặt adapter cho RecyclerView
                     TrangChuAdapter adapter = new TrangChuAdapter(this, moinhatList);
                     grvmoinhat.setAdapter(adapter);

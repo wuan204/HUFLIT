@@ -1,7 +1,6 @@
 package com.example.huflit.object;
 
 public class Noi_Dung {
-
    private String tenChap;
    private String noiDung;
   // private String congKhai;
