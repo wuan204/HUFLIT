@@ -46,6 +46,7 @@ dependencies {
     implementation ("androidx.core:core:1.7.0")
     implementation ("com.android.volley:volley:1.2.1")
 
+    implementation("com.android.volley:volley:1.2.1")
 
 
 }

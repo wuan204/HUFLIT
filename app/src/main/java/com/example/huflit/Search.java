@@ -16,7 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.huflit.adapter.TruyenTranhAdapter;
 import com.example.huflit.api.APILayTruyenVe;
+
 import com.example.huflit.object.Truyen_tranh;
+
+import com.example.huflit.item.Truyen_tranh;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;

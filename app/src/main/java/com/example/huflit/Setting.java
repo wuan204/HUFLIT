@@ -17,7 +17,7 @@ import com.example.huflit.Confirm_LogOut;
 public class Setting extends AppCompatActivity implements Confirm_LogOut.ConfirmLogoutListener {
 
     TextView txtLogOut;
-    ImageView imgBack,imgnext;
+    ImageView imgBack,imgnext,btntest;
     LinearLayout NgonNgu;
 
     @SuppressLint("MissingInflatedId")
@@ -30,7 +30,14 @@ public class Setting extends AppCompatActivity implements Confirm_LogOut.Confirm
         imgBack = findViewById(R.id.imgBack);
         imgnext = findViewById(R.id.imgnext);
         NgonNgu = findViewById(R.id.NgonNgu);
-
+        btntest=findViewById(R.id.btntest);
+        btntest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Setting.this,categorymanager.class);
+                startActivity(i);
+            }
+        });
         txtLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
