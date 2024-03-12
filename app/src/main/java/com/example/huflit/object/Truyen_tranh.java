@@ -6,14 +6,13 @@ import org.json.JSONObject;
 import java.util.jar.JarException;
 
 public class Truyen_tranh {
-    private  String tenTruyen,linkAnh,alias,danhmuc,tomtat,capnhat,theloai;
+    private  String tenTruyen,linkAnh,alias,danhmuc,tomtat,capnhat,theloai,status;
     private int view,love;
     private  double rating;
 
     public Truyen_tranh(){
     }
     public Truyen_tranh(JSONObject o) throws JarException, JSONException {
-
         tenTruyen = o.getString("tenTruyen");
         linkAnh = o.getString("linkAnh");
         alias=o.getString("alias");
@@ -24,9 +23,10 @@ public class Truyen_tranh {
         love=o.getInt("love");
         theloai= o.getString("type");
         rating=o.getDouble("rating");
+        status=o.getString("status");
     }
 
-    public Truyen_tranh(String tenTruyen, String linkAnh, String alias, String danhmuc, String tomtat, String capnhat, String theloai, int view, int love, double rating) {
+    public Truyen_tranh(String tenTruyen, String linkAnh, String alias, String danhmuc, String tomtat, String capnhat, String theloai, int view, int love, double rating, String status) {
         this.tenTruyen = tenTruyen;
         this.linkAnh = linkAnh;
         this.alias = alias;
@@ -37,6 +37,15 @@ public class Truyen_tranh {
         this.view = view;
         this.love = love;
         this.rating = rating;
+        this.status=status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getTheloai() {

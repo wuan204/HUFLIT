@@ -52,6 +52,7 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
                 String tomat=truyenTranh.getTomtat();;
                 String capnhat =truyenTranh.getCapnhat();
                 String theloai=truyenTranh.getTheloai();
+                String status=truyenTranh.getStatus();
                 // Chuyển sang activity viewstory
                 Intent intent = new Intent(mContext, viewstory.class);
                 // truyền tên truyện và tên chương
@@ -62,6 +63,7 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
                 intent.putExtra("theloai",theloai);
                 intent.putExtra("tomtat",tomat);
                 intent.putExtra("capnhat",capnhat);
+                intent.putExtra("trangthai",status);
                 mContext.startActivity(intent);
             }
         });

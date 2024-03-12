@@ -24,7 +24,7 @@ public class viewstory extends AppCompatActivity {
     private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt,mimgStory;
 
     private Button mbtViewCmt, mbtRead, mbtViewChapter;
-    TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt;
+    TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt,mtxtStt;
     private String StrID;
     private RequestQueue requestQueue;
 
@@ -50,8 +50,8 @@ public class viewstory extends AppCompatActivity {
             mtxtCate.setText(danhmuc);
             mtxtType.setText(intent.getStringExtra("theloai").toString());
             txtDescipt.setText(intent.getStringExtra("tomtat").toString());
+            mtxtStt.setText(intent.getStringExtra("trangthai").toString());
             Glide.with(this).load(anhtruyen).into(mimgStory);
-
 
         }
     }
@@ -85,6 +85,7 @@ public class viewstory extends AppCompatActivity {
         mtxtCate=findViewById(R.id.txtCate);
         mtxtType=findViewById(R.id.txtType);
         txtDescipt=findViewById(R.id.txtDescipt);
+        mtxtStt=findViewById(R.id.txtStt);
     }
 
     private void setclick() {
