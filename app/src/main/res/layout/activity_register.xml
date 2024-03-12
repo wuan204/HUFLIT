@@ -45,7 +45,6 @@
             android:ems="10"
             android:hint="User name"
             android:inputType="text"
-
             android:text="" />
 
         <EditText
@@ -55,28 +54,17 @@
             android:layout_marginLeft="100dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="text"
-            android:text="" />
+            android:inputType="text" />
+
 
         <EditText
-            android:id="@+id/edtConfirm"
+            android:id="@+id/edtEmail"
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:layout_marginLeft="100dp"
             android:ems="10"
-            android:hint="Confirm password"
-            android:inputType="text"
-            android:text="" />
-
-        <EditText
-            android:id="@+id/edtSDT"
-            android:layout_width="250dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="100dp"
-            android:ems="10"
-            android:hint="Number phone"
-            android:inputType="text"
-            android:text="" />
+            android:hint="Email"
+            android:inputType="text" />
 
     </LinearLayout>
 
@@ -95,5 +83,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="140dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/buttonsignin"
+            android:text="back in"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSignin" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

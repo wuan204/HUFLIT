@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import java.net.URL;
 import java.sql.CallableStatement;
@@ -27,6 +29,7 @@ public class Login extends AppCompatActivity {
     ImageView imgEye;
     SharedPreferences preferences;
     private String firstPassword = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class Login extends AppCompatActivity {
         cbRemember= findViewById(R.id.cbRemember);
         imgEye= findViewById(R.id.imgEye);
         preferences = getSharedPreferences("user_data", MODE_PRIVATE);
+
+
 
         // xu li giao dien nguoi dung
 
@@ -72,25 +77,9 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String entername = edtName.getText().toString();
-                String enterpassword = edtPassword.getText().toString();
-
-                startActivity(new Intent(Login.this, Trang_Chu.class));
-                if(firstPassword.isEmpty()){
-                    firstPassword = enterpassword;
-                }
-                else {
-                    if(enterpassword.equals(firstPassword)){
-
-                    }
-                    else{
-                        Toast.makeText(Login.this,"Sai mật khẩu", Toast.LENGTH_SHORT).show();
-                        edtPassword.getText().clear();
-                        firstPassword= " ";
-                    }
-                }
+                Intent i = new Intent(Login.this, Menu.class);
+                startActivity(i);
             }
-
         });
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override

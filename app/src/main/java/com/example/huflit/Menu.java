@@ -4,7 +4,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
 
-    Button btnTaiKhoan,btnXu,btnDoiXu;
+    Button btnTaiKhoan;
     ImageView imgSetting;
-    LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen;
+    LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,8 +26,7 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
 
-        btnDoiXu = findViewById(R.id.btnDoiXu);
-        btnXu = findViewById(R.id.btnXu);
+
         btnTaiKhoan= findViewById(R.id.btnTaiKhoan);
         History = findViewById(R.id.History);
         Heart = findViewById(R.id.Heart);
@@ -47,7 +44,7 @@ public class Menu extends AppCompatActivity {
         Truyen_cua_toi= findViewById(R.id.Truyen_cua_toi);
         ThemTruyen = findViewById(R.id.ThemTruyen);
         imgSetting = findViewById(R.id.imgSetting);
-
+        LoginSignIn=findViewById(R.id.LoginSignIn);
 
         imgSetting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +56,8 @@ public class Menu extends AppCompatActivity {
         ThemTruyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showCustomDialog();
+                Intent i =new Intent(Menu.this, create_story.class);
+                startActivity(i);
             }
         });
         Truyen_cua_toi.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +140,7 @@ public class Menu extends AppCompatActivity {
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Seach.class);
+                Intent i = new Intent(Menu.this, Search.class);
                 startActivity(i);
             }
         });
@@ -157,6 +155,14 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Menu.this,Menu.class);
+                startActivity(i);
+            }
+        });
+
+        LoginSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Menu.this, Login.class);
                 startActivity(i);
             }
         });
@@ -178,7 +184,7 @@ public class Menu extends AppCompatActivity {
         btnTranh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentTranh = new Intent(Menu.this, Dang_bai_truyen_tranh.class);
+                Intent intentTranh = new Intent(Menu.this, create_story.class);
                 startActivity(intentTranh);
                 alertDialog.dismiss();
             }
