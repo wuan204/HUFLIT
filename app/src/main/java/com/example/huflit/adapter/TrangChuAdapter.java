@@ -46,11 +46,22 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
             public void onClick(View v) {
                 // Lấy tên truyện và tên chương từ đối tượng truyện
                 String tenTruyen = truyenTranh.getTenTruyen();
+                String anhTruyen= truyenTranh.getLinkAnh();
+                String tacgia= truyenTranh.getAlias();
+                String danhmuc=truyenTranh.getDanhmuc();
+                String tomat=truyenTranh.getTomtat();;
+                String capnhat =truyenTranh.getCapnhat();
+                String theloai=truyenTranh.getTheloai();
                 // Chuyển sang activity viewstory
                 Intent intent = new Intent(mContext, viewstory.class);
-
                 // truyền tên truyện và tên chương
                 intent.putExtra("ten_truyen", tenTruyen);
+                intent.putExtra("anh_truyen", anhTruyen);
+                intent.putExtra("tac_gia",tacgia);
+                intent.putExtra("danhmuc",danhmuc);
+                intent.putExtra("theloai",theloai);
+                intent.putExtra("tomtat",tomat);
+                intent.putExtra("capnhat",capnhat);
                 mContext.startActivity(intent);
             }
         });
@@ -65,13 +76,11 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tenTruyen;
         ImageView bia;
-
         public ViewHolder(View itemView) {
             super(itemView);
             tenTruyen = itemView.findViewById(R.id.tentruyentrangchu);
             bia = itemView.findViewById(R.id.anhbiatrangchu);
         }
-
         public void bind(Truyen_tranh truyenTranh) {
             tenTruyen.setText(truyenTranh.getTenTruyen());
             Glide.with(mContext).load(truyenTranh.getLinkAnh()).into(bia);
