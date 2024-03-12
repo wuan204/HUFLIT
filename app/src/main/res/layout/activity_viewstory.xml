@@ -68,7 +68,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:layout_marginTop="50dp">
+               >
 
                 <TextView
                     android:id="@+id/txtStrName"
@@ -77,19 +77,19 @@
                     android:text=""
                     android:textSize="20dp" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txtCate"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text=""-->
-<!--                    android:textSize="20dp" />-->
+                <TextView
+                    android:id="@+id/txtCate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    tools:text="" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txtType"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Truyện tranh."-->
-<!--                    android:textSize="20dp" />-->
+                <TextView
+                    android:id="@+id/txtType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    tools:text="" />
 
                 <RatingBar
                     android:id="@+id/ratingView"
@@ -164,7 +164,7 @@
                     android:text="Tác giả:"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
 
                 <TextView
                     android:id="@+id/txtAlias"
@@ -312,7 +312,7 @@
                 android:layout_gravity="center"/>
 
             <TextView
-                android:id="@+id/editTextTextMultiLine"
+                android:id="@+id/txtDescipt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

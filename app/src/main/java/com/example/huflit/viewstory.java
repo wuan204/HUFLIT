@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.huflit.object.Truyen;
 
 import org.json.JSONException;
@@ -23,7 +24,7 @@ public class viewstory extends AppCompatActivity {
     private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt,mimgStory;
 
     private Button mbtViewCmt, mbtRead, mbtViewChapter;
-    TextView mtxtStrName;
+    TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt;
     private String StrID;
     private RequestQueue requestQueue;
 
@@ -41,7 +42,15 @@ public class viewstory extends AppCompatActivity {
         Intent intent=getIntent();
         if(intent!=null){
             String tentruyen=intent.getStringExtra("ten_truyen");
+            String anhtruyen= intent.getStringExtra("anh_truyen");
+            String danhmuc=intent.getStringExtra("danhmuc");
+            if(danhmuc==null){danhmuc="Khác";}
             mtxtStrName.setText(tentruyen);
+            mtxtAlias.setText(intent.getStringExtra("tac_gia").toString());
+            mtxtCate.setText(danhmuc);
+            mtxtType.setText(intent.getStringExtra("theloai").toString());
+            txtDescipt.setText(intent.getStringExtra("tomtat").toString());
+            Glide.with(this).load(anhtruyen).into(mimgStory);
 
 
         }
@@ -72,6 +81,10 @@ public class viewstory extends AppCompatActivity {
         mbtViewChapter = findViewById(R.id.btViewChapter);
         mtxtStrName=findViewById(R.id.txtStrName);
         mimgStory=findViewById(R.id.imgStory);
+        mtxtAlias=findViewById(R.id.txtAlias);
+        mtxtCate=findViewById(R.id.txtCate);
+        mtxtType=findViewById(R.id.txtType);
+        txtDescipt=findViewById(R.id.txtDescipt);
     }
 
     private void setclick() {

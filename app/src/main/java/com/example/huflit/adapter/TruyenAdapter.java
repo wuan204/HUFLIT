@@ -46,7 +46,7 @@ public class TruyenAdapter extends ArrayAdapter<Truyen> {
             TextView StrStatus = convertView.findViewById(R.id.txtStt);
             TextView StrView = convertView.findViewById(R.id.txtViewNumber);
             TextView StrLove = convertView.findViewById(R.id.txtLoveNumber);
-            TextView Descrip = convertView.findViewById(R.id.editTextTextMultiLine);
+            TextView Descrip = convertView.findViewById(R.id.txtDescipt);
             ImageView StrImage = convertView.findViewById(R.id.imgStory);
 
 
