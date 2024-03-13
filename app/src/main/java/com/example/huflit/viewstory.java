@@ -2,6 +2,7 @@ package com.example.huflit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class viewstory extends AppCompatActivity {
     private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt,mimgStory;
 
     private Button mbtViewCmt, mbtRead, mbtViewChapter;
-    TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt,mtxtStt;
+    TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt,mtxtStt,mview,mtxtLoveNumber;
     private String StrID;
     private RequestQueue requestQueue;
 
@@ -51,6 +52,9 @@ public class viewstory extends AppCompatActivity {
             mtxtType.setText(intent.getStringExtra("theloai").toString());
             txtDescipt.setText(intent.getStringExtra("tomtat").toString());
             mtxtStt.setText(intent.getStringExtra("trangthai").toString());
+            mview.setText(String.valueOf(intent.getIntExtra("view",0)));
+            mtxtLoveNumber.setText(String.valueOf(intent.getIntExtra("love",0)));
+
             Glide.with(this).load(anhtruyen).into(mimgStory);
 
         }
@@ -86,6 +90,8 @@ public class viewstory extends AppCompatActivity {
         mtxtType=findViewById(R.id.txtType);
         txtDescipt=findViewById(R.id.txtDescipt);
         mtxtStt=findViewById(R.id.txtStt);
+        mview = findViewById(R.id.txtViewNumber);
+        mtxtLoveNumber=findViewById(R.id.txtLoveNumber);
     }
 
     private void setclick() {

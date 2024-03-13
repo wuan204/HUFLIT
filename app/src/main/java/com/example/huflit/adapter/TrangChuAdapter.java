@@ -23,7 +23,7 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
     private Context mContext;
     private ArrayList<Truyen_tranh> mDataSet;
 
-    public TrangChuAdapter(Context context, ArrayList<Truyen_tranh> dataSet) {
+        public TrangChuAdapter(Context context, ArrayList<Truyen_tranh> dataSet) {
         this.mContext = context;
         this.mDataSet = dataSet;
     }
@@ -53,6 +53,8 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
                 String capnhat =truyenTranh.getCapnhat();
                 String theloai=truyenTranh.getTheloai();
                 String status=truyenTranh.getStatus();
+                int view = truyenTranh.getView();
+
                 // Chuyển sang activity viewstory
                 Intent intent = new Intent(mContext, viewstory.class);
                 // truyền tên truyện và tên chương
@@ -64,6 +66,9 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
                 intent.putExtra("tomtat",tomat);
                 intent.putExtra("capnhat",capnhat);
                 intent.putExtra("trangthai",status);
+                intent.putExtra(("view"),view);
+
+
                 mContext.startActivity(intent);
             }
         });

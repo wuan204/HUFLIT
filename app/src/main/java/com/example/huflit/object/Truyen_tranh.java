@@ -5,8 +5,8 @@ import org.json.JSONObject;
 
 import java.util.jar.JarException;
 
-public class Truyen_tranh {
-    private  String tenTruyen,linkAnh,alias,danhmuc,tomtat,capnhat,theloai,status;
+public class Truyen_tranh extends Truyen {
+    private  String tenTruyen,linkAnh,alias,danhmuc,tomtat,capnhat,theloai,status,content,tenchap;
     private int view,love;
     private  double rating;
 
@@ -24,6 +24,7 @@ public class Truyen_tranh {
         theloai= o.getString("type");
         rating=o.getDouble("rating");
         status=o.getString("status");
+
     }
 
     public Truyen_tranh(String tenTruyen, String linkAnh, String alias, String danhmuc, String tomtat, String capnhat, String theloai, int view, int love, double rating, String status) {
@@ -38,7 +39,10 @@ public class Truyen_tranh {
         this.love = love;
         this.rating = rating;
         this.status=status;
+
     }
+
+
 
     public String getStatus() {
         return status;
@@ -126,5 +130,13 @@ public class Truyen_tranh {
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    public String getTenchap() {
+        return tenchap;
+    }
+
+    public String getContent() {
+        return content;
     }
 }

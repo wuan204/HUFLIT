@@ -28,7 +28,7 @@ public class APITruyenVe {
         protected Void doInBackground(Void... voids) {
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("https://huf-android.000webhostapp.com/deTail.php?StrID="+StrID)
+                    .url("https://huf-android.000webhostapp.com/noiDung.php?StrID="+StrID)
                     .build();
             data = null;
             try

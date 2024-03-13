@@ -27,7 +27,7 @@ public class
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 //.url("https://api.jsonserve.com/JdMKAx")
-                .url("https://huf-android.000webhostapp.com/layTruyen.php?StrID=" + StrID)
+                .url("https://huf-android.000webhostapp.com/layTruyen.php")
                 .build();
         data = null;
         try {
