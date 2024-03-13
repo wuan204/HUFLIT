@@ -16,6 +16,9 @@
         android:theme="@style/Theme.HUFLIT"
         tools:targetApi="31">
         <activity
+            android:name=".QLyDanhMuc"
+            android:exported="false" />
+        <activity
             android:name=".categorymanager"
             android:exported="false" />
         <activity
