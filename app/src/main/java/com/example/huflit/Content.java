@@ -12,8 +12,20 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.huflit.adapter.NoiDungAdapter;
+import com.example.huflit.item.StoryFull;
+import com.example.huflit.object.NoiDung;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -21,7 +33,10 @@ public class Content extends AppCompatActivity {
     ImageView imgBack, imgMenu2;
     TextView txtTenChapter, txtConTent;
 
-    private  RequestQueue requestQueue;
+    RequestQueue requestQueue;
+    String StrID;
+    NoiDungAdapter noiDungAdapter;
+ArrayList<NoiDung> arrayList;
 
 
     @SuppressLint("MissingInflatedId")
@@ -32,18 +47,44 @@ public class Content extends AppCompatActivity {
 
         anhXa();
         setClick();
-        requestQueue = Volley.newRequestQueue(this);
 
-        // Nhận dữ liệu từ Intent
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String content = extras.getString("conTent");
-            String chapter = extras.getString("tenChap");
-            txtConTent.setText(content);
-            txtTenChapter.setText(chapter);
-        }
+        arrayList=new ArrayList<>();
+
+        requestQueue= Volley.newRequestQueue(this);
+        String url = "https://huf-android.000webhostapp.com/noiDung.php" ;
+        StringRequest request = new StringRequest(Request.Method.GET, url, // Truyền URL vào constructor
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray array = new JSONArray(response);
+                            if (array.length() > 0) {
+                                JSONObject o = array.getJSONObject(0);
+                                String chtName = o.getString("ChtName");
+                                String content = o.getString("Content");
+
+                                // Đặt dữ liệu đã lấy được vào các TextViews
+                                txtTenChapter.setText(chtName);
+                                txtConTent.setText(content);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Xử lý lỗi
+                    }
+                });
+        requestQueue.add(request);
+////
+
 
     }
+
+
 
     private void setClick() {
         imgBack.setOnClickListener(new View.OnClickListener() {
