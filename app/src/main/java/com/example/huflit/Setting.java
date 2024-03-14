@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.huflit.Confirm_LogOut;
+import com.example.huflit.adapter.DanhMucQLyAdapter;
 
 public class Setting extends AppCompatActivity implements Confirm_LogOut.ConfirmLogoutListener {
 
@@ -25,7 +26,6 @@ public class Setting extends AppCompatActivity implements Confirm_LogOut.Confirm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
         txtLogOut = findViewById(R.id.txtLogOut);
         imgBack = findViewById(R.id.imgBack);
         imgnext = findViewById(R.id.imgnext);
@@ -34,7 +34,7 @@ public class Setting extends AppCompatActivity implements Confirm_LogOut.Confirm
         btntest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Setting.this,categorymanager.class);
+                Intent i=new Intent(Setting.this, QLyDanhMuc.class);
                 startActivity(i);
             }
         });
