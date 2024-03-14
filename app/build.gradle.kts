@@ -1,3 +1,4 @@
+import java.nio.file.Paths;
 plugins {
     id("com.android.application")
 }
@@ -5,6 +6,7 @@ plugins {
 android {
     namespace = "com.example.huflit"
     compileSdk = 34
+
 
     defaultConfig {
         applicationId = "com.example.huflit"
@@ -15,6 +17,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    val sdkDir = System.getenv("ANDROID_HOME") ?: "C:/Users/YourUsername/AppData/Local/Android/Sdk"
+    val sdkDirPath = Paths.get(sdkDir)
 
     buildTypes {
         release {

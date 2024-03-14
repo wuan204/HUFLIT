@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".Register">
 
@@ -34,14 +34,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="280dp"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/edtName2"
             android:layout_width="250dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="100dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="User name"
             android:inputType="text"
@@ -51,50 +51,53 @@
             android:id="@+id/edtPassword2"
             android:layout_width="250dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="100dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Password"
             android:inputType="text" />
 
 
         <EditText
+            android:id="@+id/comfirmPass"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="Comfirm Password"
+            android:inputType="text" />
+
+        <EditText
             android:id="@+id/edtEmail"
             android:layout_width="250dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="100dp"
+            android:layout_gravity="center"
             android:ems="10"
             android:hint="Email"
             android:inputType="text" />
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btnSignin"
             android:layout_width="140dp"
             android:layout_height="62dp"
-            android:layout_marginTop="84dp"
+            android:layout_gravity="center"
             android:background="@drawable/buttonsignin"
-            android:text="Sign in"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Sign in" />
 
         <Button
             android:id="@+id/back"
             android:layout_width="140dp"
             android:layout_height="62dp"
-            android:layout_marginTop="28dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:background="@drawable/buttonsignin"
-            android:text="back in"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignin" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="back in" />
+    </LinearLayout>
 </LinearLayout>
