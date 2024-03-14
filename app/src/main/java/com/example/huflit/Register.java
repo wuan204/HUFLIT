@@ -46,7 +46,6 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 xulidangnhap();
             }
         });
@@ -121,7 +120,6 @@ public class Register extends AppCompatActivity {
                 params.put("tenuser", edtName2.getText().toString().trim());
                 params.put("password", Password1.getText().toString().trim());
                 params.put("email", edtEmail.getText().toString().trim());
-
                 return params;
             }
         };

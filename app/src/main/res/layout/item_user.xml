@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtnameuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/Blue"
+        android:text="Ten nguoi dung" />
+
+    <TextView
+        android:id="@+id/txtemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textColor="@color/Oliver"
+        android:layout_below="@id/txtnameuser"
+        android:text="user@gmail.com" />
+
+    <TextView
+        android:id="@+id/txtpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/txtnameuser"
+        android:layout_toRightOf="@id/txtemail"
+        android:text="passsword" />
+
+    <ImageView
+        android:id="@+id/btnwriteuser"
+        android:layout_width="50dp"
+        android:textSize="18dp"
+        android:layout_height="50dp"
+        android:background="@color/Lime"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/btndeleteuser"
+        android:src="@drawable/write" />
+
+    <ImageView
+        android:id="@+id/btndeleteuser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textSize="18dp"
+        android:background="@color/red"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/delete" />
+
+    <TextView
+        android:id="@+id/txtrole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="10dp"
+
+        android:layout_toRightOf="@id/txtnameuser"
+        android:text="Vai tro"
+        android:textSize="18dp" />
+</RelativeLayout>
