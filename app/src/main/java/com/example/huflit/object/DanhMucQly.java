@@ -1,5 +1,8 @@
 package com.example.huflit.object;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,5 +36,7 @@ public class DanhMucQly {
         id=o.getString("CateID");
 
     }
+
+
 }
 

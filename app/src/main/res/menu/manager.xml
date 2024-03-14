@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Qlcate"
+        android:icon="@drawable/menu2"
+        android:title="QL danh mục" />
+
+    <item android:id="@+id/Qluser"
+        android:title="Ql người dùng" />
+
+    <item android:id="@+id/QLstory"
+        android:title="QL truyện" />
+
+    <item android:id="@+id/Qlrating"
+        android:title="QL đánh giá" />
+</menu>
