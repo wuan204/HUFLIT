@@ -3,9 +3,9 @@ package com.example.huflit.item;
 public class StoryFull {
     private int id,view,love;
     private double rating;
-    private String name,img,alias,categoies,status,show,descipt,type;
+    private String name,img,alias,categoies,status,descipt,type,capnhat;
 
-    public StoryFull(int id, int view, int love, double rating, String name, String img, String alias, String categoies, String status, String show, String descipt, String type) {
+    public StoryFull(int id, int view, int love, double rating, String name, String img, String alias, String categoies, String status, String descipt, String type,String capnhat) {
         this.id = id;
         this.view = view;
         this.love = love;
@@ -15,9 +15,10 @@ public class StoryFull {
         this.alias = alias;
         this.categoies = categoies;
         this.status = status;
-        this.show = show;
+
         this.descipt = descipt;
         this.type = type;
+        this.capnhat=capnhat;
     }
     public int getId() {
         return id;
@@ -91,13 +92,7 @@ public class StoryFull {
         this.status = status;
     }
 
-    public String getShow() {
-        return show;
-    }
 
-    public void setShow(String show) {
-        this.show = show;
-    }
 
     public String getDescipt() {
         return descipt;
@@ -113,5 +108,13 @@ public class StoryFull {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCapnhat() {
+        return capnhat;
+    }
+
+    public void setCapnhat(String capnhat) {
+        this.capnhat = capnhat;
     }
 }

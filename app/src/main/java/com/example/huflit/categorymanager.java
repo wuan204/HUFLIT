@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -66,32 +67,33 @@ public class categorymanager extends AppCompatActivity {
         });
     }
     //
-    private void insertData(String url){
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(categorymanager.this,"Lỗi thêm!",Toast.LENGTH_LONG).show();
-
-                    }
-                }){
-            @Nullable
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> map=new HashMap<>();
-                map.put("namecate",medtName.getText().toString());
-                return super.getParams();
-            }
-        };
-        queue.add(stringRequest);
-    }
+//    private void insertData(String url){
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        StringRequest stringRequest=new StringRequest(Request.Method.POST, url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                    Toast.makeText(categorymanager.this,"Lỗi thêm!",Toast.LENGTH_LONG).show();
+//
+//                    }
+//                }){
+//            @Nullable
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String,String> map=new HashMap<>();
+//                map.put("namecate",medtName.getText().toString());
+//
+//                return super.getParams();
+//            }
+//        };
+//        queue.add(stringRequest);
+//    }
     private void getData(String url){
         RequestQueue queue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Request.Method.GET, url, null,

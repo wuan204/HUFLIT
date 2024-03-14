@@ -41,7 +41,7 @@
 //
 //    @Override
 //    public void onBindViewHolder(@NonNull TruyenAdapter.ViewHolder holder, int position) {
-//        Truyen truyen = ct.get(position);
+//      //  Truyen truyen = ct.get(position);
 //
 //    }
 //
@@ -52,7 +52,6 @@
 //
 //    public class ViewHolder extends RecyclerView.ViewHolder {
 //        public ViewHolder(View view) {
-//            super();
 //
 //        }
 //    }

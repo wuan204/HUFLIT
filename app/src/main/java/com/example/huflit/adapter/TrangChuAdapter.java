@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.huflit.R;
+import com.example.huflit.item.StoryFull;
 import com.example.huflit.object.Truyen_tranh;
 import com.example.huflit.viewstory;
 
@@ -21,9 +22,9 @@ import java.util.ArrayList;
 public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHolder> {
 
     private Context mContext;
-    private ArrayList<Truyen_tranh> mDataSet;
+    private ArrayList<StoryFull> mDataSet;
 
-        public TrangChuAdapter(Context context, ArrayList<Truyen_tranh> dataSet) {
+        public TrangChuAdapter(Context context, ArrayList<StoryFull> dataSet) {
         this.mContext = context;
         this.mDataSet = dataSet;
     }
@@ -37,7 +38,7 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Truyen_tranh truyenTranh = mDataSet.get(position);
+        StoryFull truyenTranh = mDataSet.get(position);
         holder.bind(truyenTranh);
 
         // Xử lý sự kiện khi click vào item
@@ -45,13 +46,13 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 // Lấy tên truyện và tên chương từ đối tượng truyện
-                String tenTruyen = truyenTranh.getTenTruyen();
-                String anhTruyen= truyenTranh.getLinkAnh();
+                String tenTruyen = truyenTranh.getName();
+                String anhTruyen= truyenTranh.getImg();
                 String tacgia= truyenTranh.getAlias();
-                String danhmuc=truyenTranh.getDanhmuc();
-                String tomat=truyenTranh.getTomtat();;
+                String danhmuc=truyenTranh.getCategoies();
+                String tomat=truyenTranh.getDescipt();;
                 String capnhat =truyenTranh.getCapnhat();
-                String theloai=truyenTranh.getTheloai();
+                String theloai=truyenTranh.getType();
                 String status=truyenTranh.getStatus();
                 int view = truyenTranh.getView();
 
@@ -67,7 +68,6 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
                 intent.putExtra("capnhat",capnhat);
                 intent.putExtra("trangthai",status);
                 intent.putExtra(("view"),view);
-
 
                 mContext.startActivity(intent);
             }
@@ -88,9 +88,9 @@ public class TrangChuAdapter extends RecyclerView.Adapter<TrangChuAdapter.ViewHo
             tenTruyen = itemView.findViewById(R.id.tentruyentrangchu);
             bia = itemView.findViewById(R.id.anhbiatrangchu);
         }
-        public void bind(Truyen_tranh truyenTranh) {
-            tenTruyen.setText(truyenTranh.getTenTruyen());
-            Glide.with(mContext).load(truyenTranh.getLinkAnh()).into(bia);
+        public void bind(StoryFull truyenTranh) {
+            tenTruyen.setText(truyenTranh.getName());
+            Glide.with(mContext).load(truyenTranh.getImg()).into(bia);
         }
     }
 }
