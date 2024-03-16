@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "167087577051",
+    "project_id": "huflit-bcf72",
+    "storage_bucket": "huflit-bcf72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167087577051:android:869b6b75b306adf12fb9fe",
+        "android_client_info": {
+          "package_name": "com.example.huflit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMKwK-y-usCrhc0y7umXSbxzv5Ynw_lec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
