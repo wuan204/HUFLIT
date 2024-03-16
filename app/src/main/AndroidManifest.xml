@@ -22,6 +22,15 @@
             android:name=".ThemDmuc"
             android:exported="false" />
         <activity
+            android:name=".listChapter"
+            android:exported="false" />
+        <activity
+            android:name=".NguoiDungQly"
+            android:exported="false" />
+        <activity
+            android:name=".ThemDmuc"
+            android:exported="false" />
+        <activity
             android:name=".justatest"
             android:exported="false" />
         <activity

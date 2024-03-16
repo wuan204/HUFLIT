@@ -49,39 +49,49 @@ ArrayList<NoiDung> arrayList;
         setClick();
 
         arrayList=new ArrayList<>();
-
-        requestQueue= Volley.newRequestQueue(this);
-        String url = "https://huf-android.000webhostapp.com/noiDung.php" ;
-        StringRequest request = new StringRequest(Request.Method.GET, url, // Truyền URL vào constructor
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONArray array = new JSONArray(response);
-                            if (array.length() > 0) {
-                                JSONObject o = array.getJSONObject(0);
-                                String chtName = o.getString("ChtName");
-                                String content = o.getString("Content");
-
-                                // Đặt dữ liệu đã lấy được vào các TextViews
-                                txtTenChapter.setText(chtName);
-                                txtConTent.setText(content);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Xử lý lỗi
-                    }
-                });
-        requestQueue.add(request);
+        Intent i=getIntent();
+        if(i!=null){
+         String tenchuong=i.getStringExtra("name");
+            String noidung=i.getStringExtra("content");
+            txtTenChapter.setText(tenchuong);
+            txtConTent.setText(noidung);
+        }
+//        requestQueue= Volley.newRequestQueue(this);
+//        String url = "https://huf-android.000webhostapp.com/noiDung.php" ;
+//        StringRequest request = new StringRequest(Request.Method.GET, url, // Truyền URL vào constructor
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        try {
+//                            JSONArray array = new JSONArray(response);
+//                            if (array.length() > 0) {
+//                                JSONObject o = array.getJSONObject(0);
+//                                String chtName = o.getString("ChtName");
+//                                String content = o.getString("Content");
+//                                // Đặt dữ liệu đã lấy được vào các TextViews
+//                                txtTenChapter.setText(chtName);
+//                                txtConTent.setText(content);
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        // Xử lý lỗi
+//                    }
+//                });
+//        requestQueue.add(request);
 ////
 
+        imgMenu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
     }
 
 
