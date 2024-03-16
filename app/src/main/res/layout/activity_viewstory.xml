@@ -172,7 +172,7 @@
                     android:layout_height="match_parent"
                     android:text=""
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
             </LinearLayout>
 
             <LinearLayout
@@ -187,7 +187,7 @@
                     android:text="Số chương:"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
 
                 <TextView
                     android:id="@+id/txtChapterNumber"
@@ -195,7 +195,7 @@
                     android:layout_height="match_parent"
                     android:text=""
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
 
                 <TextView
                     android:id="@+id/txtChapter"
@@ -218,7 +218,7 @@
                     android:text="Trạng thái: "
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
 
                 <TextView
                     android:id="@+id/txtStt"
@@ -226,7 +226,7 @@
                     android:layout_height="match_parent"
                     android:text=""
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
 
                 <TextView
                     android:id="@+id/txtTimeUpdate"
@@ -235,7 +235,7 @@
                     android:layout_marginLeft="10dp"
                     android:text=""
                     android:textSize="14dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
             </LinearLayout>
 
             <LinearLayout
@@ -250,7 +250,7 @@
                     android:text="Lượt xem: "
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
 
                 <TextView
                     android:id="@+id/txtViewNumber"
@@ -258,15 +258,9 @@
                     android:layout_height="match_parent"
                     android:text=""
                     android:textSize="18dp"
-                    android:gravity="center"/>
+                    android:gravity=""/>
 
-                <TextView
-                    android:id="@+id/txtView"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:text=" lượt"
-                    android:textSize="18dp"
-                    android:gravity="center"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -289,17 +283,7 @@
                     android:layout_height="match_parent"
                     android:text=""
                     android:textSize="18dp"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:id="@+id/txtLove"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:text=" lượt"
-                    android:textSize="18dp"
-                    android:gravity="center"/>
-
-
+                    android:gravity=""/>
             </LinearLayout>
 
             <TextView

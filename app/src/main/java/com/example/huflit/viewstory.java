@@ -4,29 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
 public class viewstory extends AppCompatActivity {
     private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt,mimgStory;
-
+   public int id;
+RatingBar ratingBar;
     private Button mbtViewCmt, mbtRead, mbtViewChapter;
     TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt,mtxtStt,mview,mtxtLoveNumber;
-    private String StrID;
-    private RequestQueue requestQueue;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewstory);
 
-        requestQueue = Volley.newRequestQueue(this);
-     //   init();
         anhxa();
         setclick();
 
@@ -43,26 +41,14 @@ public class viewstory extends AppCompatActivity {
             mtxtType.setText(intent.getStringExtra("theloai").toString());
             txtDescipt.setText(intent.getStringExtra("tomtat").toString());
             mtxtStt.setText(intent.getStringExtra("trangthai").toString());
-            mview.setText(String.valueOf(intent.getIntExtra("view",0)));
-            mtxtLoveNumber.setText(String.valueOf(intent.getIntExtra("love",0)));
-
+            mview.setText(String.valueOf(intent.getIntExtra("view",0))+" lượt");
+            mtxtLoveNumber.setText(String.valueOf(intent.getIntExtra("love",0))+" lượt");
+            float rating=(float) intent.getDoubleExtra("rating",0);
+            ratingBar.setRating(rating);
             Glide.with(this).load(anhtruyen).into(mimgStory);
-
+            id=intent.getIntExtra("id",0);
         }
     }
-
-    private void init() {
-        Bundle b = getIntent().getBundleExtra("data");
-        if (b != null && b.containsKey("StrID")) {
-            StrID = b.getString("StrID");
-            // Tiếp tục xử lý dữ liệu...
-        } else {
-            // Xử lý trường hợp key "StrID" không tồn tại (nếu cần)
-        }
-    }
-
-
-
     private void anhxa() {
         // Initialize your UI components here
         mbtBack = findViewById(R.id.btBack);
@@ -83,6 +69,7 @@ public class viewstory extends AppCompatActivity {
         mtxtStt=findViewById(R.id.txtStt);
         mview = findViewById(R.id.txtViewNumber);
         mtxtLoveNumber=findViewById(R.id.txtLoveNumber);
+        ratingBar=findViewById(R.id.ratingView);
     }
 
     private void setclick() {
@@ -107,12 +94,15 @@ public class viewstory extends AppCompatActivity {
         mbtRead.setOnClickListener(v -> {
             // Handle Read button click
             Intent i = new Intent(viewstory.this, Content.class);
+
             startActivity(i);
         });
 
         mbtViewChapter.setOnClickListener(v -> {
-            // Handle View Chapter button click
-            // Implement your logic here
+      Intent i=new Intent(viewstory.this, listChapter.class);
+            i.putExtra("id",id);
+
+      startActivity(i);
         });
 
         mbtViewCmt.setOnClickListener(v -> {

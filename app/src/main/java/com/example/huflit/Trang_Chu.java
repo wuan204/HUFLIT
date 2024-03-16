@@ -50,9 +50,7 @@ public class Trang_Chu extends AppCompatActivity   {
         Search = findViewById(R.id.Search);
         TheLoai = findViewById(R.id.TheLoai);
         Menu = findViewById(R.id.Menu);
-
-        // Gọi API để lấy danh sách truyện
-//        new APILayTruyenVe(this).execute();
+        
         hoanthanhList=new ArrayList<>();
         queue= Volley.newRequestQueue(this);
         StringRequest request=new StringRequest(Request.Method.GET, urlgetitem,
@@ -79,7 +77,7 @@ public class Trang_Chu extends AppCompatActivity   {
                                 theloai= o.getString("type");
                                 rating = o.isNull("rating") ? 0.0 : o.getDouble("rating");
                                 status=o.getString("status");
-                        StoryFull item=new StoryFull(id,view,love,rating,tenTruyen,linkAnh,alias,danhmuc,status,tomtat,theloai,capnhat);
+                                 StoryFull item=new StoryFull(id,view,love,rating,tenTruyen,linkAnh,alias,danhmuc,status,tomtat,theloai,capnhat);
                                 hoanthanhList.add(item);
                                 hoanthanhAdapter.notifyDataSetChanged();
                             }
@@ -122,6 +120,7 @@ public class Trang_Chu extends AppCompatActivity   {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Trang_Chu.this, Trang_Chu.class);
+
                 startActivity(intent);
             }
         });
@@ -207,97 +206,5 @@ public class Trang_Chu extends AppCompatActivity   {
         grvxemnhieu.setAdapter(xemnhieuAdapter);
     }
 
-//    @Override
-//    public void batDau() {
-//        // Hiển thị thông báo hoặc quá trình bắt đầu lấy dữ liệu
-//    }
-//
-//    @Override
-//    public void ketThuc(String data) {
-//        // Xử lý dữ liệu trả về từ API
-//        Log.d("TrangChu", "Dữ liệu từ API: " + data);
-//
-//            //hoanthanh
-//            try {
-//                hoanthanhList.clear();
-//                JSONArray arrhoanthanh = new JSONArray(data);
-//                for (int i = 0; i < arrhoanthanh.length(); i++) {
-//                    JSONObject o = arrhoanthanh.getJSONObject(i);
-//                    Truyen_tranh truyenTranh = new Truyen_tranh(o);
-//                    hoanthanhList.add(truyenTranh);
-//                    Log.d("TrangChu", "Thêm truyện vào danh sách: " + truyenTranh.getTenTruyen());
-//                }
-//
-//                // Sắp xếp danh sách ngẫu nhiên
-//                Collections.shuffle(hoanthanhList);
-//                // Đặt adapter cho RecyclerView
-//                TrangChuAdapter adapter = new TrangChuAdapter(this, hoanthanhList);
-//                grvhoanthanh.setAdapter(adapter);
-//                adapter.notifyDataSetChanged();
-//                Log.d("TrangChu", "Đã gán Adapter cho RecyclerView");
-//            } catch (JSONException | JarException e) {
-//                Toast.makeText(this,"Loi roi",Toast.LENGTH_LONG).show();
-//                // Xử lý khi có lỗi xảy ra
-//
-//        }
-//
-//
-//        //moi nhat
-//        try {
-//            dexuatList.clear();
-//            JSONArray arrdexuat = new JSONArray(data);
-//            for (int i = 0; i < arrdexuat.length(); i++) {
-//                JSONObject o = arrdexuat.getJSONObject(i);
-//                dexuatList.add(new Truyen_tranh(o));
-//            }
-//
-//            // Sắp xếp danh sách ngẫu nhiên
-//            Collections.shuffle(dexuatList);
-//
-//            // Đặt adapter cho RecyclerView
-//            TrangChuAdapter adapter = new TrangChuAdapter(this, dexuatList);
-//            grvdexuat.setAdapter(adapter);
-//        } catch (JSONException | JarException e) {
-//            // Xử lý khi có lỗi xảy ra
-//        }
-//            //xemnhieu
-//
-//            try {
-//                xemnhieuList.clear();
-//                JSONArray arrxemnhieu = new JSONArray(data);
-//                for (int i = 0; i < arrxemnhieu.length(); i++) {
-//                    JSONObject o = arrxemnhieu.getJSONObject(i);
-//                    xemnhieuList.add(new Truyen_tranh(o));
-//                }
-//                // Sắp xếp danh sách ngẫu nhiên
-//                Collections.shuffle(xemnhieuList);
-//
-//                // Đặt adapter cho RecyclerView
-//                TrangChuAdapter adapter = new TrangChuAdapter(this, xemnhieuList);
-//                grvxemnhieu.setAdapter(adapter);
-//            } catch (JSONException | JarException e) {
-//                // Xử lý khi có lỗi xảy ra
-//            }
-//                //de xuat
-//                try {
-//                    moinhatList.clear();
-//                    JSONArray arrmoinhat = new JSONArray(data);
-//                    for (int i = 0; i < arrmoinhat.length(); i++) {
-//                        JSONObject o = arrmoinhat.getJSONObject(i);
-//                        moinhatList.add(new Truyen_tranh(o));
-//                    }
-//                    // Sắp xếp danh sách ngẫu nhiên
-//                    Collections.shuffle(moinhatList);
-//                    // Đặt adapter cho RecyclerView
-//                    TrangChuAdapter adapter = new TrangChuAdapter(this, moinhatList);
-//                    grvmoinhat.setAdapter(adapter);
-//                } catch (JSONException | JarException e) {
-//                    // Xử lý khi có lỗi xảy ra
-//                }
-//            }
 
-//    @Override
-//    public void biLoi() {
-//        // Xử lý khi có lỗi xảy ra trong quá trình lấy dữ liệu từ API
-//    }
 }

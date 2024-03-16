@@ -6,8 +6,9 @@
     import java.util.jar.JarException;
 
     public class Truyen_tranh   {
+
         private  String tenTruyen,linkAnh,alias,danhmuc,tomtat,capnhat,theloai,status,content,tenchap;
-        private int view,love;
+        private int view,love,id;
         private  double rating;
 
         public Truyen_tranh(){
@@ -26,7 +27,7 @@
             status=o.getString("status");
         }
 
-        public Truyen_tranh(String tenTruyen, String linkAnh, String alias, String danhmuc, String tomtat, String capnhat, String theloai,  int view, int love, double rating, String status) {
+        public Truyen_tranh(int id,String tenTruyen, String linkAnh, String alias, String danhmuc, String tomtat, String capnhat, String theloai,  int view, int love, double rating, String status) {
             this.tenTruyen = tenTruyen;
             this.linkAnh = linkAnh;
             this.alias = alias;
@@ -38,8 +39,17 @@
             this.love = love;
             this.rating = rating;
             this.status=status;
-
+this.id=id;
         }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
         public String getStatus() {
             return status;
         }
