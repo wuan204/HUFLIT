@@ -16,7 +16,10 @@
         android:theme="@style/Theme.HUFLIT"
         tools:targetApi="31">
         <activity
-            android:name=".listChapter"
+            android:name=".viewCmt"
+            android:exported="false" />
+        <activity
+            android:name=".viewChapter"
             android:exported="false" />
         <activity
             android:name=".NguoiDungQly"

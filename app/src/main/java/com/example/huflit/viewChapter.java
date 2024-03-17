@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class listChapter extends AppCompatActivity {
+public class viewChapter extends AppCompatActivity {
     ListView listView;
     ShowListChapterAdapter adapter;
     ArrayList<Chapter> mylist;
@@ -43,8 +43,6 @@ public class listChapter extends AppCompatActivity {
         if(i!=null){
 
           int  id=i.getIntExtra("id",0);
-            String test= ""+id;
-            Toast.makeText(this,test,Toast.LENGTH_LONG).show();
             urlgetchap="https://huf-android.000webhostapp.com/getChapter.php?StrID="+id;
             getchap(urlgetchap);
         }
@@ -81,7 +79,7 @@ public class listChapter extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(listChapter.this, "Lỗi khi nhận dữ liệu từ server", Toast.LENGTH_SHORT).show();
+                Toast.makeText(viewChapter.this, "Lỗi khi nhận dữ liệu từ server", Toast.LENGTH_SHORT).show();
 
             }
         });

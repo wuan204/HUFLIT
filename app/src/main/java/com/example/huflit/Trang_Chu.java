@@ -21,6 +21,7 @@ import com.example.huflit.adapter.TrangChuAdapter;
 import com.example.huflit.api.APILayTruyenVe;
 import com.example.huflit.interfaces.LayTruyenVe;
 import com.example.huflit.item.StoryFull;
+import com.example.huflit.item.itemTrangchu;
 import com.example.huflit.object.Truyen_tranh;
 
 import org.json.JSONArray;
@@ -38,9 +39,9 @@ public class Trang_Chu extends AppCompatActivity   {
     RecyclerView grvhoanthanh, grvdexuat, grvmoinhat, grvxemnhieu;
 
     TrangChuAdapter hoanthanhAdapter, moinhatAdapter, dexuatAdapter, xemnhieuAdapter;
-    ArrayList<StoryFull> hoanthanhList, moinhatList, dexuatList, xemnhieuList;
+    ArrayList<itemTrangchu> hoanthanhList, moinhatList, dexuatList, xemnhieuList;
     RequestQueue queue;
-    String urlgetitem="https://huf-android.000webhostapp.com/layTruyen.php";
+    String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,22 +63,12 @@ public class Trang_Chu extends AppCompatActivity   {
                             JSONArray array=new JSONArray(response);
                             for(int i=0;i<array.length();i++){
                             JSONObject o=array.getJSONObject(i);
-                                String tenTruyen,linkAnh,alias,danhmuc,tomtat,capnhat,theloai,status;
-                                 int view,love,id;
-                                  double rating;
+                                String tenTruyen,linkAnh;
+                                 int id;
                                 id=o.getInt("ID");
                                 tenTruyen = o.getString("tenTruyen");
                                 linkAnh = o.getString("linkAnh");
-                                alias=o.getString("alias");
-                                danhmuc=o.getString("danhMuc");
-                                tomtat=o.getString("tomTat");
-                                capnhat=o.getString("lastUpdate");
-                                view = o.isNull("view") ? 0 : o.getInt("view");
-                                love = o.isNull("love") ? 0 : o.getInt("love");
-                                theloai= o.getString("type");
-                                rating = o.isNull("rating") ? 0.0 : o.getDouble("rating");
-                                status=o.getString("status");
-                                 StoryFull item=new StoryFull(id,view,love,rating,tenTruyen,linkAnh,alias,danhmuc,status,tomtat,theloai,capnhat);
+                                itemTrangchu item=new itemTrangchu(id,tenTruyen,linkAnh);
                                 hoanthanhList.add(item);
                                 hoanthanhAdapter.notifyDataSetChanged();
                             }
