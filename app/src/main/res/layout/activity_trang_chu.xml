@@ -11,6 +11,8 @@
         android:id="@+id/thanhtieude"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -20,7 +22,8 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Trang Chủ"
-            android:textSize="20sp" />
+            android:textSize="30dp"
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <ScrollView
@@ -89,7 +92,7 @@
             <LinearLayout
                 android:id="@+id/thanhhoanthanh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 
@@ -100,6 +103,7 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="8dp"
                     android:text="Hoàn thành"
+                    android:textSize="20dp"
                     android:textAlignment="center"
                     android:textColor="@color/white" />
 
@@ -153,7 +157,7 @@
             <LinearLayout
                 android:id="@+id/thanhDexuat"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 
@@ -208,7 +212,7 @@
             <LinearLayout
                 android:id="@+id/thanhmoinhat"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 
@@ -218,6 +222,7 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="8dp"
                     android:text="Mới nhất"
+                    android:textSize="20dp"
                     android:textAlignment="center"
                     android:textColor="@color/white" />
 
@@ -259,7 +264,7 @@
             <LinearLayout
                 android:id="@+id/thanhxemnhieu"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 

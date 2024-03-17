@@ -64,6 +64,19 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!validateUsername() | !validatePassword()){
+
+                }
+                else{
+                    CheckUser();
+                }
+            }
+        });
+
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +113,37 @@ public class Login extends AppCompatActivity {
         }
     }
 
+
+        public void CheckUser() {
+            String userUserName = edtName.getText().toString().trim();
+            String userPassword = edtPassword.getText().toString().trim();
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+            Query checkUserDatabase = reference.orderByChild("username").equalTo(userUserName);
+            checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        edtName.setError(null);
+                        String passwordFromDB =  snapshot.child(userUserName).child("password").getValue(String.class);
+
+                        if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
+                            // Passwords match, proceed to next activity
+                            Intent intent = new Intent(Login.this, Trang_Chu.class);
+                            startActivity(intent);
+                            return;
+                        } else {
+                            // Password doesn't match
+                            edtPassword.setError("Invalid Credentials");
+                            edtPassword.requestFocus();
+                        }
+
+                    }else {
+                        edtName.setError("User does not exist");
+                        edtName.requestFocus();
+                    }
+                }
+
     private class JsonTask extends AsyncTask<String, Void, String> {
 
         @Override
@@ -111,6 +155,7 @@ public class Login extends AppCompatActivity {
             {
                 URL url = new URL(urls[0]);
                 urlConnection = (HttpURLConnection)url.openConnection();
+
 
                 InputStream inputStream = urlConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -134,6 +179,7 @@ public class Login extends AppCompatActivity {
             }
             return result;
         }
+
 
         @Override
         protected void onPostExecute(String result) {
@@ -166,6 +212,7 @@ public class Login extends AppCompatActivity {
     private void PrintToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
+
     public void openGoogleSignIn(){
         String googleSignIn = "http://accounts.google.com";
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(googleSignIn));
