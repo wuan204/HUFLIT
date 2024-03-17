@@ -10,22 +10,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#BF4444">
 
         <ImageView
             android:id="@+id/btbackComic"
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:src="@drawable/back"
-            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             />
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
             android:text="Tạo truyện mới" />
 
         <ImageView
@@ -33,15 +38,17 @@
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:src="@drawable/plus"
+
             android:layout_marginRight="10dp"
             />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="390dp"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,7 +87,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tiêu đề:"
-            android:textSize="18dp" />
+            android:textStyle="bold"
+            android:textSize="23dp" />
 
         <EditText
             android:id="@+id/txtnamestory"
@@ -99,7 +107,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="18dp"
+                android:textSize="23dp"
+                android:textStyle="bold"
                 android:text="Thể loại:" />
 
             <Button
@@ -121,8 +130,9 @@
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Loại truyện" />
+            android:textSize="23dp"
+            android:textStyle="bold"
+            android:text="Loại truyện:" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -136,6 +146,7 @@
                 android:layout_weight="1"
                 android:checked="true"
                 android:textSize="18dp"
+                android:textStyle="bold"
                 android:layout_height="match_parent" />
 
             <RadioButton
@@ -144,6 +155,7 @@
                 android:layout_height="wrap_content"
                 android:text="Truyện chữ"
                 android:textSize="18dp"
+                android:textStyle="bold"
                 android:layout_weight="1"/>
         </RadioGroup>
 
@@ -151,14 +163,15 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:textSize="23dp"
+            android:textStyle="bold"
             android:text="Giới thiệu:" />
 
         <EditText
             android:id="@+id/edtDescript"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
+
             android:textSize="18dp"
             android:gravity="start|top"
             android:inputType="textMultiLine" />

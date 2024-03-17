@@ -90,8 +90,6 @@ public class Login extends AppCompatActivity {
                 else{
                     CheckUser();
                 }
-                Intent i = new Intent(Login.this, Menu.class);
-                startActivity(i);
             }
         });
         btnGoogle.setOnClickListener(new View.OnClickListener() {
@@ -137,24 +135,20 @@ public class Login extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()) {
                         edtName.setError(null);
+                        String passwordFromDB =  snapshot.child(userUserName).child("password").getValue(String.class);
 
-                        // Loop through the dataSnapshot to find the correct user
-                        for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                            String passwordFromDB = childSnapshot.child("password").getValue(String.class);
-
-                            // Compare passwordFromDB with userPassword
-                            if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
-                                // Passwords match, proceed to next activity
-                                Intent intent = new Intent(Login.this, Trang_Chu.class);
-                                startActivity(intent);
-                                return;
-                            }
+                        if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
+                            // Passwords match, proceed to next activity
+                            Intent intent = new Intent(Login.this, Trang_Chu.class);
+                            startActivity(intent);
+                            return;
+                        } else {
+                            // Password doesn't match
+                            edtPassword.setError("Invalid Credentials");
+                            edtPassword.requestFocus();
                         }
-                        // Password doesn't match
-                        edtPassword.setError("Invalid Credentials");
-                        edtPassword.requestFocus();
-                    } else {
-                        // User does not exist
+
+                    }else {
                         edtName.setError("User does not exist");
                         edtName.requestFocus();
                     }
@@ -167,10 +161,6 @@ public class Login extends AppCompatActivity {
             });
         }
 
-
-    private void PrintToast(String message) {
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-    }
     public void openGoogleSignIn(){
         String googleSignIn = "http://accounts.google.com";
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(googleSignIn));
