@@ -1,64 +1,47 @@
 package com.example.huflit;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.CallableStatement;
 
 public class Login extends AppCompatActivity {
-    //khai bao cac bien o day
-    EditText edtName, edtPassword;
-    Button btnLogin,btnGoogle;
-    TextView txtForgot,txtRegister;
-    CheckBox cbRemember;
-    ImageView imgEye;
-    SharedPreferences preferences;
 
+    EditText Name, Password;
+    Button Login, btnGoogle;
+    TextView txtForgot, txtRegister;
+    ImageView imgEye;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //khai bao anh xa o day
-        edtName= findViewById(R.id.edtName);
-        edtPassword = findViewById(R.id.edtPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnGoogle = findViewById(R.id.btnGoogle);
-        txtForgot= findViewById(R.id.txtForgot);
-        txtRegister= findViewById(R.id.txtRegister);
-        cbRemember= findViewById(R.id.cbRemember);
-        imgEye= findViewById(R.id.imgEye);
-        preferences = getSharedPreferences("user_data", MODE_PRIVATE);
+        anhxa();
 
-
-
-        // xu li giao dien nguoi dung
-
-        edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
         imgEye.setImageResource(R.drawable.eye);
+
+        Login.setOnClickListener(v -> dieukienlogin());
+
         imgEye.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,11 +49,11 @@ public class Login extends AppCompatActivity {
             }
 
             private void togglePasswordVisibility() {
-                if(edtPassword.getTransformationMethod()== PasswordTransformationMethod.getInstance()){
-                    edtPassword.setTransformationMethod(null);
+                if(Password.getTransformationMethod()== PasswordTransformationMethod.getInstance()){
+                    Password.setTransformationMethod(null);
                     imgEye.setImageResource(R.drawable.eye);
                 }else{
-                    edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     imgEye.setImageResource(R.drawable.eye);}
             }
         });
@@ -81,6 +64,7 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +76,7 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,28 +86,33 @@ public class Login extends AppCompatActivity {
         });
 
     }
-    public Boolean validateUsername(){
-        String val = edtName.getText().toString();
-        if(val.isEmpty()){
-            edtName.setError("UserName cannot be empty");
-            return false;
 
-        }else {
-            edtName.setError(null);
-            return true;
+    private void togglePasswordVisibility() {
+        if (Password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
+            Password.setTransformationMethod(null);
+            imgEye.setImageResource(R.drawable.eye);
+        }
+        else
+        {
+            Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            imgEye.setImageResource(R.drawable.eye);
         }
     }
-    public Boolean validatePassword(){
-        String val = edtPassword.getText().toString();
-        if(val.isEmpty()){
-            edtPassword.setError("Password cannot be empty");
-            return false;
 
-        }else {
-            edtPassword.setError(null);
-            return true;
+    public void dieukienlogin() {
+        String username = Name.getText().toString().trim();
+        String password = Password.getText().toString().trim();
+
+        if (username.isEmpty() || password.isEmpty())
+        {
+            nhacnhonhapdu();
+        }
+        else
+        {
+            new JsonTask().execute("https://huf-android.000webhostapp.com/dangnhap.php?username=" + username + "&password=" + password);
         }
     }
+
 
         public void CheckUser() {
             String userUserName = edtName.getText().toString().trim();
@@ -154,12 +144,74 @@ public class Login extends AppCompatActivity {
                     }
                 }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    // Handle cancellation
+    private class JsonTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+            String result = "";
+            HttpURLConnection urlConnection = null;
+
+            try
+            {
+                URL url = new URL(urls[0]);
+                urlConnection = (HttpURLConnection)url.openConnection();
+
+
+                InputStream inputStream = urlConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String line;
+
+                while ((line = bufferedReader.readLine()) != null)
+                {
+                    result += line;
                 }
-            });
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            finally
+            {
+                if (urlConnection != null)
+                {
+                    urlConnection.disconnect();
+                }
+            }
+            return result;
         }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                boolean loginSuccess = jsonObject.getBoolean("loginSuccess");
+
+                if (loginSuccess)
+                {
+                    dangnhapthanhcong();
+
+                    Intent i = new Intent(Login.this, Menu.class);
+                    startActivity(i);
+                    Password.setText("");
+                }
+                else
+                {
+                    dangnhapthatbai();
+
+                    Password.setText("");
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void PrintToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+    }
 
     public void openGoogleSignIn(){
         String googleSignIn = "http://accounts.google.com";
@@ -172,4 +224,30 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    //loi bao
+    public void nhacnhonhapdu() {
+        Toast.makeText(Login.this, "Vui lòng nhập đủ thông tin", Toast.LENGTH_LONG).show();
+    }
+
+    public  void  dangnhapthanhcong()
+    {
+        Toast.makeText(Login.this,"đăng nhập thành công",Toast.LENGTH_LONG).show();
+    }
+
+    public  void  dangnhapthatbai()
+    {
+        Toast.makeText(Login.this,"tài khoản hoặc mật khẩu không chính xác",Toast.LENGTH_LONG).show();
+    }
+
+    //anh xa
+
+    public void anhxa() {
+        Name = findViewById(R.id.edtName);
+        Password = findViewById(R.id.edtPassword);
+        Login = findViewById(R.id.btnLogin);
+        btnGoogle = findViewById(R.id.btnGoogle);
+        txtForgot = findViewById(R.id.txtForgot);
+        txtRegister = findViewById(R.id.txtRegister);
+        imgEye = findViewById(R.id.imgEye);
+    }
 }

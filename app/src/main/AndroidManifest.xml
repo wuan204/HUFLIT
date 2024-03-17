@@ -22,7 +22,10 @@
             android:name=".ThemDmuc"
             android:exported="false" />
         <activity
-            android:name=".listChapter"
+            android:name=".viewCmt"
+            android:exported="false" />
+        <activity
+            android:name=".viewChapter"
             android:exported="false" />
         <activity
             android:name=".NguoiDungQly"

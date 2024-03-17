@@ -1,11 +1,11 @@
 package com.example.huflit.item;
 
 public class StoryFull {
-    private int id,view,love;
+    private int id,view,love,num;
     private double rating;
     private String name,img,alias,categoies,status,descipt,type,capnhat;
 
-    public StoryFull(int id, int view, int love, double rating, String name, String img, String alias, String categoies, String status, String descipt, String type,String capnhat) {
+    public StoryFull(int id, int view, int love, double rating, String name, String img, String alias, String categoies, String status, String descipt, String type,String capnhat,int num) {
         this.id = id;
         this.view = view;
         this.love = love;
@@ -15,10 +15,10 @@ public class StoryFull {
         this.alias = alias;
         this.categoies = categoies;
         this.status = status;
-
         this.descipt = descipt;
         this.type = type;
         this.capnhat=capnhat;
+        this.num=num;
     }
     public int getId() {
         return id;
@@ -66,6 +66,14 @@ public class StoryFull {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 
     public String getAlias() {
