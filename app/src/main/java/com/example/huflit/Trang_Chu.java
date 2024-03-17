@@ -41,7 +41,11 @@ public class Trang_Chu extends AppCompatActivity   {
     TrangChuAdapter hoanthanhAdapter, moinhatAdapter, dexuatAdapter, xemnhieuAdapter;
     ArrayList<itemTrangchu> hoanthanhList, moinhatList, dexuatList, xemnhieuList;
     RequestQueue queue;
+
     String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
+
+    String urlgetitem="https://huf-android.000webhostapp.com/layTruyen.php" ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

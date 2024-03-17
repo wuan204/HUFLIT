@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/bgr"
     tools:context=".Register">
 
     <TextView
@@ -14,7 +15,8 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Chào mừng đến với HUFLIT"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor="@color/white"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +27,8 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="44dp"
-            android:src="@drawable/login"
+            android:src="@drawable/huflit"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,26 +38,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:textColor="@color/white">
 
         <EditText
             android:id="@+id/edtName2"
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:ems="10"
             android:hint="User name"
             android:inputType="text"
-            android:text="" />
+            android:text=""
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/edtPassword2"
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:ems="10"
             android:hint="Password"
-            android:inputType="text" />
+            android:textColor="@color/white"
+            android:inputType="text"
+            android:textColorHint="@color/white"/>
 
 
         <EditText
@@ -62,18 +68,19 @@
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:ems="10"
             android:hint="Comfirm Password"
-            android:inputType="text" />
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <EditText
             android:id="@+id/edtEmail"
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:ems="10"
             android:hint="Email"
-            android:inputType="text" />
+            android:textColor="@color/white"
+            android:inputType="text"
+            android:textColorHint="@color/white"/>
 
     </LinearLayout>
 
@@ -91,13 +98,13 @@
             android:background="@drawable/buttonsignin"
             android:text="Sign in" />
 
-        <Button
-            android:id="@+id/back"
-            android:layout_width="140dp"
-            android:layout_height="62dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/buttonsignin"
-            android:text="back in" />
+<!--        <Button-->
+<!--            android:id="@+id/back"-->
+<!--            android:layout_width="140dp"-->
+<!--            android:layout_height="62dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:background="@drawable/buttonsignin"-->
+<!--            android:text="back in" />-->
     </LinearLayout>
 </LinearLayout>

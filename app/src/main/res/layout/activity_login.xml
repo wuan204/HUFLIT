@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Login" >
+    tools:context=".Login"
+    android:background="@drawable/bgr">
 
     <TextView
         android:id="@+id/textView"
@@ -14,7 +15,8 @@
         android:text="Chào mừng đến với HUFLIT"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:textColor="@color/white"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +27,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="44dp"
-            android:src="@drawable/login"
+            android:src="@drawable/huflit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +56,9 @@
             android:ems="10"
             android:inputType="text"
             android:text=""
-            android:hint="User name"/>
+            android:hint="User name"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -77,7 +81,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType=""
-            android:hint="Password"/>
+            android:hint="Password"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"/>
 
         <ImageView
             android:id="@+id/imgEye"
@@ -91,43 +97,22 @@
     </LinearLayout>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <CheckBox
-            android:id="@+id/cbRemember"
-            android:layout_width="217dp"
-            android:layout_height="wrap_content"
-            android:text="Remember me"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.18"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="29dp" />
-
-        <TextView
-            android:id="@+id/txtForgot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
-            android:text="Forgot password?"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cbRemember"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="341dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtRegister"
             android:layout_width="119dp"
             android:layout_height="43dp"
-            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Register"
+            android:textColor="@color/white"
             android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cbRemember" />
+            />
 
         <Button
             android:id="@+id/btnLogin"
@@ -136,37 +121,29 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/buttonlogin"
             android:text="Login"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtRegister" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnGoogle"
             android:layout_width="124dp"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/buttongoogle"
             android:paddingLeft="40dp"
             android:text="Google"
             android:textColor="@color/black"
             app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+           />
 
         <ImageView
             android:id="@+id/imgGoogle"
-            android:layout_width="30dp"
+            android:layout_width="28dp"
             android:layout_height="30dp"
-            android:layout_marginTop="28dp"
-            android:src="@drawable/google"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.404"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+            android:layout_marginTop="-40dp"
+            android:layout_marginLeft="-40dp"
+            android:src="@drawable/google"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </LinearLayout>

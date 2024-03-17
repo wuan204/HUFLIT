@@ -1,5 +1,6 @@
 package com.example.huflit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.net.URL;
 import java.sql.CallableStatement;
 
@@ -28,7 +36,6 @@ public class Login extends AppCompatActivity {
     CheckBox cbRemember;
     ImageView imgEye;
     SharedPreferences preferences;
-    private String firstPassword = "";
 
 
     @Override
@@ -77,6 +84,12 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!validateUsername() | !validatePassword()){
+
+                }
+                else{
+                    CheckUser();
+                }
                 Intent i = new Intent(Login.this, Menu.class);
                 startActivity(i);
             }
@@ -90,6 +103,71 @@ public class Login extends AppCompatActivity {
         });
 
     }
+    public Boolean validateUsername(){
+        String val = edtName.getText().toString();
+        if(val.isEmpty()){
+            edtName.setError("UserName cannot be empty");
+            return false;
+
+        }else {
+            edtName.setError(null);
+            return true;
+        }
+    }
+    public Boolean validatePassword(){
+        String val = edtPassword.getText().toString();
+        if(val.isEmpty()){
+            edtPassword.setError("Password cannot be empty");
+            return false;
+
+        }else {
+            edtPassword.setError(null);
+            return true;
+        }
+    }
+
+        public void CheckUser() {
+            String userUserName = edtName.getText().toString().trim();
+            String userPassword = edtPassword.getText().toString().trim();
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+            Query checkUserDatabase = reference.orderByChild("username").equalTo(userUserName);
+            checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        edtName.setError(null);
+
+                        // Loop through the dataSnapshot to find the correct user
+                        for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                            String passwordFromDB = childSnapshot.child("password").getValue(String.class);
+
+                            // Compare passwordFromDB with userPassword
+                            if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
+                                // Passwords match, proceed to next activity
+                                Intent intent = new Intent(Login.this, Trang_Chu.class);
+                                startActivity(intent);
+                                return;
+                            }
+                        }
+                        // Password doesn't match
+                        edtPassword.setError("Invalid Credentials");
+                        edtPassword.requestFocus();
+                    } else {
+                        // User does not exist
+                        edtName.setError("User does not exist");
+                        edtName.requestFocus();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle cancellation
+                }
+            });
+        }
+
+
     private void PrintToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
