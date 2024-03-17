@@ -44,7 +44,7 @@ public class Trang_Chu extends AppCompatActivity   {
 
     String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
 
-    String urlgetitem="https://huf-android.000webhostapp.com/layTruyen.php" ;
+    //String urlgetitem="https://huf-android.000webhostapp.com/layTruyen.php" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

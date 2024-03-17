@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        anhxa();
+
 
         Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
         imgEye.setImageResource(R.drawable.eye);
@@ -65,22 +65,11 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!validateUsername() | !validatePassword()){
 
-                }
-                else{
-                    CheckUser();
-                }
-            }
-        });
 
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openGoogleSignIn();
 
             }
         });
@@ -112,38 +101,6 @@ public class Login extends AppCompatActivity {
             new JsonTask().execute("https://huf-android.000webhostapp.com/dangnhap.php?username=" + username + "&password=" + password);
         }
     }
-
-
-        public void CheckUser() {
-            String userUserName = edtName.getText().toString().trim();
-            String userPassword = edtPassword.getText().toString().trim();
-
-            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-            Query checkUserDatabase = reference.orderByChild("username").equalTo(userUserName);
-            checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.exists()) {
-                        edtName.setError(null);
-                        String passwordFromDB =  snapshot.child(userUserName).child("password").getValue(String.class);
-
-                        if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
-                            // Passwords match, proceed to next activity
-                            Intent intent = new Intent(Login.this, Trang_Chu.class);
-                            startActivity(intent);
-                            return;
-                        } else {
-                            // Password doesn't match
-                            edtPassword.setError("Invalid Credentials");
-                            edtPassword.requestFocus();
-                        }
-
-                    }else {
-                        edtName.setError("User does not exist");
-                        edtName.requestFocus();
-                    }
-                }
-
     private class JsonTask extends AsyncTask<String, Void, String> {
 
         @Override

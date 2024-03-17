@@ -28,8 +28,8 @@ public class Register extends AppCompatActivity {
 
     EditText edtName2, Password1, edtEmail, Password2;
     Button btnsignin;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+//    FirebaseDatabase firebaseDatabase;
+//    DatabaseReference databaseReference;
 
 
     @Override
@@ -42,21 +42,19 @@ public class Register extends AppCompatActivity {
         btnsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseDatabase = FirebaseDatabase.getInstance();
-                databaseReference = firebaseDatabase.getReference();
-
-
-                String username = edtName2.getText().toString();
-                String password = Password1.getText().toString().trim();
-                String confirmpassword = Password2.getText().toString().trim();
-                String email = edtEmail.getText().toString();
-
-                HelperClas helperClas = new HelperClas(username,email,confirmpassword,password);
-                databaseReference.child(username).setValue(helperClas);
-
-                Toast.makeText(Register.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Register.this, Login.class);
-                startActivity(intent);
+//                firebaseDatabase = FirebaseDatabase.getInstance();
+//                databaseReference = firebaseDatabase.getReference();
+//                String username = edtName2.getText().toString();
+//                String password = Password1.getText().toString().trim();
+//                String confirmpassword = Password2.getText().toString().trim();
+//                String email = edtEmail.getText().toString();
+//
+//                HelperClas helperClas = new HelperClas(username,email,confirmpassword,password);
+//                databaseReference.child(username).setValue(helperClas);
+//
+//                Toast.makeText(Register.this, "Đăng kí thành công", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(Register.this, Login.class);
+//                startActivity(intent);
 
             }
         });
