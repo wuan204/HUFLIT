@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/nxvbn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Thông tin người dùng"
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_marginTop="50dp">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <TextView
+               android:id="@+id/txName"
+               android:layout_width="100dp"
+               android:layout_height="30dp"
+               android:text="Name:" />
+
+           <TextView
+               android:id="@+id/tx_Name"
+               android:layout_width="280dp"
+               android:layout_height="30dp"
+               android:text="abc" />
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginTop="30dp">
+
+           <TextView
+               android:id="@+id/txEmail"
+               android:layout_width="100dp"
+               android:layout_height="30dp"
+               android:text="Email: " />
+
+           <TextView
+               android:id="@+id/tx_Email"
+               android:layout_width="280dp"
+               android:layout_height="30dp"
+               android:text="mail" />
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="30dp"
+           android:orientation="horizontal">
+
+           <TextView
+               android:id="@+id/txPass"
+               android:layout_width="100dp"
+               android:layout_height="30dp"
+               android:text="PassWord: " />
+
+           <TextView
+               android:id="@+id/tx_Pass"
+               android:layout_width="280dp"
+               android:layout_height="30dp"
+               android:text="pass" />
+       </LinearLayout>
+
+   </LinearLayout>
+
+</LinearLayout>

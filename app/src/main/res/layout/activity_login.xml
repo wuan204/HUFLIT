@@ -99,20 +99,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="341dp"
+        android:layout_height="288dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtRegister"
-            android:layout_width="119dp"
-            android:layout_height="43dp"
-            android:gravity="center"
-            android:text="Register"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            />
 
         <Button
             android:id="@+id/btnLogin"
@@ -121,27 +112,37 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/buttonlogin"
             android:text="Login"
+            android:textSize="20dp"
             app:backgroundTint="@null" />
 
-        <Button
-            android:id="@+id/btnGoogle"
-            android:layout_width="124dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/buttongoogle"
-            android:paddingLeft="40dp"
-            android:text="Google"
-            android:textColor="@color/black"
-            app:backgroundTint="@null"
-           />
+        <TextView
+            android:id="@+id/txtRegister"
+            android:layout_width="119dp"
+            android:layout_height="43dp"
+            android:gravity="center"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
-        <ImageView
-            android:id="@+id/imgGoogle"
-            android:layout_width="28dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="-40dp"
-            android:layout_marginLeft="-40dp"
-            android:src="@drawable/google"/>
+        <!--        <Button-->
+        <!--            android:id="@+id/btnGoogle"-->
+        <!--            android:layout_width="124dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="24dp"-->
+        <!--            android:background="@drawable/buttongoogle"-->
+        <!--            android:paddingLeft="40dp"-->
+        <!--            android:text="Google"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            app:backgroundTint="@null"-->
+        <!--           />-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgGoogle"-->
+        <!--            android:layout_width="28dp"-->
+        <!--            android:layout_height="30dp"-->
+        <!--            android:layout_marginTop="-40dp"-->
+        <!--            android:layout_marginLeft="-40dp"-->
+        <!--            android:src="@drawable/google"/>-->
 
 
     </LinearLayout>

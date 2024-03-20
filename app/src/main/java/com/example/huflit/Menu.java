@@ -17,6 +17,8 @@ public class Menu extends AppCompatActivity {
 
     Button btnTaiKhoan;
     ImageView imgSetting;
+    TextView txtTK;
+    private boolean isLoggedIn = false;
     LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
 
     @SuppressLint("MissingInflatedId")
@@ -45,6 +47,32 @@ public class Menu extends AppCompatActivity {
         ThemTruyen = findViewById(R.id.ThemTruyen);
         imgSetting = findViewById(R.id.imgSetting);
         LoginSignIn=findViewById(R.id.LoginSignIn);
+        txtTK = findViewById(R.id.txtTK);
+
+
+        TextView txtTK = findViewById(R.id.txtTK);
+        String username = getIntent().getStringExtra("username");
+
+        if(username != null && !username.isEmpty()) {
+            // Nếu đã đăng nhập, hiển thị tên người dùng
+            txtTK.setText(username);
+
+            // Gắn sự kiện lắng nghe để chuyển hướng đến trang profile khi người dùng click vào tên
+            txtTK.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Thực hiện chuyển hướng đến trang profile
+                    // Ví dụ:
+                    Intent intent = new Intent(Menu.this, Profile_User.class);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            // Nếu chưa đăng nhập, hiển thị "Đăng kí/ Đăng nhập"
+            txtTK.setText("Đăng kí/ Đăng nhập");
+        }
+
+
 
         imgSetting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,11 +190,24 @@ public class Menu extends AppCompatActivity {
         LoginSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Login.class);
-                startActivity(i);
+                // Kiểm tra trạng thái đăng nhập
+                if (isLoggedIn) {
+                    // Nếu đã đăng nhập, chuyển sang Activity Profile
+                    Intent i = new Intent(Menu.this, Profile_User.class);
+                    startActivity(i);
+                } else {
+                    // Nếu chưa đăng nhập, chuyển sang Activity đăng nhập
+                    Intent i = new Intent(Menu.this, Login.class);
+                    startActivity(i);
+                }
             }
         });
+
+
     }
+
+
+
     private void showCustomDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
@@ -199,4 +240,6 @@ public class Menu extends AppCompatActivity {
             }
         });
     }
+
+
 }

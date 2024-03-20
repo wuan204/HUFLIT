@@ -27,9 +27,10 @@ import java.net.URL;
 public class Login extends AppCompatActivity {
 
     EditText Name, Password;
-    Button Login, btnGoogle;
+    Button Login;
     TextView txtForgot, txtRegister;
     ImageView imgEye;
+    private boolean isLoggedIn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,16 +68,6 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-
-        btnGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
     }
 
     private void togglePasswordVisibility() {
@@ -104,6 +95,7 @@ public class Login extends AppCompatActivity {
             new JsonTask().execute("https://huf-android.000webhostapp.com/dangnhap.php?username=" + username + "&password=" + password);
         }
     }
+
     private class JsonTask extends AsyncTask<String, Void, String> {
 
         @Override
@@ -149,40 +141,37 @@ public class Login extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(result);
                 boolean loginSuccess = jsonObject.getBoolean("loginSuccess");
 
-                if (loginSuccess)
-                {
+                if (loginSuccess) {
                     dangnhapthanhcong();
-
-                    Intent i = new Intent(Login.this, Menu.class);
-                    startActivity(i);
-                    Password.setText("");
-                }
-                else
-                {
+                    String username = Name.getText().toString().trim(); // Lấy tên người dùng từ EditText
+                    isLoggedIn = true; // Đặt biến isLoggedIn thành true khi đăng nhập thành công
+                    startMenuActivity(username);
+                } else {
                     dangnhapthatbai();
-
                     Password.setText("");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
+
+
     }
 
     private void PrintToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
-    public void openGoogleSignIn(){
-        String googleSignIn = "http://accounts.google.com";
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(googleSignIn));
-        if(i.resolveActivity(getPackageManager()) != null){
-            startActivity(i);
-        }
-        else {
-            Toast.makeText(Login.this, "Không tìm thấy ứng dụng", Toast.LENGTH_LONG).show();
-        }
-    }
+//    public void openGoogleSignIn(){
+//        String googleSignIn = "http://accounts.google.com";
+//        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(googleSignIn));
+//        if(i.resolveActivity(getPackageManager()) != null){
+//            startActivity(i);
+//        }
+//        else {
+//            Toast.makeText(Login.this, "Không tìm thấy ứng dụng", Toast.LENGTH_LONG).show();
+//        }
+//    }
 
     //loi bao
     public void nhacnhonhapdu() {
@@ -198,6 +187,13 @@ public class Login extends AppCompatActivity {
     {
         Toast.makeText(Login.this,"tài khoản hoặc mật khẩu không chính xác",Toast.LENGTH_LONG).show();
     }
+    private void startMenuActivity(String username) {
+        Intent intent = new Intent(Login.this, Menu.class);
+        intent.putExtra("username", username);
+        startActivity(intent);
+        Password.setText("");
+
+    }
 
     //anh xa
 
@@ -205,7 +201,7 @@ public class Login extends AppCompatActivity {
         Name = findViewById(R.id.edtName);
         Password = findViewById(R.id.edtPassword);
         Login = findViewById(R.id.btnLogin);
-        btnGoogle = findViewById(R.id.btnGoogle);
+       // btnGoogle = findViewById(R.id.btnGoogle);
         txtForgot = findViewById(R.id.txtForgot);
         txtRegister = findViewById(R.id.txtRegister);
         imgEye = findViewById(R.id.imgEye);
