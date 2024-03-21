@@ -80,9 +80,15 @@ public class Register extends AppCompatActivity {
 
         }
     }
+//    private void addUser() {
+//        // Your existing code...
+//
+//        // Sau khi đăng ký thành công, truyền tên người dùng sang hoạt động Menu
+//        Intent intent = new Intent(Register.this, Menu.class);
+//        intent.putExtra("username", edtName2.getText().toString().trim());
+//        startActivity(intent);
+//    }
 
-
-    //lenh xu li add user
     private void addUser() {
         RequestQueue requestQueue = Volley.newRequestQueue(Register.this);
 
