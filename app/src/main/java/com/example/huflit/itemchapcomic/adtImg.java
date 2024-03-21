@@ -19,7 +19,8 @@ import com.example.huflit.itemfilter.Itemft;
 import java.util.ArrayList;
 
 
-public class adtImg extends BaseAdapter{ private Context mContext;
+public class adtImg extends BaseAdapter{
+    private Context mContext;
     private ArrayList<itemimg> mImageUri;
     static class ViewHolder {
         ImageView imageView;
@@ -53,15 +54,13 @@ public class adtImg extends BaseAdapter{ private Context mContext;
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = LayoutInflater.from(mContext);
             convertView = inflater.inflate(R.layout.grvimgchap, parent, false);
             holder=new ViewHolder();
             holder.imageView = (ImageView) convertView.findViewById(R.id.imgGrV);
             holder.btnXoa=(ImageView) convertView.findViewById(R.id.btDeleteimg) ;
             holder.imageView.setLayoutParams(new LinearLayout.LayoutParams(600,600));
-            holder.imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-
+//            holder.imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             convertView.setTag(holder);
         } else {
             holder=(ViewHolder) convertView.getTag();

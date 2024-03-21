@@ -186,6 +186,7 @@ RatingBar ratingBar;
         mbtViewChapter.setOnClickListener(v -> {
       Intent i=new Intent(viewstory.this, viewChapter.class);
             i.putExtra("id",id);
+            i.putExtra("type",mtxtType.getText().toString());
 
       startActivity(i);
         });

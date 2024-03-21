@@ -61,7 +61,7 @@
                 android:layout_width="170dp"
                 android:layout_height="250dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/category" />
+                android:src="@drawable/update" />
 
             <LinearLayout
                 android:layout_width="match_parent"

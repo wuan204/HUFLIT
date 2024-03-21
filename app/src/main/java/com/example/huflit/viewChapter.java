@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,6 +30,8 @@ public class viewChapter extends AppCompatActivity {
     ArrayList<Chapter> mylist;
 
     String urlgetchap;
+    int id;
+    String type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,19 +41,33 @@ public class viewChapter extends AppCompatActivity {
 
         adapter=new ShowListChapterAdapter(this,mylist,R.layout.item_chapter);
         listView.setAdapter(adapter);
-
-        //
         Intent i=getIntent();
         if(i!=null){
-
-          int  id=i.getIntExtra("id",0);
+          id=i.getIntExtra("id",0);
+          type=i.getStringExtra("type");
             urlgetchap="https://huf-android.000webhostapp.com/getChapter.php?StrID="+id;
             getchap(urlgetchap);
+
         }
         else {
-            Toast.makeText(this,"Không lấy được id truyện @@",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Không lấy được id truyện @@", Toast.LENGTH_LONG).show();
         }
-        //
+        Toast.makeText(this, type, Toast.LENGTH_SHORT).show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Chapter item=mylist.get(position);
+                int chapid=item.getId();
+                Intent intent;
+                String test="Truyện tranh";
+                if(type.equals(test))
+                {intent=new Intent(viewChapter.this, ContentIMG.class); }
+                else {intent=new Intent(viewChapter.this, Content.class); }
+                intent.putExtra("idchap",chapid);
+                startActivity(intent);
+                Toast.makeText(viewChapter.this,type,Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
@@ -66,10 +84,9 @@ public class viewChapter extends AppCompatActivity {
                                 int id=o.getInt("ID");
                                 int strid=o.getInt("strid");
                                 String name=o.getString("name");
-                                String content=o.getString("content");
-                            Chapter chapter=new Chapter(id,strid,name,content);
+                            Chapter chapter=new Chapter(id,strid,name);
                             mylist.add(chapter);
-                                adapter.notifyDataSetChanged();
+                            adapter.notifyDataSetChanged();
                             }
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
