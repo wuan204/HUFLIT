@@ -47,7 +47,6 @@ public class ShowUserAdapter extends ArrayAdapter<User> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
         if (userList != null && userList.size() > position) {
             User user = userList.get(position);
             viewHolder.txtName.setText(user.getName());
@@ -61,7 +60,6 @@ public class ShowUserAdapter extends ArrayAdapter<User> {
                 viewHolder.txtRole.setText("Admin");
             }
         }
-
         viewHolder.btnWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -52,7 +52,6 @@ dependencies {
     annotationProcessor ("androidx.room:room-compiler:2.4.0")
     implementation ("androidx.core:core:1.7.0")
     implementation ("com.android.volley:volley:1.2.1")
-    implementation("com.android.volley:volley:1.2.1")
     implementation("com.squareup.okhttp:okhttp:2.5.0")
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/layoutparent"
-    tools:context=".Content">
+    tools:context=".ContentIMG">
 
     <LinearLayout
         android:id="@+id/titlelayout"
@@ -20,7 +20,7 @@
             android:layout_width="40dp"
             android:layout_height="35dp"
             android:layout_marginTop="5dp"
-          android:layout_marginLeft="10dp"
+            android:layout_marginLeft="10dp"
             android:src="@drawable/back" />
 
         <TextView
@@ -45,25 +45,11 @@
             android:src="@drawable/menu2" />
 
     </LinearLayout>
-    <ScrollView
-        android:layout_width="380dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtConTent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:text=""
-                android:textSize="20dp"
-                />
-
+    <ListView
+        android:id="@+id/listimg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -92,6 +78,5 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="90dp"/>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+
 </LinearLayout>

@@ -56,17 +56,6 @@ public class ShowListChapterAdapter extends BaseAdapter {
         else {viewholder=(Viewholder) convertView.getTag();}
         Chapter item=arrayList.get(position);
         viewholder.txtname.setText(item.getName());
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(context, Content.class);
-                String name = item.getName();
-                String content=item.getContent();
-                i.putExtra("name",name);
-                i.putExtra("content",content);
-                context.startActivity(i);
-            }
-        });
         return convertView;
     }
 }

@@ -30,7 +30,6 @@ public class add_chaptercomic extends AppCompatActivity {
         mGridView = findViewById(R.id.GrVImgContent);
         mAdapter = new adtImg(this,mImageUris);
         mGridView.setAdapter(mAdapter);
-
         mbtnAddChapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

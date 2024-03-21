@@ -1,9 +1,4 @@
 package com.example.huflit.item;
-
-import org.json.JSONObject;
-import org.json.JSONException;
-
-
 public class category {
     private int id;
     private String namecate;
@@ -11,7 +6,6 @@ public class category {
         this.id = id;
         this.namecate = namecate;
     }
-
     public int getId() {
         return id;
     }

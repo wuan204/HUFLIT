@@ -2,12 +2,11 @@
 
     public class Chapter {
         int id, strid;
-        String name, content;
+        String name;
 
-        public Chapter(int id, int strid,String name, String content) {
+        public Chapter(int id, int strid,String name) {
             this.id = id;
             this.strid = strid;
-            this.content = content;
             this.name=name;
         }
 
@@ -33,13 +32,5 @@
 
         public void setStrid(int strid) {
             this.strid = strid;
-        }
-
-        public String getContent() {
-            return content;
-        }
-
-        public void setContent(String content) {
-            this.content = content;
         }
     }

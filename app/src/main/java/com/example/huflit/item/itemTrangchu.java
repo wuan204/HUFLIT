@@ -3,13 +3,11 @@ package com.example.huflit.item;
 public class itemTrangchu {
     int id;
     String ten,anh;
-
     public itemTrangchu(int id,  String ten, String anh) {
         this.id = id;
 
         this.ten = ten;
         this.anh = anh;
-
     }
 
     public int getId() {
