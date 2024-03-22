@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFB74D"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#388E3C"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/updateback"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="hhfhf"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Cập nhật thông tin"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/IDupdate"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="id"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/updatename"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="user name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/updatepass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="password"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/updateEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="email"
+            android:inputType="text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Role"
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Role"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/SPNRole"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="hjhhj"
+                android:prompt="@string/select_role_hint" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/updatecapnhat"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:backgroundTint="#1AC6CD"
+                android:text="Cập nhật" />
+
+            <Button
+                android:id="@+id/updatehuy"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                android:backgroundTint="#1AC6CD"
+                android:text="hủy" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

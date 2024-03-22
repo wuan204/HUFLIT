@@ -2,6 +2,7 @@
     <string name="app_name">HUFLIT</string>
 
     <string name="language">Language</string>
-    <string name="vietnamese">Tiếng Việt</string>
+    <string name="vietnamese" translatable="false">Tiếng Việt</string>
     <string name="english">English</string>
+    <string name="select_role_hint" translatable="false">Chọn vai trò</string>
 </resources>
