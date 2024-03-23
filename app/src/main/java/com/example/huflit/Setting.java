@@ -1,7 +1,5 @@
 package com.example.huflit;// ...
 
-import static com.example.huflit.R.id.imgnext;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.huflit.Confirm_LogOut;
-import com.example.huflit.adapter.DanhMucQLyAdapter;
 
 public class Setting extends AppCompatActivity implements Confirm_LogOut.ConfirmLogoutListener {
 

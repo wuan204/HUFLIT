@@ -2,13 +2,16 @@ package com.example.huflit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,7 +33,10 @@ public class Login extends AppCompatActivity {
     Button Login;
     TextView txtForgot, txtRegister;
     ImageView imgEye;
+    CheckBox cb_remember;
     private boolean isLoggedIn = false;
+    private SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +45,15 @@ public class Login extends AppCompatActivity {
 
 
         anhxa();
+      // Khởi tạo SharedPreferences
+        sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
 
+
+        // Kiểm tra nếu đã đăng nhập từ trước
+        if (checkIfLoggedIn()) {
+            String username = sharedPreferences.getString("username", "");
+            startMenuActivity(username);
+        }
 
         Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
         imgEye.setImageResource(R.drawable.eye);
@@ -61,6 +75,7 @@ public class Login extends AppCompatActivity {
                     imgEye.setImageResource(R.drawable.eye);}
             }
         });
+
         txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +83,10 @@ public class Login extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private boolean checkIfLoggedIn() {
+        return sharedPreferences.getBoolean("isLoggedIn", false);
     }
 
     private void togglePasswordVisibility() {
@@ -86,14 +105,13 @@ public class Login extends AppCompatActivity {
         String username = Name.getText().toString().trim();
         String password = Password.getText().toString().trim();
 
-        if (username.isEmpty() || password.isEmpty())
-        {
+        if (username.isEmpty() || password.isEmpty()) {
             nhacnhonhapdu();
-        }
-        else
-        {
+        } else {
             new JsonTask().execute("https://huf-android.000webhostapp.com/dangnhap.php?username=" + username + "&password=" + password);
         }
+
+
     }
 
     private class JsonTask extends AsyncTask<String, Void, String> {
@@ -143,6 +161,10 @@ public class Login extends AppCompatActivity {
                     dangnhapthanhcong();
                     String username = Name.getText().toString().trim(); // Lấy tên người dùng từ EditText
                     isLoggedIn = true; // Đặt biến isLoggedIn thành true khi đăng nhập thành công
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("username", username);
+                    editor.putBoolean("isLoggedIn", isLoggedIn);
+                    editor.apply();
                     startMenuActivity(username);
                 } else {
                     dangnhapthatbai();
@@ -153,23 +175,13 @@ public class Login extends AppCompatActivity {
             }
         }
 
-
     }
 
     private void PrintToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
-//    public void openGoogleSignIn(){
-//        String googleSignIn = "http://accounts.google.com";
-//        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(googleSignIn));
-//        if(i.resolveActivity(getPackageManager()) != null){
-//            startActivity(i);
-//        }
-//        else {
-//            Toast.makeText(Login.this, "Không tìm thấy ứng dụng", Toast.LENGTH_LONG).show();
-//        }
-//    }
+
 
     //loi bao
     public void nhacnhonhapdu() {
@@ -185,6 +197,9 @@ public class Login extends AppCompatActivity {
     {
         Toast.makeText(Login.this,"tài khoản hoặc mật khẩu không chính xác",Toast.LENGTH_LONG).show();
     }
+
+
+
     private void startMenuActivity(String username) {
         Intent intent = new Intent(Login.this, Menu.class);
         intent.putExtra("username", username);
@@ -203,5 +218,27 @@ public class Login extends AppCompatActivity {
         txtForgot = findViewById(R.id.txtForgot);
         txtRegister = findViewById(R.id.txtRegister);
         imgEye = findViewById(R.id.imgEye);
+        cb_remember = findViewById(R.id.cb_remember);
+
+
+//        //lưu thông tin
+//        SharedPreferences sharedPreferences1 = getSharedPreferences(remember,MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences1.edit();
+//        //lưu dạng phân rã
+//        editor.putString("Username",Name.getText().toString());
+//        editor.putString("password",Password.getText().toString());
+//        editor.putBoolean("Save",cb_remember.isChecked());
+//        editor.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Hiển thị thông tin đã được lưu
+        String username = sharedPreferences.getString("username","");
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+        if (isLoggedIn) {
+            Name.setText(username);
+        }
     }
 }
