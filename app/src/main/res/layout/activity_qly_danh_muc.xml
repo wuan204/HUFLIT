@@ -18,10 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
+            android:text="Quản lí danh mục"
             android:textColor="@color/black"
-            android:textSize="30dp"
-            android:text="Quản lí danh mục" />
+            android:textSize="30dp" />
 
         <ImageView
             android:id="@+id/btnmenu"

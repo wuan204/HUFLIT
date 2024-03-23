@@ -10,42 +10,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#BF4444"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/btbackdetail"
             android:layout_width="50dp"
             android:layout_height="30dp"
+            android:layout_gravity="center"
             android:src="@drawable/back"
             android:layout_marginLeft="10dp"
             />
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Chi tiết truyện"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"/>
 
         <ImageView
             android:id="@+id/btnAddchapLayout"
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:src="@drawable/plus"
-            android:layout_marginRight="10dp" />
+            android:layout_marginLeft="10dp" />
         <ImageView
             android:id="@+id/btnShowListChapter"
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:src="@drawable/menu2"
-            android:layout_marginRight="10dp" />
+            android:layout_marginLeft="10dp" />
         <ImageView
             android:id="@+id/btnDeleteChap"
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:src="@drawable/delete"
-            android:layout_marginRight="10dp" />
+            android:layout_marginLeft="10dp" />
 
     </LinearLayout>
 
@@ -80,6 +84,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/dd"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Loại truyện: "
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/txtType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Truyện tranh"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -213,48 +238,13 @@
                 android:textSize="18dp"
                 android:text="Trạng thái:" />
 
-            <Button
-                android:id="@+id/btselectSTT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="coming soon" />
-
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtSTT"
+        <Spinner
+            android:id="@+id/spnSttt"
             android:layout_width="match_parent"
-            android:textSize="18dp"
             android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:text="Loại truyện" />
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rdoworddetail"
-                android:layout_width="wrap_content"
-                android:text="Truyện tranh"
-                android:layout_weight="1"
-                android:checked="true"
-                android:textSize="18dp"
-                android:layout_height="match_parent" />
-
-            <RadioButton
-                android:id="@+id/rdicomicdetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Truyện chữ"
-                android:textSize="18dp"
-                android:layout_weight="1"/>
-        </RadioGroup>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -277,11 +267,11 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtShow"
+        <Spinner
+            android:id="@+id/spnShow"
             android:layout_width="match_parent"
-            android:textSize="18dp"
             android:layout_height="wrap_content" />
+
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"

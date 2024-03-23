@@ -37,7 +37,6 @@ RatingBar ratingBar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewstory);
-
         anhxa();
         setclick();
 
@@ -83,7 +82,6 @@ RatingBar ratingBar;
                                     rating = o.getDouble("rating");
                                 }
                                 float rate=(float) rating;
-
                                 String update=(String) o.getString("lastUpdate");
                                 String type=(String)  o.getString("type");
                                 int num=0;
@@ -104,9 +102,7 @@ RatingBar ratingBar;
                                     txtTimeUpdate.setText(diffInDaysString+" ngày trước");
                                 } catch (Exception e) {
                                     e.printStackTrace();
-                                }
-
-                                //
+                                }//
                                 mtxtStrName.setText(ten);
                                 mtxtCate.setText(danhmuc);
                                 mtxtType.setText(type);
@@ -187,8 +183,7 @@ RatingBar ratingBar;
       Intent i=new Intent(viewstory.this, viewChapter.class);
             i.putExtra("id",id);
             i.putExtra("type",mtxtType.getText().toString());
-
-      startActivity(i);
+            startActivity(i);
         });
 
         mbtViewCmt.setOnClickListener(v -> {

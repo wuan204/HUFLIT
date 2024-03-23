@@ -9,14 +9,11 @@
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-        android:layout_marginBottom="-10dp"
     android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <!-- Các thành phần khác trong layout -->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,14 +28,6 @@
                     android:gravity="center"
                     android:text="Menu"
                     android:textSize="30dp" />
-
-                <ImageView
-                    android:id="@+id/imgSetting"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="-40dp"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/setting"></ImageView>
             </LinearLayout>
 
         </FrameLayout>
@@ -64,8 +53,8 @@
 
                         <Button
                             android:id="@+id/btnTaiKhoan"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:layout_marginLeft="40dp"
                             android:background="@drawable/buttonmenu"
                             android:text=""
@@ -73,12 +62,12 @@
 
                         <ImageView
                             android:id="@+id/imgPerson"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_marginLeft="55dp"
                             android:layout_marginTop="15dp"
                             android:layout_weight="1"
-                            android:src="@drawable/plus" />
+                            android:src="@drawable/person" />
                     </RelativeLayout>
 
                     <LinearLayout
@@ -92,7 +81,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:layout_marginTop="20dp"
                             android:layout_weight="1"
                             android:text="Đăng nhập / Đăng kí"
                             android:textSize="25dp" />
@@ -245,45 +233,12 @@
                             android:layout_marginLeft="50dp"/>
 
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="350dp"
                         android:layout_height="30dp"
                         android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp"
-                        android:id="@+id/Heart">
-                        <ImageView
-                            android:id="@+id/imgHeart"
-                            android:layout_width="10dp"
-                            android:layout_height="30dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/heart" />
-
-                        <TextView
-                            android:id="@+id/txtHeart"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Truyện đã thích"
-                            android:textSize="20dp"/>
-
-                        <ImageView
-                            android:id="@+id/imgNext2"
-                            android:layout_width="10dp"
-                            android:layout_height="30dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/next"
-                            android:layout_marginLeft="50dp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="350dp"
-                        android:layout_height="30dp"
-                        android:orientation="horizontal"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp"
-                        android:id="@+id/Down">
+                        android:layout_marginTop="20dp">
                         <ImageView
                             android:id="@+id/imgDown"
                             android:layout_width="10dp"
@@ -418,6 +373,18 @@
                             android:layout_marginLeft="30dp"/>
                     </LinearLayout>
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/txtLogOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text = "Đăng xuất"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="#000"
+                    android:textColor="@color/white"/>
 <!--                <LinearLayout-->
 <!--                    android:layout_width="match_parent"-->
 <!--                    android:layout_height="match_parent"-->

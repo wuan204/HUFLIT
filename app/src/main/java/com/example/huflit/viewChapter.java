@@ -38,7 +38,6 @@ public class viewChapter extends AppCompatActivity {
         setContentView(R.layout.activity_listadapter);
         listView=findViewById(R.id.listchapter);
         mylist=new ArrayList<Chapter>();
-
         adapter=new ShowListChapterAdapter(this,mylist,R.layout.item_chapter);
         listView.setAdapter(adapter);
         Intent i=getIntent();
@@ -65,7 +64,6 @@ public class viewChapter extends AppCompatActivity {
                 else {intent=new Intent(viewChapter.this, Content.class); }
                 intent.putExtra("idchap",chapid);
                 startActivity(intent);
-                Toast.makeText(viewChapter.this,type,Toast.LENGTH_LONG).show();
             }
         });
 

@@ -18,10 +18,11 @@ import android.widget.TextView;
 public class Menu extends AppCompatActivity {
 
     Button btnTaiKhoan;
-    ImageView imgSetting;
-    TextView txtTK;
+    ImageView imgSetting,imgPerson;
+
+    TextView txtTK,txtLogOut;
     private boolean isLoggedIn = false;
-    LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
+    LinearLayout History,Heart,Down,List,Star,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,8 +34,6 @@ public class Menu extends AppCompatActivity {
 
         btnTaiKhoan= findViewById(R.id.btnTaiKhoan);
         History = findViewById(R.id.History);
-        Heart = findViewById(R.id.Heart);
-        Down = findViewById(R.id.Down);
         List = findViewById(R.id.List);
         Star= findViewById(R.id.Star);
         TrangChu = findViewById(R.id.TrangChu);
@@ -43,9 +42,11 @@ public class Menu extends AppCompatActivity {
         Menu = findViewById(R.id.Menu);
         Truyen_cua_toi= findViewById(R.id.Truyen_cua_toi);
         ThemTruyen = findViewById(R.id.ThemTruyen);
-        imgSetting = findViewById(R.id.imgSetting);
+        //imgSetting = findViewById(R.id.imgSetting);
         LoginSignIn=findViewById(R.id.LoginSignIn);
         txtTK = findViewById(R.id.txtTK);
+       imgPerson = findViewById(R.id.imgPerson);
+       txtLogOut = findViewById(R.id.txtLogOut);
 
         // TextView để hiển thị tên người dùng hoặc nút Đăng ký/Đăng nhập
         TextView txtTK = findViewById(R.id.txtTK);
@@ -73,15 +74,21 @@ public class Menu extends AppCompatActivity {
             // Nếu chưa đăng nhập, hiển thị "Đăng ký/Đăng nhập"
             txtTK.setText("Đăng ký/Đăng nhập");
         }
-
-
-
-
-        imgSetting.setOnClickListener(new View.OnClickListener() {
+        imgPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Setting.class);
-                startActivity(i);
+                // Chuyển hướng đến trang Profile
+                Intent intent = new Intent(Menu.this, Profile_User.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        txtLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogOutUser();
             }
         });
         ThemTruyen.setOnClickListener(new View.OnClickListener() {
@@ -105,27 +112,8 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        Heart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Truyen_da_thich.class);
-                startActivity(i);
-            }
-        });
-        Down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Truyen_da_tai.class);
-                startActivity(i);
-            }
-        });
-        List.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, My_Collection.class);
-                startActivity(i);
-            }
-        });
+
+      ;
         Star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,10 +121,6 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-
-
         TrangChu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,6 +167,17 @@ public class Menu extends AppCompatActivity {
         });
 
 
+    }
+
+
+    private void LogOutUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        Intent intent = new Intent(Menu.this, Menu.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     // Phương thức lưu tên người dùng vào SharedPreferences khi đăng nhập thành công
@@ -254,16 +249,8 @@ public class Menu extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         });
-
-        btnChu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentChu = new Intent(Menu.this, Dang_bai_truyen_chu.class);
-                startActivity(intentChu);
-                alertDialog.dismiss();
-            }
-        });
     }
+
 
 
 }

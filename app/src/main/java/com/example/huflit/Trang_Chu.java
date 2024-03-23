@@ -3,11 +3,13 @@ package com.example.huflit;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.PixelCopy;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -41,11 +43,13 @@ public class Trang_Chu extends AppCompatActivity   {
     TrangChuAdapter hoanthanhAdapter, moinhatAdapter, dexuatAdapter, xemnhieuAdapter;
     ArrayList<itemTrangchu> hoanthanhList, moinhatList, dexuatList, xemnhieuList;
     RequestQueue queue;
+    Button menu;
 
     String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
 
     //String urlgetitem="https://huf-android.000webhostapp.com/layTruyen.php" ;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +62,15 @@ public class Trang_Chu extends AppCompatActivity   {
         
         hoanthanhList=new ArrayList<>();
         queue= Volley.newRequestQueue(this);
+        //
+        menu=findViewById(R.id.btnmenulayout);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(Trang_Chu.this,com.example.huflit.Menu.class);
+                startActivity(i);
+            }
+        });
         StringRequest request=new StringRequest(Request.Method.GET, urlgetitem,
                 new Response.Listener<String>() {
                     @Override

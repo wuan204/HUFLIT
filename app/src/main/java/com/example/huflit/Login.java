@@ -125,8 +125,6 @@ public class Login extends AppCompatActivity {
             {
                 URL url = new URL(urls[0]);
                 urlConnection = (HttpURLConnection)url.openConnection();
-
-
                 InputStream inputStream = urlConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
@@ -217,7 +215,6 @@ public class Login extends AppCompatActivity {
         Password = findViewById(R.id.edtPassword);
         Login = findViewById(R.id.btnLogin);
        // btnGoogle = findViewById(R.id.btnGoogle);
-        txtForgot = findViewById(R.id.txtForgot);
         txtRegister = findViewById(R.id.txtRegister);
         imgEye = findViewById(R.id.imgEye);
         cb_remember = findViewById(R.id.cb_remember);

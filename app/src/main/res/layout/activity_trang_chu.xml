@@ -114,6 +114,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
+
 <!--                <Button-->
 <!--                    android:id="@+id/button"-->
 <!--                    android:layout_width="50dp"-->
@@ -126,6 +127,18 @@
 <!--                    android:padding="6dp"-->
 <!--                    android:textColorHighlight="#FF4081"-->
 <!--                    android:textColorLink="#FF4081" />-->
+                <Button
+                    android:id="@+id/btnmenulayout"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/menu"
+                    android:backgroundTint="#FF4081"
+                    android:contentDescription="sfsfs"
+                    android:padding="6dp"
+                    android:textColorHighlight="#FF4081"
+                    android:textColorLink="#FF4081" />
 
             </LinearLayout>
             <!--End Hoan thanh-->

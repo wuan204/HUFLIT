@@ -24,14 +24,14 @@
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="280dp"
+            android:layout_width="248dp"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
             android:layout_gravity="center"
-            android:text="Tạo truyện mới" />
+            android:layout_marginLeft="20dp"
+            android:text="Tạo truyện mới"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/btnCreateComic"
@@ -140,7 +140,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rdoword"
+                android:id="@+id/rdocomic"
                 android:layout_width="wrap_content"
                 android:text="Truyện tranh"
                 android:layout_weight="1"
@@ -150,7 +150,7 @@
                 android:layout_height="match_parent" />
 
             <RadioButton
-                android:id="@+id/rdicomic"
+                android:id="@+id/rdoword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Truyện chữ"

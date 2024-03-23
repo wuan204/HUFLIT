@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/anhbiatrangchu"
-            android:layout_width="300dp"
+            android:layout_width="280dp"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:src="@drawable/biatruyen" />
@@ -35,7 +35,7 @@
     <TextView
         android:id="@+id/tentruyentrangchu"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:padding="5dp"
         android:text="ten truyen tranh"
