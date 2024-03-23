@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.huflit" />
+                  <option name="mobileSdkAppId" value="1:167087577051:android:869b6b75b306adf12fb9fe" />
+                  <option name="projectId" value="huflit-bcf72" />
+                  <option name="projectNumber" value="167087577051" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
