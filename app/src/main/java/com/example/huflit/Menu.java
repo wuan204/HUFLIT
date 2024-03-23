@@ -18,7 +18,8 @@ import android.widget.TextView;
 public class Menu extends AppCompatActivity {
 
     Button btnTaiKhoan;
-    ImageView imgSetting;
+    ImageView imgSetting,imgPlus;
+
     TextView txtTK;
     private boolean isLoggedIn = false;
     LinearLayout History,Heart,Down,List,Star,GiaoDien,Background,ThongTin,YKien,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
@@ -50,6 +51,7 @@ public class Menu extends AppCompatActivity {
         imgSetting = findViewById(R.id.imgSetting);
         LoginSignIn=findViewById(R.id.LoginSignIn);
         txtTK = findViewById(R.id.txtTK);
+        imgPlus = findViewById(R.id.imgPlus);
 
         // TextView để hiển thị tên người dùng hoặc nút Đăng ký/Đăng nhập
         TextView txtTK = findViewById(R.id.txtTK);
@@ -77,15 +79,21 @@ public class Menu extends AppCompatActivity {
             // Nếu chưa đăng nhập, hiển thị "Đăng ký/Đăng nhập"
             txtTK.setText("Đăng ký/Đăng nhập");
         }
-
+        imgPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chuyển hướng đến trang Profile
+                Intent intent = new Intent(Menu.this, Profile_User.class);
+                startActivity(intent);
+            }
+        });
 
 
 
         imgSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Setting.class);
-                startActivity(i);
+                LogOutUser();
             }
         });
         ThemTruyen.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +219,16 @@ public class Menu extends AppCompatActivity {
         });
 
 
+    }
+
+    private void LogOutUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+        Intent intent = new Intent(Menu.this, Menu.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     // Phương thức lưu tên người dùng vào SharedPreferences khi đăng nhập thành công
