@@ -154,7 +154,7 @@ public class Menu extends AppCompatActivity {
         ThongTin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Thong_tin.class);
+                Intent i = new Intent(Menu.this, NguoiDungQly.class);
                 startActivity(i);
             }
         });

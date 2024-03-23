@@ -14,20 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HUFLIT"
-
         tools:targetApi="31">
+        <activity
+            android:name=".Update_user"
+            android:exported="false" />
         <activity
             android:name=".ContentIMG"
             android:exported="false" />
         <activity
             android:name=".ChapterComic"
             android:exported="false" />
-
-        tools:targetApi="31" >
-        <activity android:name=".Profile_User"
-            android:exported="false"/>
-
-
+        <activity
+            android:name=".Profile_User"
+            android:exported="false" />
         <activity
             android:name=".NguoiDungQly"
             android:exported="false" />
@@ -41,7 +40,6 @@
             android:name=".viewChapter"
             android:exported="false" />
         <activity
-
             android:name=".NguoiDungQly"
             android:exported="false"
             tools:ignore="DuplicateActivity" />
@@ -51,24 +49,18 @@
             tools:ignore="DuplicateActivity" />
         <activity
             android:name=".QLyDanhMuc"
-            android:exported="false" />
-
-            android:name=".QLyDanhMuc"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".NguoiDungQly"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".ThemDmuc"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".justatest"-->
-<!--            android:exported="false" />-->
-
-<!--        <activity-->
-<!--            android:name=".categorymanager"-->
-<!--            android:exported="false" />-->
-
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".NguoiDungQly" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".ThemDmuc" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".justatest" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".categorymanager" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".add_chaptercomic"
             android:exported="false" />

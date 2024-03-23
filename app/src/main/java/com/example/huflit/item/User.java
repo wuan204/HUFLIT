@@ -1,6 +1,7 @@
 package com.example.huflit.item;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable{
     private  int userid,role;
     private  String name,email,pass;
 
@@ -51,4 +52,6 @@ public class User {
     public void setPass(String pass) {
         this.pass = pass;
     }
+
+
 }

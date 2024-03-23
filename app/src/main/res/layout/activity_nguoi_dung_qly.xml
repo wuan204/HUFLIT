@@ -5,13 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NguoiDungQly">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Maroon"
+
+        android:background="#388E3C"
         android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/quanliuerback"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="sfsf"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back" />
 
         <TextView
             android:id="@+id/textView17"
@@ -19,15 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
+            android:gravity="center"
+            android:text="Quản lí người dùng"
             android:textColor="@color/black"
-            android:textSize="30dp"
-            android:text="Quản lí người dùng" />
+            android:textSize="30dp" />
 
-        <ImageView
-            android:id="@+id/btnmenu"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/menu2" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,8 +45,8 @@
             android:id="@+id/btnaddnewuser"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@color/Lime"
-            android:src="@drawable/plus" />
+
+            />
     </LinearLayout>
 
     <ListView
