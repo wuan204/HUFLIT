@@ -107,8 +107,6 @@ public class Login extends AppCompatActivity {
             {
                 URL url = new URL(urls[0]);
                 urlConnection = (HttpURLConnection)url.openConnection();
-
-
                 InputStream inputStream = urlConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;

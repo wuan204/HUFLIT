@@ -116,38 +116,10 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        List.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, My_Collection.class);
-                startActivity(i);
-            }
-        });
         Star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Menu.this, Nhan_xet_cua_toi.class);
-                startActivity(i);
-            }
-        });
-        GiaoDien.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Setting_Interface.class);
-                startActivity(i);
-            }
-        });
-        Background.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Setting_Background.class);
-                startActivity(i);
-            }
-        });
-        ThongTin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Thong_tin.class);
                 startActivity(i);
             }
         });
@@ -205,41 +177,4 @@ public class Menu extends AppCompatActivity {
 
 
     }
-
-
-
-    private void showCustomDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.activity_diolog_them_truyen, null);
-        builder.setView(dialogView);
-        builder.setPositiveButton(null, null);
-        builder.setNegativeButton(null, null);
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-
-        Button btnTranh = dialogView.findViewById(R.id.btnTranh);
-        Button btnChu = dialogView.findViewById(R.id.btnChu);
-
-        btnTranh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentTranh = new Intent(Menu.this, create_story.class);
-                startActivity(intentTranh);
-                alertDialog.dismiss();
-            }
-        });
-
-        btnChu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentChu = new Intent(Menu.this, Dang_bai_truyen_chu.class);
-                startActivity(intentChu);
-                alertDialog.dismiss();
-            }
-        });
-    }
-
-
 }

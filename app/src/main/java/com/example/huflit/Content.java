@@ -5,14 +5,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,22 +16,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.huflit.adapter.ContentImgAdapter;
-import com.example.huflit.adapter.NoiDungAdapter;
-import com.example.huflit.item.StoryFull;
-import com.example.huflit.item.itemIMG;
-import com.example.huflit.object.NoiDung;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Content extends AppCompatActivity {
     ImageView imgBack, imgMenu2;
@@ -44,7 +30,7 @@ public class Content extends AppCompatActivity {
     RequestQueue requestQueue;
     String StrID;
     int id;
-    LinearLayout titleLayout;
+    LinearLayout titleLayout,parentlayout;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +39,22 @@ public class Content extends AppCompatActivity {
         anhXa();
         setClick();
         titleLayout = findViewById(R.id.titlelayout);
-        findViewById(R.id.layoutparent).setOnClickListener(new View.OnClickListener() {
+        parentlayout=findViewById(R.id.layoutparent);
+
+       parentlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if (titleLayout.getVisibility() == View.VISIBLE) {
+                    titleLayout.setVisibility(View.GONE);
+                } else {
+                    titleLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        txtConTent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if (titleLayout.getVisibility() == View.VISIBLE) {
                     titleLayout.setVisibility(View.GONE);
                 } else {
@@ -97,7 +95,7 @@ public class Content extends AppCompatActivity {
 
         requestQueue= Volley.newRequestQueue(this);
         String url = "https://huf-android.000webhostapp.com/noiDung.php?ChtID="+id ;
-        StringRequest request = new StringRequest(Request.Method.GET, url, // Truyền URL vào constructor
+        StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
