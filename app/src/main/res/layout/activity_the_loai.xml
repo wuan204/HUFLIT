@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/btnbackCategory"
-            android:layout_width="50dp"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
 
             app:srcCompat="@drawable/back" />
