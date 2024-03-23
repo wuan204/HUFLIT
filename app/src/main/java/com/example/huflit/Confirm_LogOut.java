@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-
 public class Confirm_LogOut extends DialogFragment {
 
     public interface ConfirmLogoutListener {
@@ -48,18 +47,7 @@ public class Confirm_LogOut extends DialogFragment {
             }
         });
 
-        btnCo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Xóa hoặc hủy bỏ thông tin đăng nhập đã được lưu trữ
 
-                // Chuyển đến trang đăng nhập
-                Intent intent = new Intent(getActivity(), Login.class); // Thay LoginActivity bằng tên Activity của trang đăng nhập
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Xóa tất cả các hoạt động trên đỉnh của hoạt động đăng nhập và tạo một hoạt động mới
-                startActivity(intent);
-                getActivity().finish(); // Kết thúc hoạt động hiện tại
-            }
-        });
 
         return dialog;
     }

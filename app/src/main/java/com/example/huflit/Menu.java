@@ -37,10 +37,6 @@ public class Menu extends AppCompatActivity {
         Down = findViewById(R.id.Down);
         List = findViewById(R.id.List);
         Star= findViewById(R.id.Star);
-        GiaoDien= findViewById(R.id.GiaoDien);
-        Background= findViewById(R.id.Background);
-        ThongTin=findViewById(R.id.ThongTin);
-        YKien = findViewById(R.id.YKien);
         TrangChu = findViewById(R.id.TrangChu);
         Search = findViewById(R.id.Search);
         TheLoai =findViewById(R.id.TheLoai);
@@ -137,34 +133,10 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        GiaoDien.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Setting_Interface.class);
-                startActivity(i);
-            }
-        });
-        Background.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Setting_Background.class);
-                startActivity(i);
-            }
-        });
-        ThongTin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, NguoiDungQly.class);
-                startActivity(i);
-            }
-        });
-        YKien.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Y_kien.class);
-                startActivity(i);
-            }
-        });
+
+
+
+
         TrangChu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

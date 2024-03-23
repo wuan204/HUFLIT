@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Có"
+            android:onClick="handleLogout"
             android:textColor="@color/black"
             android:background="@drawable/buttondiolog2"
             app:backgroundTint="@null"/>

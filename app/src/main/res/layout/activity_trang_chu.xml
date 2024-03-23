@@ -43,7 +43,7 @@
             <LinearLayout
                 android:id="@+id/slideshow"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="170dp"
                 android:orientation="vertical">
 
                 <ViewFlipper
@@ -92,7 +92,7 @@
             <LinearLayout
                 android:id="@+id/thanhhoanthanh"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 
@@ -114,18 +114,18 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/menu"
-                    android:backgroundTint="#FF4081"
-                    android:contentDescription="sfsfs"
-                    android:padding="6dp"
-                    android:textColorHighlight="#FF4081"
-                    android:textColorLink="#FF4081" />
+<!--                <Button-->
+<!--                    android:id="@+id/button"-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/menu"-->
+<!--                    android:backgroundTint="#FF4081"-->
+<!--                    android:contentDescription="sfsfs"-->
+<!--                    android:padding="6dp"-->
+<!--                    android:textColorHighlight="#FF4081"-->
+<!--                    android:textColorLink="#FF4081" />-->
 
             </LinearLayout>
             <!--End Hoan thanh-->
@@ -136,7 +136,7 @@
             <LinearLayout
                 android:id="@+id/layoutviewhoanthanh"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -157,7 +157,7 @@
             <LinearLayout
                 android:id="@+id/thanhDexuat"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 
@@ -167,6 +167,7 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="8dp"
                     android:text="Đề xuất"
+                    android:textSize="20dp"
                     android:textAlignment="center"
                     android:textColor="@color/white" />
 
@@ -176,16 +177,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/layoutdexuat"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
+<!--                <Button-->
+<!--                    android:id="@+id/layoutdexuat"-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="8dp"-->
 
-                    android:background="@drawable/menu"
-                    android:contentDescription="sfsfsfs"
-                    android:padding="6dp" />
+<!--                    android:background="@drawable/menu"-->
+<!--                    android:contentDescription="sfsfsfs"-->
+<!--                    android:padding="6dp" />-->
             </LinearLayout>
 
 
@@ -195,7 +196,7 @@
             <LinearLayout
                 android:id="@+id/layoutviewdexuat"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -212,7 +213,7 @@
             <LinearLayout
                 android:id="@+id/thanhmoinhat"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 
@@ -232,15 +233,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/menu"
-                    android:contentDescription="sffs"
-
-                    android:padding="6dp" />
+<!--                <Button-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/menu"-->
+<!--                    android:contentDescription="sffs"-->
+<!--                    android:padding="6dp" />-->
             </LinearLayout>
             <!--End MoiNhat-->
 
@@ -248,7 +248,7 @@
             <LinearLayout
                 android:id="@+id/layoutviewmoinhat"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -264,7 +264,7 @@
             <LinearLayout
                 android:id="@+id/thanhxemnhieu"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:background="@color/black"
                 android:orientation="horizontal">
 
@@ -283,15 +283,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <Button
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/menu"
-
-                    android:contentDescription="sfsfsf"
-                    android:padding="6dp" />
+<!--                <Button-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="8dp"-->
+<!--                    android:background="@drawable/menu"-->
+<!--                    android:contentDescription="sfsfsf"-->
+<!--                    android:padding="6dp" />-->
             </LinearLayout>
             <!--End MoiNhat-->
 
@@ -299,7 +298,7 @@
             <LinearLayout
                 android:id="@+id/layoutviewxemnhieu"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="200dp"
                 android:layout_marginBottom="70dp"
                 android:orientation="vertical">
 
@@ -315,21 +314,24 @@
     </ScrollView>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="80dp"
         android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center"
         android:layout_marginBottom="10dp">
 
         <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
             android:orientation="vertical"
+            android:layout_weight="1"
             android:layout_marginLeft="20dp"
             android:id="@+id/TrangChu">
             <ImageView
                 android:id="@+id/imgTrangChu"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/giaodien"
                 android:layout_marginLeft="15dp"/>
 
@@ -338,23 +340,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Trang chủ"
-                android:layout_gravity="center"
-                android:gravity="center"
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:textSize="16dp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
             android:orientation="vertical"
-            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:id="@+id/Search">
             <ImageView
                 android:id="@+id/imgSearch"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/search"
                 android:layout_marginLeft="15dp"/>
 
@@ -366,42 +367,44 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="18dp"/>
+                android:textSize="16dp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="100dp"
-            android:orientation="vertical"
-            android:layout_marginLeft="25dp"
-            android:id="@+id/TheLoai">
-            <ImageView
-                android:id="@+id/imgTheLoai"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/category"
-                android:layout_marginLeft="15dp"/>
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_weight="1"
+        android:id="@+id/TheLoai">
+        <ImageView
+            android:id="@+id/imgTheLoai"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/category"
+            android:layout_marginLeft="15dp"/>
 
-            <TextView
-                android:id="@+id/txtTheLoai"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Thể loại"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/txtTheLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thể loại"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16dp"/>
+    </LinearLayout>
 
         <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="100dp"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
             android:orientation="vertical"
             android:layout_marginLeft="25dp"
+            android:layout_weight="1"
             android:id="@+id/Menu">
             <ImageView
                 android:id="@+id/imgMenu"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/menu"
                 android:layout_marginLeft="15dp"/>
             <TextView
@@ -412,7 +415,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="18dp"/>
+                android:textSize="16dp"/>
         </LinearLayout>
     </LinearLayout>
 
