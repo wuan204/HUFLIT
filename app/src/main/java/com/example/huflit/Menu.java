@@ -4,7 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,28 +51,33 @@ public class Menu extends AppCompatActivity {
         LoginSignIn=findViewById(R.id.LoginSignIn);
         txtTK = findViewById(R.id.txtTK);
 
-
+        // TextView để hiển thị tên người dùng hoặc nút Đăng ký/Đăng nhập
         TextView txtTK = findViewById(R.id.txtTK);
-        String username = getIntent().getStringExtra("username");
 
-        if(username != null && !username.isEmpty()) {
-            // Nếu đã đăng nhập, hiển thị tên người dùng
+        // Gọi phương thức updateUI() để cập nhật giao diện người dùng
+       // updateUI();
+
+        // Trích xuất tên người dùng từ SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("username", "");
+
+        // Kiểm tra xem có tên người dùng từ SharedPreferences hay không
+        if (!username.isEmpty()) {
+            // Nếu đã đăng nhập, hiển thị tên người dùng và gắn sự kiện click để chuyển hướng đến trang Profile
             txtTK.setText(username);
-
-            // Gắn sự kiện lắng nghe để chuyển hướng đến trang profile khi người dùng click vào tên
             txtTK.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Thực hiện chuyển hướng đến trang profile
-                    // Ví dụ:
+                    // Chuyển hướng đến trang Profile
                     Intent intent = new Intent(Menu.this, Profile_User.class);
                     startActivity(intent);
                 }
             });
         } else {
-            // Nếu chưa đăng nhập, hiển thị "Đăng kí/ Đăng nhập"
-            txtTK.setText("Đăng kí/ Đăng nhập");
+            // Nếu chưa đăng nhập, hiển thị "Đăng ký/Đăng nhập"
+            txtTK.setText("Đăng ký/Đăng nhập");
         }
+
 
 
 
@@ -206,6 +213,51 @@ public class Menu extends AppCompatActivity {
 
     }
 
+    // Phương thức lưu tên người dùng vào SharedPreferences khi đăng nhập thành công
+    private void saveUsernameToSharedPreferences(String username) {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("username", username); // lưu tên người dùng
+        editor.apply();
+    } // Phương thức xóa thông tin về tên người dùng từ SharedPreferences khi đăng xuất
+    private void clearUsernameFromSharedPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("username"); // xóa tên người dùng
+        editor.apply();
+    }
+
+
+//    private void updateUI() {
+//        SharedPreferences sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+//        String username = sharedPreferences.getString("username", "");
+//        if (!username.isEmpty()) {
+//            // Nếu đã đăng nhập, hiển thị tên người dùng và gắn sự kiện click để chuyển hướng đến trang Profile
+//            txtTK.setText(username);
+//            txtTK.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    // Chuyển hướng đến trang Profile
+//                    Intent intent = new Intent(Menu.this, Profile_User.class);
+//                    startActivity(intent);
+//                }
+//            });
+//            isLoggedIn = true; // Cập nhật trạng thái đăng nhập
+//        } else {
+//            // Nếu chưa đăng nhập, hiển thị "Đăng ký/Đăng nhập"
+//            txtTK.setText("Đăng ký/Đăng nhập");
+//            // Gắn sự kiện click để chuyển hướng đến trang đăng nhập
+//            txtTK.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    // Chuyển hướng đến trang đăng nhập
+//                    Intent intent = new Intent(Menu.this, Login.class);
+//                    startActivity(intent);
+//                }
+//            });
+//            isLoggedIn = false; // Cập nhật trạng thái đăng nhập
+//        }
+//    }
 
 
     private void showCustomDialog() {

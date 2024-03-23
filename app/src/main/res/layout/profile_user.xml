@@ -13,8 +13,7 @@
         android:textSize="25dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
    <LinearLayout
        android:layout_width="wrap_content"
@@ -30,13 +29,15 @@
                android:id="@+id/txName"
                android:layout_width="100dp"
                android:layout_height="30dp"
-               android:text="Name:" />
+               android:text="Name:"
+               android:textSize="20dp"/>
 
            <TextView
                android:id="@+id/tx_Name"
                android:layout_width="280dp"
                android:layout_height="30dp"
-               android:text="abc" />
+               android:text="abc"
+               android:textSize="18dp"/>
 
        </LinearLayout>
 
@@ -50,13 +51,15 @@
                android:id="@+id/txEmail"
                android:layout_width="100dp"
                android:layout_height="30dp"
-               android:text="Email: " />
+               android:text="Email: "
+               android:textSize="20dp"/>
 
            <TextView
                android:id="@+id/tx_Email"
                android:layout_width="280dp"
                android:layout_height="30dp"
-               android:text="mail" />
+               android:text="mail"
+               android:textSize="18dp"/>
 
        </LinearLayout>
 
@@ -70,13 +73,15 @@
                android:id="@+id/txPass"
                android:layout_width="100dp"
                android:layout_height="30dp"
-               android:text="PassWord: " />
+               android:text="PassWord: "
+               android:textSize="20dp"/>
 
            <TextView
                android:id="@+id/tx_Pass"
                android:layout_width="280dp"
                android:layout_height="30dp"
-               android:text="pass" />
+               android:text="pass"
+               android:textSize="18dp"/>
        </LinearLayout>
 
    </LinearLayout>
