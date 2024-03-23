@@ -105,11 +105,21 @@
         android:orientation="vertical">
 
 
+        <CheckBox
+            android:id="@+id/cb_remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhớ mật khẩu"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginTop="-80dp"
+            android:layout_marginLeft="-40dp"/>
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="132dp"
             android:layout_height="50dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/buttonlogin"
             android:text="Login"
             android:textSize="20dp"
@@ -117,10 +127,10 @@
 
         <TextView
             android:id="@+id/txtRegister"
-            android:layout_width="119dp"
+            android:layout_width="200dp"
             android:layout_height="43dp"
             android:gravity="center"
-            android:text="Register"
+            android:text="No account? Register"
             android:textColor="@color/white"
             android:textSize="20dp" />
 
