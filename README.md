@@ -7,7 +7,7 @@ ae nhớ tạo nhánh nha
     14.Tạo truyện chữ
     20.Giao diện admin
     23.Quản lý truyện
-  Giao diện cài đặt(ngôn ngữ, chế độ ban đêm,..)
+  Giao diện cài đặt()
 
 *Mỹ:5.Giao diện xem truyện
   18.Xem thông báo
