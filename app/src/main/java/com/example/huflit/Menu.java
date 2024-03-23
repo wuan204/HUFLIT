@@ -131,13 +131,6 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        List.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Menu.this, My_Collection.class);
-                startActivity(i);
-            }
-        });
         Star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,6 +138,7 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         GiaoDien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -220,6 +214,7 @@ public class Menu extends AppCompatActivity {
 
 
     }
+
 
     private void LogOutUser() {
         SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login",Context.MODE_PRIVATE);
@@ -310,6 +305,7 @@ public class Menu extends AppCompatActivity {
             }
         });
     }
+
 
 
 }

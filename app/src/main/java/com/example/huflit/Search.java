@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.huflit.adapter.TruyenTranhAdapter;
 import com.example.huflit.api.APILayTruyenVe;
 
 import com.example.huflit.object.Truyen_tranh;
@@ -33,7 +32,6 @@ import com.example.huflit.interfaces.LayTruyenVe;
 
 public class Search extends AppCompatActivity  implements LayTruyenVe {
     GridView gridTruyenTranh;
-    TruyenTranhAdapter adapter;
     ArrayList<Truyen_tranh> truyenTranhArrayList;
     EditText edtTimKiem;
     ImageView imgBack;
@@ -51,7 +49,7 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
     }
     private void init(){
         truyenTranhArrayList = new ArrayList<Truyen_tranh>();
-        adapter = new TruyenTranhAdapter(this,0, truyenTranhArrayList);
+//        adapter = new TruyenTranhAdapter(this,0, truyenTranhArrayList);
     }
     private void anhXa(){
         gridTruyenTranh = findViewById(R.id.gridTruyenTranh);
@@ -60,11 +58,11 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
 
     }
     private void setUp(){
-        gridTruyenTranh.setAdapter(adapter);
+//        gridTruyenTranh.setAdapter(adapter);
         gridTruyenTranh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Lấy đối tượng Truyen_tranh đã được chọn
+                // Lấy đối tượng Truyentranh đã được chọn
                 Truyen_tranh selectedTruyen = truyenTranhArrayList.get(position);
 
                 // Giả sử bạn có một định danh cho mỗi câu chuyện, bạn có thể chuyển nó đến hoạt động tiếp theo
@@ -98,8 +96,8 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
                 JSONObject o= arr.getJSONObject(i);
                 truyenTranhArrayList.add(new Truyen_tranh(o));
             }
-            adapter = new TruyenTranhAdapter(this, 0, truyenTranhArrayList);
-            gridTruyenTranh.setAdapter(adapter);
+//            adapter = new TruyenTranhAdapter(this, 0, truyenTranhArrayList);
+//            gridTruyenTranh.setAdapter(adapter);
         }catch (JSONException | JarException e){
 
         }
@@ -135,7 +133,7 @@ public class Search extends AppCompatActivity  implements LayTruyenVe {
             @Override
             public void afterTextChanged(Editable editable) {
                 String s = edtTimKiem.getText().toString();
-                adapter.sortTruyen(s);
+//                adapter.sortTruyen(s);
             }
         });
         imgBack.setOnClickListener(new View.OnClickListener() {

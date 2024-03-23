@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class create_story extends AppCompatActivity {
 
     TextView mtxtCategory;
     EditText medtnamestory,medtdescripts;
+    RadioButton comic, word;
     private Uri selectedImageUri;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,6 +38,8 @@ public class create_story extends AppCompatActivity {
         mtxtCategory=(TextView) findViewById(R.id.txtCategory);
         medtdescripts=(EditText) findViewById(R.id.edtDescript) ;
         medtnamestory=(EditText) findViewById(R.id.txtnamestory);
+        comic=findViewById(R.id.rdocomic);
+        word=findViewById(R.id.rdoword);
         //
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.containsKey("checkedItems")) {
@@ -46,11 +50,7 @@ public class create_story extends AppCompatActivity {
             }
             mtxtCategory.setText(stringBuilder.toString());
         }
-
-
-        //on click
         mbtnselect.setOnClickListener(v -> {
-            // Tạo một Intent để mở thư viện ảnh
             Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST);
         });
@@ -64,15 +64,18 @@ public class create_story extends AppCompatActivity {
         mbtnCreateComic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle1= new Bundle();
-                bundle1.putString("namestory",medtnamestory.getText().toString());
-                bundle1.putString("descripts",medtdescripts.getText().toString());
-                if(selectedImageUri!=null){ bundle1.putString("imguri",selectedImageUri.toString()); }
+                if(selectedImageUri!=null){  }
                 Intent i = new Intent(create_story.this, mycomic.class);
-                i.putExtras(bundle1);
+                i.putExtra("namestory",medtnamestory.getText().toString());
+                i.putExtra("descripts",medtdescripts.getText().toString());
+                i.putExtra("imguri",selectedImageUri.toString());
+                String type="";
+                if (comic.isChecked()) {
+                    type = "Truyện tranh";
+                } else {
+                    type = "Truyện chữ";}
+                i.putExtra("type",type);
                 startActivity(i);
-
-
             }
         });
 

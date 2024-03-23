@@ -21,12 +21,19 @@
         <activity
             android:name=".ContentIMG"
             android:exported="false" />
+
+        <activity android:name=".Profile_User"
+            android:exported="false"/>
+
+
+
         <activity
             android:name=".ChapterComic"
             android:exported="false" />
         <activity
             android:name=".Profile_User"
             android:exported="false" />
+
         <activity
             android:name=".NguoiDungQly"
             android:exported="false" />
@@ -49,6 +56,28 @@
             tools:ignore="DuplicateActivity" />
         <activity
             android:name=".QLyDanhMuc"
+
+            android:exported="false" />
+
+           <activity
+               android:name=".QLyDanhMuc"
+            android:exported="false"
+               tools:ignore="DuplicateActivity" />
+<!--        <activity-->
+<!--            android:name=".NguoiDungQly"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ThemDmuc"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".justatest"-->
+<!--            android:exported="false" />-->
+
+<!--        <activity-->
+<!--            android:name=".categorymanager"-->
+<!--            android:exported="false" />-->
+
+
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".NguoiDungQly" -->
         <!-- android:exported="false" /> -->
@@ -61,6 +90,7 @@
         <!-- <activity -->
         <!-- android:name=".categorymanager" -->
         <!-- android:exported="false" /> -->
+
         <activity
             android:name=".add_chaptercomic"
             android:exported="false" />
@@ -89,49 +119,29 @@
             android:name=".Diolog_dang_ki_truyen"
             android:exported="false" />
         <activity
-            android:name=".Dang_bai_truyen_tranh"
-            android:exported="false" />
-        <activity
-            android:name=".Diolog_Them_Truyen"
-            android:exported="false" />
-        <activity
             android:name=".The_loai"
             android:exported="false" />
-        <activity
-            android:name=".Thong_tin"
-            android:exported="false" />
+
         <activity
             android:name=".Confirm_LogOut"
             android:exported="false" />
-        <activity
-            android:name=".My_Collection"
-            android:exported="false" />
+
         <activity
             android:name=".Nhan_xet_cua_toi"
             android:exported="false" />
         <activity
             android:name=".Truyen_da_tai"
             android:exported="false" />
-        <activity
-            android:name=".Confirm_Register_Author"
-            android:exported="false" />
+
         <activity
             android:name=".Register_Author"
             android:exported="false" />
-        <activity
-            android:name=".Setting_Interface"
-            android:exported="false" />
-        <activity
-            android:name=".Setting_Background"
-            android:exported="false" />
+
         <activity
             android:name=".Language_Setting"
             android:exported="false" />
         <activity
             android:name=".Setting"
-            android:exported="false" />
-        <activity
-            android:name=".Menu_Content"
             android:exported="false" />
         <activity
             android:name=".Content"
@@ -141,9 +151,6 @@
             android:exported="false" />
         <activity
             android:name=".Y_kien"
-            android:exported="false" />
-        <activity
-            android:name=".Dang_bai_truyen_chu"
             android:exported="false" />
         <activity
             android:name=".Search"
