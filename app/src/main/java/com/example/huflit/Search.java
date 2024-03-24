@@ -44,8 +44,8 @@ public class Search extends AppCompatActivity {
         anhXa();
         setclick();
         arrayList=new ArrayList<>();
-        searchAdapter = new SearchAdapter(this, R.layout.item_truyentranh, arrayList); // Khởi tạo adapter
-        gridTruyenTranh.setAdapter((ListAdapter) searchAdapter); // Gán adapter cho GridView
+        searchAdapter = new SearchAdapter(this, R.layout.item_trang_chu, arrayList); // Khởi tạo adapter
+        //gridTruyenTranh.setAdapter(searchAdapter);// Gán adapter cho GridView
 
         queue= Volley.newRequestQueue(this);
 

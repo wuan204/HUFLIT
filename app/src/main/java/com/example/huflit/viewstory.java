@@ -50,10 +50,10 @@ RatingBar ratingBar;
 
         }
 
-        String strId = intent.getStringExtra("StrID");
-        if (strId != null) {
-            getData("https://huf-android.000webhostapp.com/Search.php?StrID=" + strId);
-        }
+//        String strId = intent.getStringExtra("StrID");
+//        if (strId != null) {
+//            getData("https://huf-android.000webhostapp.com/Search.php?StrID=" + strId);
+//        }
     }
 
 
