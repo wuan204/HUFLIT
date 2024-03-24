@@ -101,8 +101,12 @@ public class Register extends AppCompatActivity {
                             Toast.makeText(Register.this, "Đăng ký thành công",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Register.this, Login.class);
                             startActivity(intent);
-                        } else {
-                            Toast.makeText(Register.this,"đăng ký thất bại",Toast.LENGTH_SHORT).show();
+                        }
+                        else if (response.trim().equals("exists")) {
+                            Toast.makeText(Register.this,"Tên người dùng đã tồn tại",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(Register.this,"Đăng ký thất bại",Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
