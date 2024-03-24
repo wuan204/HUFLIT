@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -47,12 +48,10 @@ public class Login extends AppCompatActivity {
         anhxa();
       // Khởi tạo SharedPreferences
         sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
-
-
         // Kiểm tra nếu đã đăng nhập từ trước
         if (checkIfLoggedIn()) {
             String username = sharedPreferences.getString("username", "");
-            startMenuActivity(username);
+            startMenuActivity();
         }
 
         Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
@@ -104,7 +103,6 @@ public class Login extends AppCompatActivity {
     public void dieukienlogin() {
         String username = Name.getText().toString().trim();
         String password = Password.getText().toString().trim();
-
         if (username.isEmpty() || password.isEmpty()) {
             nhacnhonhapdu();
         } else {
@@ -156,16 +154,23 @@ public class Login extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(result);
                 boolean loginSuccess = jsonObject.getBoolean("loginSuccess");
-
                 if (loginSuccess) {
                     dangnhapthanhcong();
+                    JSONObject userData = jsonObject.getJSONObject("userData");
                     String username = Name.getText().toString().trim(); // Lấy tên người dùng từ EditText
                     isLoggedIn = true; // Đặt biến isLoggedIn thành true khi đăng nhập thành công
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("username", username);
                     editor.putBoolean("isLoggedIn", isLoggedIn);
+                    int userid=userData.getInt("UserID");
+                    int roleid=userData.getInt("RoleID");
+                    editor.putInt("userid",userid);
+                    editor.putInt("roleid",roleid);
                     editor.apply();
-                    startMenuActivity(username);
+                    Log.d("TAG", "onPostExecute: "+ username+" "+userid+" "+roleid);
+                    if(roleid==3){startManager();}
+                    else { startMenuActivity();}
+
                 } else {
                     dangnhapthatbai();
                     Password.setText("");
@@ -197,19 +202,18 @@ public class Login extends AppCompatActivity {
     {
         Toast.makeText(Login.this,"tài khoản hoặc mật khẩu không chính xác",Toast.LENGTH_LONG).show();
     }
-
-
-
-    private void startMenuActivity(String username) {
+    private void startMenuActivity() {
         Intent intent = new Intent(Login.this, Menu.class);
-        intent.putExtra("username", username);
         startActivity(intent);
         Password.setText("");
 
     }
+    private void startManager() {
+        Intent intent = new Intent(Login.this, NguoiDungQly.class);
+        startActivity(intent);
 
+    }
     //anh xa
-
     public void anhxa() {
         Name = findViewById(R.id.edtName);
         Password = findViewById(R.id.edtPassword);

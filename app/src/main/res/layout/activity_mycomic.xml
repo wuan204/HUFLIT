@@ -211,11 +211,17 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
                 android:textSize="18dp"
                 android:text="Thể loại:" />
+
+            <ImageView
+                android:id="@+id/selectcate"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/plus" />
 
         </LinearLayout>
 
@@ -258,12 +264,6 @@
                 android:layout_weight="1"
                 android:textSize="18dp"
                 android:text="Hiển thị:" />
-
-            <Button
-                android:id="@+id/btselectShow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-               android:text="coming soon" />
 
         </LinearLayout>
 

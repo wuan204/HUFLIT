@@ -20,7 +20,7 @@ import static android.app.Activity.RESULT_OK;
 public class mycomic extends AppCompatActivity {
     ImageView mbtnAddchapter;
     EditText medtname,medtdescripts;
-    ImageView mimgdetail;
+    ImageView mimgdetail,mbtnSelectCate;
     ImageButton mbtnimg;
     Spinner stt,show;
     TextView mtxttype;
@@ -35,6 +35,7 @@ public class mycomic extends AppCompatActivity {
         medtdescripts = (EditText) findViewById(R.id.edtDescriptdetail);
         mimgdetail = findViewById(R.id.imgitemdetail);
         mbtnimg = (ImageButton) findViewById(R.id.btselectimgdetail);
+        mbtnSelectCate=findViewById(R.id.selectcate);
         stt=findViewById(R.id.spnSttt);
         show=findViewById(R.id.spnShow);
         mtxttype=findViewById(R.id.txtType);
@@ -48,6 +49,13 @@ public class mycomic extends AppCompatActivity {
         adt2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         show.setAdapter(adt2);
         //
+        mbtnSelectCate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mycomic.this, showcate.class);
+                startActivity(i);
+            }
+        });
         Intent i=getIntent();
         if(i!=null)
         {

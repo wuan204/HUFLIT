@@ -64,7 +64,6 @@ public class ContentIMG extends AppCompatActivity {
                 title.setVisibility(View.VISIBLE);
                 button.setVisibility(View.VISIBLE);
             }
-
             // Đảo ngược trạng thái của biến
             isLayoutVisible = !isLayoutVisible;
         });
