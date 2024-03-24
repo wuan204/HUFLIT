@@ -16,13 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
-
-    Button btnTaiKhoan;
-    ImageView imgSetting,imgPerson;
-
     TextView txtTK,txtLogOut;
     private boolean isLoggedIn = false;
-    LinearLayout History,Heart,Down,List,Star,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
+    LinearLayout History,List,Star,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,7 +28,7 @@ public class Menu extends AppCompatActivity {
 
 
 
-        btnTaiKhoan= findViewById(R.id.btnTaiKhoan);
+        //btnTaiKhoan= findViewById(R.id.btnTaiKhoan);
         History = findViewById(R.id.History);
         List = findViewById(R.id.List);
         Star= findViewById(R.id.Star);
@@ -45,14 +41,12 @@ public class Menu extends AppCompatActivity {
         //imgSetting = findViewById(R.id.imgSetting);
         LoginSignIn=findViewById(R.id.LoginSignIn);
         txtTK = findViewById(R.id.txtTK);
-       imgPerson = findViewById(R.id.imgPerson);
        txtLogOut = findViewById(R.id.txtLogOut);
 
         // TextView để hiển thị tên người dùng hoặc nút Đăng ký/Đăng nhập
         TextView txtTK = findViewById(R.id.txtTK);
 
-        // Gọi phương thức updateUI() để cập nhật giao diện người dùng
-       // updateUI();
+
 
         // Trích xuất tên người dùng từ SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
@@ -74,16 +68,6 @@ public class Menu extends AppCompatActivity {
             // Nếu chưa đăng nhập, hiển thị "Đăng ký/Đăng nhập"
             txtTK.setText("Đăng ký/Đăng nhập");
         }
-        imgPerson.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Chuyển hướng đến trang Profile
-                Intent intent = new Intent(Menu.this, Profile_User.class);
-                startActivity(intent);
-            }
-        });
-
-
 
         txtLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
