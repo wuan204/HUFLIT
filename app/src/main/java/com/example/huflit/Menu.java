@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Menu extends AppCompatActivity {
     TextView txtTK,txtLogOut;
@@ -51,7 +52,7 @@ public class Menu extends AppCompatActivity {
         // Trích xuất tên người dùng từ SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "");
-
+        int roleid =sharedPreferences.getInt("roleid",0);
         // Kiểm tra xem có tên người dùng từ SharedPreferences hay không
         if (!username.isEmpty()) {
             // Nếu đã đăng nhập, hiển thị tên người dùng và gắn sự kiện click để chuyển hướng đến trang Profile
@@ -78,8 +79,9 @@ public class Menu extends AppCompatActivity {
         ThemTruyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(Menu.this, create_story.class);
-                startActivity(i);
+                if(roleid>1){ Intent i =new Intent(Menu.this, create_story.class);
+                    startActivity(i);}
+               else Toast.makeText(Menu.this,"Vui long dang ky tac gia",Toast.LENGTH_LONG).show();
             }
         });
         Truyen_cua_toi.setOnClickListener(new View.OnClickListener() {
@@ -209,31 +211,6 @@ public class Menu extends AppCompatActivity {
 //            isLoggedIn = false; // Cập nhật trạng thái đăng nhập
 //        }
 //    }
-
-
-    private void showCustomDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.activity_diolog_them_truyen, null);
-        builder.setView(dialogView);
-        builder.setPositiveButton(null, null);
-        builder.setNegativeButton(null, null);
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-
-        Button btnTranh = dialogView.findViewById(R.id.btnTranh);
-        Button btnChu = dialogView.findViewById(R.id.btnChu);
-
-        btnTranh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentTranh = new Intent(Menu.this, create_story.class);
-                startActivity(intentTranh);
-                alertDialog.dismiss();
-            }
-        });
-    }
 
 
 

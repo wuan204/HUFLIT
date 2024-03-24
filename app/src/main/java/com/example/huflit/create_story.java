@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class create_story extends AppCompatActivity {
@@ -32,10 +34,8 @@ public class create_story extends AppCompatActivity {
         setContentView(R.layout.activity_create_story);
         // anh xa 11
         mbtnselect=(ImageButton) findViewById(R.id.btselectimg);
-        mbtnSelectCate=(Button)findViewById(R.id.btselectCate);
         mbtnCreateComic=(ImageView) findViewById(R.id.btnCreateComic);
         mbtbackComic=(ImageView) findViewById(R.id.btbackComic);
-        mtxtCategory=(TextView) findViewById(R.id.txtCategory);
         medtdescripts=(EditText) findViewById(R.id.edtDescript) ;
         medtnamestory=(EditText) findViewById(R.id.txtnamestory);
         comic=findViewById(R.id.rdocomic);
@@ -54,28 +54,27 @@ public class create_story extends AppCompatActivity {
             Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST);
         });
-        mbtnSelectCate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(create_story.this, showcate.class);
-                startActivity(i);
-            }
-        });
+
         mbtnCreateComic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectedImageUri!=null){  }
-                Intent i = new Intent(create_story.this, mycomic.class);
-                i.putExtra("namestory",medtnamestory.getText().toString());
-                i.putExtra("descripts",medtdescripts.getText().toString());
-                i.putExtra("imguri",selectedImageUri.toString());
-                String type="";
-                if (comic.isChecked()) {
-                    type = "Truyện tranh";
-                } else {
-                    type = "Truyện chữ";}
-                i.putExtra("type",type);
-                startActivity(i);
+                if(selectedImageUri!=null){   Intent i = new Intent(create_story.this, mycomic.class);
+                    //
+
+                    //
+                    i.putExtra("namestory",medtnamestory.getText().toString());
+                    i.putExtra("descripts",medtdescripts.getText().toString());
+                    i.putExtra("imguri",selectedImageUri.toString());
+                    String type="";
+                    if (comic.isChecked()) {
+                        type = "Truyện tranh";
+                    } else {
+                        type = "Truyện chữ";}
+                    i.putExtra("type",type);
+                    startActivity(i); }
+              else {
+                    Toast.makeText(create_story.this, "Hãy chọn ảnh cho truyện của bạn", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
