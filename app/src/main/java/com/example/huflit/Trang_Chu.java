@@ -20,7 +20,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.huflit.adapter.TrangChuAdapter;
-import com.example.huflit.api.APILayTruyenVe;
 import com.example.huflit.interfaces.LayTruyenVe;
 import com.example.huflit.item.StoryFull;
 import com.example.huflit.item.itemTrangchu;

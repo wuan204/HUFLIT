@@ -22,6 +22,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Trang Chủ"
+            android:background="@color/Gray"
             android:textSize="30dp"
             android:textStyle="bold"/>
     </LinearLayout>

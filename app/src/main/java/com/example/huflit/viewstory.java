@@ -33,22 +33,29 @@ RatingBar ratingBar;
 
     private Button mbtViewCmt, mbtRead, mbtViewChapter;
     TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt,mtxtStt,mview,mtxtLoveNumber,txtchapnum,txtTimeUpdate;
+    private String StrID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewstory);
         anhxa();
         setclick();
-
-        //
-        Intent intent=getIntent();
+        // Nhận StrID từ Intent
+        Intent intent = getIntent();
         if(intent!=null){
 
             id=intent.getIntExtra("id",0);
             getData("https://huf-android.000webhostapp.com/layTruyen.php?StrID="+id);
 
         }
+
+        String strId = intent.getStringExtra("StrID");
+        if (strId != null) {
+            getData("https://huf-android.000webhostapp.com/Search.php?StrID=" + strId);
+        }
     }
+
 
     private void getData(String url) {
         RequestQueue queue= Volley.newRequestQueue(this);
