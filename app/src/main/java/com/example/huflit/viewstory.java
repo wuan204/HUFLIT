@@ -298,7 +298,20 @@ public class viewstory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                addcomment();
+                SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login",Context.MODE_PRIVATE);
+                int user =sharedPreferences.getInt("userid",-1);
+
+                if (user == -1)
+                {
+                    // Người dùng chưa đăng nhập, hiển thị thông báo yêu cầu đăng nhập hoặc đăng ký
+                    Toast.makeText(viewstory.this, "Vui lòng đăng nhập hoặc đăng ký để đăng bình luận", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    addcomment();
+
+                }
+
 
             }
         });
