@@ -17,13 +17,16 @@ import java.util.List;
 public class DanhMucQLyAdapter extends ArrayAdapter<DanhMucQly> {
     private Context ct;
     private ArrayList<DanhMucQly> arr;
+
+    private IOnclickItem iOnclickItem;
     private class Viewholder{
         TextView IdDanhMuc,CateName;
         ImageView write,delete;
     }
-    public DanhMucQLyAdapter( Context context, int resource, List<DanhMucQly> objects) {
+    public DanhMucQLyAdapter( Context context, int resource, List<DanhMucQly> objects, IOnclickItem iOnclickItem) {
         super(context, resource, objects);
         this.ct =context;
+        this.iOnclickItem = iOnclickItem;
         this.arr = new ArrayList<>(objects);
 
     }
@@ -47,13 +50,13 @@ public class DanhMucQLyAdapter extends ArrayAdapter<DanhMucQly> {
             viewholder.write.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    iOnclickItem.update(chuongSach);
                 }
             });
             viewholder.delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    iOnclickItem.delete(chuongSach);
                 }
             });
         }

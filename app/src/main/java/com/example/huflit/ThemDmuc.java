@@ -37,12 +37,12 @@ public class ThemDmuc extends AppCompatActivity {
         btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            addcate(url);
-            edtname.setText("");
+            addcate(url, edtname.getText().toString().trim());
+
             }
         });
     }
-    private void addcate(String url) {
+    private void addcate(String url, String name) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
@@ -52,6 +52,7 @@ public class ThemDmuc extends AppCompatActivity {
                     public void onResponse(String response) {
                         if (response.trim().equals("success")) {
                             Toast.makeText(ThemDmuc.this, "Đăng ký thành công",Toast.LENGTH_SHORT).show();
+                            edtname.setText("");
                             Intent intent = new Intent(ThemDmuc.this, QLyDanhMuc.class);
                             startActivity(intent);
                         } else {
@@ -70,9 +71,8 @@ public class ThemDmuc extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-
-                 params.put("namecate",edtname.getText().toString().trim());
-                Log.d("nhan ", "getParams: "+params);
+                params.put("namecate",name);
+                Log.d("nhan ", "getParams: "+edtname.getText().toString().trim());
                 return params;
             }
         };
