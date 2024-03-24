@@ -54,5 +54,9 @@ dependencies {
     implementation ("com.android.volley:volley:1.2.1")
     implementation("com.squareup.okhttp:okhttp:2.5.0")
 
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation ("com.google.code.gson:gson:2.8.8")
+
 
 }

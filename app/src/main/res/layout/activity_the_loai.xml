@@ -3,39 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".showcate">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:background="#80DEEA"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btBack"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/btnbackCategory"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
+
+            app:srcCompat="@drawable/back" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Danh mục truyện" />
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Danh mục truyện"
+            android:textSize="20sp" />
     </LinearLayout>
 
-    <GridView
-        android:id="@+id/grvCate"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/layoutCategory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="3" />
+        android:layout_height="500dp"
+        android:layout_marginTop="30dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3" />
 
-    <Button
-        android:id="@+id/btnDone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 </LinearLayout>
