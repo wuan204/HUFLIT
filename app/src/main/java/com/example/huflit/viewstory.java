@@ -306,10 +306,15 @@ public class viewstory extends AppCompatActivity {
                     // Người dùng chưa đăng nhập, hiển thị thông báo yêu cầu đăng nhập hoặc đăng ký
                     Toast.makeText(viewstory.this, "Vui lòng đăng nhập hoặc đăng ký để đăng bình luận", Toast.LENGTH_SHORT).show();
                 }
-                else
+                else if(user>-1)
                 {
                     addcomment();
 
+                }
+
+                else
+                {
+                    Toast.makeText(viewstory.this, "Erros", Toast.LENGTH_SHORT).show();
                 }
 
 
