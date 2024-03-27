@@ -33,6 +33,7 @@
             </LinearLayout>
 
         </FrameLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="670dp"
@@ -47,21 +48,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="30dp">
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-<!--                        <Button-->
-<!--                            android:id="@+id/btnTaiKhoan"-->
-<!--                            android:layout_width="60dp"-->
-<!--                            android:layout_height="60dp"-->
-<!--                            android:layout_marginLeft="40dp"-->
-<!--                            android:background="@drawable/buttonmenu"-->
-<!--                            android:text=""-->
-<!--                            app:backgroundTint="@null" />-->
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/btnTaiKhoan"-->
+                        <!--                            android:layout_width="60dp"-->
+                        <!--                            android:layout_height="60dp"-->
+                        <!--                            android:layout_marginLeft="40dp"-->
+                        <!--                            android:background="@drawable/buttonmenu"-->
+                        <!--                            android:text=""-->
+                        <!--                            app:backgroundTint="@null" />-->
 
                         <ImageView
                             android:id="@+id/imgPerson"
@@ -89,38 +91,38 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
                     android:layout_weight="0.1"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtTruyen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="-80dp"
+                        android:gravity="center"
                         android:text="Truyện"
                         android:textSize="22dp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="-80dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30dp">
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/ThemTruyen"
                         android:layout_width="350dp"
                         android:layout_height="30dp"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:id="@+id/ThemTruyen">
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:id="@+id/imgThemTruyen"
                             android:layout_width="10dp"
@@ -134,25 +136,26 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Thêm truyện"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
 
                         <ImageView
                             android:id="@+id/imgNext10"
                             android:layout_width="10dp"
                             android:layout_height="30dp"
+                            android:layout_marginLeft="50dp"
                             android:layout_weight="1"
-                            android:src="@drawable/next"
-                            android:layout_marginLeft="50dp"/>
+                            android:src="@drawable/next" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/Truyen_cua_toi"
                         android:layout_width="350dp"
                         android:layout_height="30dp"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="20dp"
-                        android:id="@+id/Truyen_cua_toi">
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:id="@+id/imgTruyen_cua_toi"
                             android:layout_width="10dp"
@@ -166,15 +169,15 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Truyện của tôi"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
 
                         <ImageView
                             android:id="@+id/imgNext11"
                             android:layout_width="10dp"
                             android:layout_height="30dp"
+                            android:layout_marginLeft="50dp"
                             android:layout_weight="1"
-                            android:src="@drawable/next"
-                            android:layout_marginLeft="50dp"/>
+                            android:src="@drawable/next" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -182,32 +185,33 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
                     android:layout_weight="0.1"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtH"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Lịch sử trên tài khoản"
-                        android:textSize="22dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textStyle="bold"/>
+                        android:text="Lịch sử trên tài khoản"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginTop="40dp">
+                    android:layout_marginTop="40dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/History"
                         android:layout_width="350dp"
                         android:layout_height="30dp"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:id="@+id/History">
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/imgHistory"
@@ -222,23 +226,25 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Truyện đã xem"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
 
                         <ImageView
                             android:id="@+id/imgNext1"
                             android:layout_width="10dp"
                             android:layout_height="30dp"
+                            android:layout_marginLeft="50dp"
                             android:layout_weight="1"
-                            android:src="@drawable/next"
-                            android:layout_marginLeft="50dp"/>
+                            android:src="@drawable/next" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="350dp"
                         android:layout_height="30dp"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:id="@+id/imgDown"
                             android:layout_width="10dp"
@@ -252,46 +258,48 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Truyện đã tải"
-                            android:textSize="20dp"/>
+                            android:textSize="20dp" />
 
                         <ImageView
                             android:id="@+id/imgNext3"
                             android:layout_width="10dp"
                             android:layout_height="30dp"
+                            android:layout_marginLeft="50dp"
                             android:layout_weight="1"
-                            android:src="@drawable/next"
-                            android:layout_marginLeft="50dp"/>
+                            android:src="@drawable/next" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginTop="40dp">
+                    android:layout_marginTop="40dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtList"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Danh sách truyện"
                         android:layout_gravity="center"
+                        android:layout_marginLeft="-25dp"
                         android:gravity="center"
+                        android:text="Danh sách truyện"
                         android:textSize="22dp"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="-25dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/List"
                         android:layout_width="350dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="20dp"
-                        android:orientation="horizontal"
-                        android:id="@+id/List">
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:id="@+id/imgList"
@@ -318,35 +326,38 @@
                             android:src="@drawable/next" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30dp">
+                    android:layout_marginTop="30dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtDanhGia"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Đánh giá truyện"
                         android:layout_gravity="center"
+                        android:layout_marginLeft="-33dp"
                         android:gravity="center"
-                        android:textStyle="bold"
+                        android:text="Đánh giá truyện"
                         android:textSize="22dp"
-                        android:layout_marginLeft="-33dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/Star"
                         android:layout_width="350dp"
                         android:layout_height="30dp"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="20dp"
-                        android:id="@+id/Star">
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:id="@+id/imgStar"
                             android:layout_width="10dp"
@@ -368,43 +379,45 @@
                             android:id="@+id/imgNext5"
                             android:layout_width="10dp"
                             android:layout_height="30dp"
+                            android:layout_marginLeft="30dp"
                             android:layout_weight="1"
-                            android:src="@drawable/next"
-                            android:layout_marginLeft="30dp"/>
+                            android:src="@drawable/next" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/txtLogOut"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text = "Đăng xuất"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
                     android:layout_gravity="center"
-                    android:gravity="center"
                     android:layout_marginTop="30dp"
                     android:background="#000"
-                    android:textColor="@color/white"/>
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:orientation="vertical"-->
-<!--                    android:layout_marginTop="40dp">-->
+                    android:gravity="center"
+                    android:text="Đăng xuất"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:orientation="vertical"-->
+                <!--                    android:layout_marginTop="40dp">-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/txtSetting"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="Cài đặt"-->
-<!--                        android:textSize="22dp"-->
-<!--                        android:textStyle="bold"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:gravity="center"-->
-<!--                        android:layout_marginLeft="-74dp"/>-->
-<!--                </LinearLayout>-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/txtSetting"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="Cài đặt"-->
+                <!--                        android:textSize="22dp"-->
+                <!--                        android:textStyle="bold"-->
+                <!--                        android:layout_gravity="center"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:layout_marginLeft="-74dp"/>-->
+                <!--                </LinearLayout>-->
 
             </LinearLayout>
         </ScrollView>
+
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="80dp"

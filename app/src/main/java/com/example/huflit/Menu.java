@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -16,9 +17,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Menu extends AppCompatActivity {
     TextView txtTK,txtLogOut;
     private boolean isLoggedIn = false;
+    int userid;
+    int authorid;
+    private SharedPreferences sharedPreferences;
     LinearLayout History,List,Star,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
 
     @SuppressLint("MissingInflatedId")
@@ -26,9 +41,6 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-
-
         //btnTaiKhoan= findViewById(R.id.btnTaiKhoan);
         History = findViewById(R.id.History);
         List = findViewById(R.id.List);
@@ -50,9 +62,13 @@ public class Menu extends AppCompatActivity {
 
 
         // Trích xuất tên người dùng từ SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
+        sharedPreferences= getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "");
         int roleid =sharedPreferences.getInt("roleid",0);
+        Boolean check=sharedPreferences.getBoolean("isLoggedIn",false);
+        userid  =sharedPreferences.getInt("userid",0);
+        if(roleid>1){  getalias();};
+
         // Kiểm tra xem có tên người dùng từ SharedPreferences hay không
         if (!username.isEmpty()) {
             // Nếu đã đăng nhập, hiển thị tên người dùng và gắn sự kiện click để chuyển hướng đến trang Profile
@@ -79,16 +95,23 @@ public class Menu extends AppCompatActivity {
         ThemTruyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(roleid>1){ Intent i =new Intent(Menu.this, create_story.class);
+                if(check){ Intent i;
+                    if(roleid>1){ i=new Intent(Menu.this, create_story.class);
+                    }
+                    else {i=new Intent(Menu.this, Register_Author.class);}
                     startActivity(i);}
-               else Toast.makeText(Menu.this,"Vui long dang ky tac gia",Toast.LENGTH_LONG).show();
+               else Toast.makeText(com.example.huflit.Menu.this,"Bạn cần phải đăng nhập trước",Toast.LENGTH_LONG).show();
             }
         });
         Truyen_cua_toi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Menu.this, Truyen_da_dang.class);
-                startActivity(i);
+                if(check){ Intent i;
+                    if(roleid>1){ i=new Intent(Menu.this, Truyen_da_dang.class);
+                    }
+                    else {i=new Intent(Menu.this, Register_Author.class);}
+                    startActivity(i);}
+                else Toast.makeText(com.example.huflit.Menu.this,"Bạn cần phải đăng nhập trước",Toast.LENGTH_LONG).show();
             }
         });
         History.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +176,38 @@ public class Menu extends AppCompatActivity {
         });
 
 
+    }
+
+    private void getalias() {
+         String  url="https://huf-android.000webhostapp.com/getAlias.php?UserID="+userid;
+        RequestQueue queue= Volley.newRequestQueue(this);
+        StringRequest request=new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONArray array=new JSONArray(response);
+                            for(int i=0;i<array.length();i++)
+                            {
+                                JSONObject o= array.getJSONObject(i);
+                                authorid=o.getInt("AuthorID");
+                                Log.d("Notthing", "onResponse: "+authorid);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putInt("authorid",authorid);
+                                editor.apply();
+                            }
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        queue.add(request);
     }
 
 

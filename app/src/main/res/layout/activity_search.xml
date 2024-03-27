@@ -50,11 +50,16 @@
 
     </RelativeLayout>
 
-    <GridView
+<!--    <GridView-->
+<!--        android:id="@+id/gridTruyenTranh"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:numColumns="3">-->
+
+<!--    </GridView>-->
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gridTruyenTranh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="3">
-
-    </GridView>
+        android:layout_height="match_parent" />
 </LinearLayout>

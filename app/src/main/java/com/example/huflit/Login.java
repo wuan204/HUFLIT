@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -167,7 +166,6 @@ public class Login extends AppCompatActivity {
                     editor.putInt("userid",userid);
                     editor.putInt("roleid",roleid);
                     editor.apply();
-                    Log.d("TAG", "onPostExecute: "+ username+" "+userid+" "+roleid);
                     if(roleid==3){startManager();}
                     else { startMenuActivity();}
 
@@ -217,7 +215,7 @@ public class Login extends AppCompatActivity {
     public void anhxa() {
         Name = findViewById(R.id.edtName);
         Password = findViewById(R.id.edtPassword);
-        Login = findViewById(R.id.btnLogin);
+        Login = findViewById(R.id.btnRegist);
        // btnGoogle = findViewById(R.id.btnGoogle);
         txtRegister = findViewById(R.id.txtRegister);
         imgEye = findViewById(R.id.imgEye);
