@@ -2,6 +2,7 @@ package com.example.huflit;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.huflit.adapter.SearchAdapter;
+import com.example.huflit.adapter.TrangChuAdapter;
 import com.example.huflit.item.itemTrangchu;
 
 import org.json.JSONArray;
@@ -27,12 +30,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
-    GridView gridTruyenTranh;
+    RecyclerView gridTruyenTranh;
     EditText edtTimKiem;
     ImageView imgBack;
     ArrayList<itemTrangchu> arrayList;
-    SearchAdapter searchAdapter;
-
+    TrangChuAdapter searchAdapter;
     RequestQueue queue;
     String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
 
@@ -44,11 +46,9 @@ public class Search extends AppCompatActivity {
         anhXa();
         setclick();
         arrayList=new ArrayList<>();
-        searchAdapter = new SearchAdapter(this, R.layout.item_trang_chu, arrayList); // Khởi tạo adapter
-        //gridTruyenTranh.setAdapter(searchAdapter);// Gán adapter cho GridView
-
+        searchAdapter = new TrangChuAdapter(this, arrayList);
         queue= Volley.newRequestQueue(this);
-
+        gridTruyenTranh.setAdapter(searchAdapter);
         StringRequest request=new StringRequest(Request.Method.GET, urlgetitem,
                 new Response.Listener<String>() {
                     @Override
@@ -88,13 +88,13 @@ public class Search extends AppCompatActivity {
                 finish();
             }
         });
-        gridTruyenTranh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(Search.this, viewstory.class);
-                startActivity(intent);
-            }
-        });
+//        gridTruyenTranh.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(Search.this, viewstory.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private void anhXa() {

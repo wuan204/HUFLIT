@@ -109,7 +109,7 @@ RatingBar ratingBar;
                                     txtTimeUpdate.setText(diffInDaysString+" ngày trước");
                                 } catch (Exception e) {
                                     e.printStackTrace();
-                                }//
+                                }
                                 mtxtStrName.setText(ten);
                                 mtxtCate.setText(danhmuc);
                                 mtxtType.setText(type);

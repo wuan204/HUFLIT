@@ -1,7 +1,9 @@
 package com.example.huflit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -13,9 +15,30 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.huflit.adapter.TrangChuAdapter;
+import com.example.huflit.item.itemTrangchu;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class Truyen_da_dang extends AppCompatActivity {
     ImageView imgBack, imgMenu2;
+    RecyclerView recyclerView;
+    ArrayList<itemTrangchu> arrayList;
+    TrangChuAdapter adapter;
+    RequestQueue queue;
+    String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +46,10 @@ public class Truyen_da_dang extends AppCompatActivity {
 
         imgBack = findViewById(R.id.imgBack);
         imgMenu2 = findViewById(R.id.imgMenu2);
-
+        recyclerView=findViewById(R.id.recylayout);
+        arrayList = new ArrayList<>();
+        adapter = new TrangChuAdapter(this, arrayList);
+        recyclerView.setAdapter(adapter);
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +64,39 @@ public class Truyen_da_dang extends AppCompatActivity {
                 showPopupMenu(imgMenu2);
             }
         });
+        queue= Volley.newRequestQueue(this);
+        StringRequest request=new StringRequest(Request.Method.GET, urlgetitem,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray array=new JSONArray(response);
+                            for(int i=0;i<array.length();i++){
+                                JSONObject o=array.getJSONObject(i);
+                                String tenTruyen,linkAnh;
+                                int id;
+                                id=o.getInt("ID");
+                                tenTruyen = o.getString("tenTruyen");
+                                linkAnh = o.getString("linkAnh");
+                                itemTrangchu item=new itemTrangchu(id,tenTruyen,linkAnh);
+                                arrayList.add(item);
+                                adapter.notifyDataSetChanged();
+                            }
+
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        queue.add(request);
+
     }
 
     @Override
