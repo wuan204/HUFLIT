@@ -12,6 +12,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -21,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.huflit.item.Chapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +31,7 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,6 +51,9 @@ public class viewstory extends AppCompatActivity {
     EditText ViewBinhLuan;
 
     ImageView btnBinhluanok;
+    private ArrayList<Chapter> mylist;
+    private String type;
+    private static final int REQUEST_CODE_VIEW_CHAPTER = 1;
 
 
     @Override
@@ -58,6 +64,9 @@ public class viewstory extends AppCompatActivity {
 
         anhxa();
         setclick();
+        // Khởi tạo mylist
+        mylist = new ArrayList<>();
+
         // Nhận StrID từ Intent
         Intent intent = getIntent();
 
@@ -66,11 +75,6 @@ public class viewstory extends AppCompatActivity {
             id=intent.getIntExtra("id",0);
             getData("https://huf-android.000webhostapp.com/layTruyen.php?StrID="+id);
 
-        }
-
-        String strId =intent.getStringExtra("StrID");
-        if (strId != null) {
-            getData("https://huf-android.000webhostapp.com/Search.php?StrID=" + strId);
         }
     }
 
@@ -230,6 +234,36 @@ public class viewstory extends AppCompatActivity {
         }
 
     }
+    private void getChapters(String url) {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest request = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            // Xử lý dữ liệu trả về để lưu vào mylist
+                            JSONArray array = new JSONArray(response);
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+                                // Lấy thông tin chương và thêm vào mylist
+                                // ...
+
+                                // Sau khi thêm danh sách chương, hiển thị nút mbtRead
+                                mbtRead.setVisibility(View.VISIBLE);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(viewstory.this, "Không thể lấy danh sách chương", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        queue.add(request);
+    }
 
     private void anhxa() {
         // Initialize your UI components here
@@ -278,11 +312,20 @@ public class viewstory extends AppCompatActivity {
 //            }
 //        });
 
-        mbtRead.setOnClickListener(v -> {
-            // Handle Read button click
-            Intent i = new Intent(viewstory.this, Content.class);
-            startActivity(i);
+        // Trong phương thức setclick() của Activity viewstory
+        final boolean[] fromMbtRead = {false};
+
+        mbtRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(viewstory.this, viewChapter.class);
+                intent.putExtra("id", id);
+                intent.putExtra("type", mtxtType.getText().toString());
+                startActivityForResult(intent, REQUEST_CODE_VIEW_CHAPTER);
+            }
         });
+
+
 
         mbtViewChapter.setOnClickListener(v -> {
             Intent i=new Intent(viewstory.this, viewChapter.class);
@@ -322,6 +365,15 @@ public class viewstory extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_VIEW_CHAPTER && resultCode == RESULT_OK) {
+            // Kiểm tra kết quả trả về từ viewChapter là RESULT_OK
+            // Khi đó, không cần làm gì cả vì đã tự động chuyển đến chương đầu tiên
+        }
     }
     // nhac nho
     public  void nhacthemBinhluan(){
