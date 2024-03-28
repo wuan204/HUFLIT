@@ -11,6 +11,7 @@
     import android.widget.AdapterView;
     import android.widget.Button;
     import android.widget.EditText;
+    import android.widget.ImageButton;
     import android.widget.ImageView;
     import android.widget.ListView;
     import android.widget.Toast;
@@ -49,6 +50,7 @@
         ListView lsvDanhMucQly;
         EditText medtAddname;
         ImageView btnadd,btnmenu;
+        ImageButton back;
         ArrayList<DanhMucQly> arrDanhMuc;
         DanhMucQLyAdapter danhMucQLyAdapter;
 
@@ -79,6 +81,13 @@
                     startActivity(i);
                 }
             });
+
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
         }
         private void  init(){
             arrDanhMuc = new ArrayList<>();
@@ -89,6 +98,7 @@
 
             lsvDanhMucQly = findViewById(R.id.lsvDanhMucQly);
             medtAddname=findViewById(R.id.edtaddname);
+            back=findViewById(R.id.backdanhmuc1);
 
         }
         private void  setUp(){

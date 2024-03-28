@@ -166,8 +166,8 @@ public class Login extends AppCompatActivity {
                     editor.putInt("userid",userid);
                     editor.putInt("roleid",roleid);
                     editor.apply();
-                    if(roleid==3){startManager();}
-                    else { startMenuActivity();}
+
+                    startMenuActivity();
 
                 } else {
                     dangnhapthatbai();

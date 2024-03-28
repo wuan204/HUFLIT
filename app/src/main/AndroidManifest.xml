@@ -18,7 +18,14 @@
         android:theme="@style/Theme.HUFLIT"
         tools:targetApi="31">
         <activity
+
+            android:name=".Administrator"
+            android:exported="false" />
+        <activity
+            android:name=".Trunggianadmin"
+
             android:name=".add_chapterword"
+
             android:exported="false" />
         <activity
             android:name=".Update_user"
