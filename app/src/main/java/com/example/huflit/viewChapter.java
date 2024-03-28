@@ -51,7 +51,6 @@ public class viewChapter extends AppCompatActivity {
         else {
             Toast.makeText(this, "Không lấy được id truyện @@", Toast.LENGTH_LONG).show();
         }
-        Toast.makeText(this, type, Toast.LENGTH_SHORT).show();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

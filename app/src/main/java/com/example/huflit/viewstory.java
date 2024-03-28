@@ -111,6 +111,7 @@ RatingBar ratingBar;
                                     e.printStackTrace();
                                 }
                                 mtxtStrName.setText(ten);
+                                if(danhmuc=="null"){danhmuc="Khác";}
                                 mtxtCate.setText(danhmuc);
                                 mtxtType.setText(type);
                                 mtxtAlias.setText(alias);
