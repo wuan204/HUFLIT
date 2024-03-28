@@ -139,6 +139,7 @@ public class viewstory extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                                 mtxtStrName.setText(ten);
+                                if(danhmuc=="null"){danhmuc="Khác";}
                                 mtxtCate.setText(danhmuc);
                                 mtxtType.setText(type);
                                 mtxtAlias.setText(alias);

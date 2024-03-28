@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -22,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.huflit.adapter.TrangChuAdapter;
+import com.example.huflit.adapter.mystoryAdapter;
 import com.example.huflit.item.itemTrangchu;
 
 import org.json.JSONArray;
@@ -34,9 +37,9 @@ public class Truyen_da_dang extends AppCompatActivity {
     ImageView imgBack, imgMenu2;
     RecyclerView recyclerView;
     ArrayList<itemTrangchu> arrayList;
-    TrangChuAdapter adapter;
+    mystoryAdapter adapter;
     RequestQueue queue;
-    String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,8 +51,15 @@ public class Truyen_da_dang extends AppCompatActivity {
         imgMenu2 = findViewById(R.id.imgMenu2);
         recyclerView=findViewById(R.id.recylayout);
         arrayList = new ArrayList<>();
-        adapter = new TrangChuAdapter(this, arrayList);
+        adapter = new mystoryAdapter(this, arrayList);
         recyclerView.setAdapter(adapter);
+        //
+        SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
+      int  authorid  =sharedPreferences.getInt("authorid",0);
+        String urlgetitem="https://huf-android.000webhostapp.com/getMyStory.php?AuthorID="+authorid;
+        //
+
+        //
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

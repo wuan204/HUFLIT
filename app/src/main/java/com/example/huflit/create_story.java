@@ -117,8 +117,8 @@ public class create_story extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
 
                 params.put("StrName", medtnamestory.getText().toString());
-                params.put("StrImage", medtdescripts.getText().toString());
-                params.put("Descrip", selectedImageUri.toString());
+                params.put("Descrip", medtdescripts.getText().toString());
+                params.put("StrImage", selectedImageUri.toString());
                 // Lấy ngày hiện tại và định dạng thành chuỗi
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 String currentDate = dateFormat.format(new Date());
