@@ -41,10 +41,12 @@ public class Trang_Chu extends AppCompatActivity   {
 
     TrangChuAdapter hoanthanhAdapter, moinhatAdapter, dexuatAdapter, xemnhieuAdapter;
     ArrayList<itemTrangchu> hoanthanhList, moinhatList, dexuatList, xemnhieuList;
-    RequestQueue queue;
+
     Button menu;
 
-    String urlgetitem="https://huf-android.000webhostapp.com/getItem.php";
+    String urlgetitem="https://huf-android.000webhostapp.com/getItemsg.php";
+    String urlgetitemview="https://huf-android.000webhostapp.com/getItemview.php";
+    String urlgetbig="https://huf-android.000webhostapp.com/getItembig.php";
 
     //String urlgetitem="https://huf-android.000webhostapp.com/layTruyen.php" ;
 
@@ -60,7 +62,7 @@ public class Trang_Chu extends AppCompatActivity   {
         Menu = findViewById(R.id.Menu);
         
         hoanthanhList=new ArrayList<>();
-        queue= Volley.newRequestQueue(this);
+
         //
         menu=findViewById(R.id.btnmenulayout);
         menu.setOnClickListener(new View.OnClickListener() {
@@ -70,37 +72,9 @@ public class Trang_Chu extends AppCompatActivity   {
                 startActivity(i);
             }
         });
-        StringRequest request=new StringRequest(Request.Method.GET, urlgetitem,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-
-                            JSONArray array=new JSONArray(response);
-                            for(int i=0;i<array.length();i++){
-                            JSONObject o=array.getJSONObject(i);
-                                String tenTruyen,linkAnh;
-                                 int id;
-                                id=o.getInt("ID");
-                                tenTruyen = o.getString("tenTruyen");
-                                linkAnh = o.getString("linkAnh");
-                                itemTrangchu item=new itemTrangchu(id,tenTruyen,linkAnh);
-                                hoanthanhList.add(item);
-                                hoanthanhAdapter.notifyDataSetChanged();
-                            }
-
-                        } catch (JSONException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
-        queue.add(request);
+        getdata(urlgetitem);
+        getmostview(urlgetitemview);
+        getbig(urlgetbig);
 
         // Khởi tạo RecyclerView và adapter cho mục hoàn thành
         initHoanthanh();
@@ -212,6 +186,100 @@ public class Trang_Chu extends AppCompatActivity   {
     public void setupxemnhieu() {
         grvxemnhieu.setAdapter(xemnhieuAdapter);
     }
+    public void getdata(String URL){RequestQueue queue= Volley.newRequestQueue(this);
+        StringRequest request=new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
 
+                            JSONArray array=new JSONArray(response);
+                            for(int i=0;i<array.length();i++){
+                                JSONObject o=array.getJSONObject(i);
+                                String tenTruyen,linkAnh;
+                                int id;
+                                id=o.getInt("ID");
+                                tenTruyen = o.getString("tenTruyen");
+                                linkAnh = o.getString("linkAnh");
+                                itemTrangchu item=new itemTrangchu(id,tenTruyen,linkAnh);
+                                hoanthanhList.add(item);
+                                hoanthanhAdapter.notifyDataSetChanged();
+                            }
 
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        queue.add(request);}
+    public void getmostview(String URL){RequestQueue queue= Volley.newRequestQueue(this);
+        StringRequest request=new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray array=new JSONArray(response);
+                            for(int i=0;i<array.length();i++){
+                                JSONObject o=array.getJSONObject(i);
+                                String tenTruyen,linkAnh;
+                                int id;
+                                id=o.getInt("ID");
+                                tenTruyen = o.getString("tenTruyen");
+                                linkAnh = o.getString("linkAnh");
+                                itemTrangchu item=new itemTrangchu(id,tenTruyen,linkAnh);
+                                xemnhieuList.add(item);
+                                xemnhieuAdapter.notifyDataSetChanged();
+                            }
+
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        queue.add(request);}
+    public void getbig(String URL){RequestQueue queue= Volley.newRequestQueue(this);
+        StringRequest request=new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+
+                            JSONArray array=new JSONArray(response);
+                            for(int i=0;i<array.length();i++){
+                                JSONObject o=array.getJSONObject(i);
+                                String tenTruyen,linkAnh;
+                                int id;
+                                id=o.getInt("ID");
+                                tenTruyen = o.getString("tenTruyen");
+                                linkAnh = o.getString("linkAnh");
+                                itemTrangchu item=new itemTrangchu(id,tenTruyen,linkAnh);
+                                dexuatList.add(item);
+                                dexuatAdapter.notifyDataSetChanged();
+                            }
+
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        queue.add(request);}
 }
