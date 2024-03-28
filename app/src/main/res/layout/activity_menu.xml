@@ -283,7 +283,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="-25dp"
                         android:gravity="center"
-                        android:text="Danh sách truyện"
+                        android:text="Quản lí hệ thống"
                         android:textSize="22dp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -294,7 +294,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/List"
+                        android:id="@+id/layoutAdmintrator"
                         android:layout_width="350dp"
                         android:layout_height="30dp"
                         android:layout_marginLeft="50dp"
@@ -304,16 +304,18 @@
                         <ImageView
                             android:id="@+id/imgList"
                             android:layout_width="10dp"
-                            android:layout_height="30dp"
+                            android:layout_height="20dp"
                             android:layout_weight="1"
-                            android:src="@drawable/checkbox" />
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/checkbox"
+                            app:srcCompat="@drawable/admin" />
 
                         <TextView
                             android:id="@+id/txtList"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Bộ sưu tập của tôi"
+                            android:text="Administrator"
                             android:textSize="20dp"
                             tools:ignore="DuplicateIds" />
 

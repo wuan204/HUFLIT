@@ -9,34 +9,35 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/huflit"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:largeHeap="true"
-        android:hardwareAccelerated="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HUFLIT"
         tools:targetApi="31">
+        <activity
+            android:name=".Administrator"
+            android:exported="false" />
+        <activity
+            android:name=".Trunggianadmin"
+            android:exported="false" />
         <activity
             android:name=".Update_user"
             android:exported="false" />
         <activity
             android:name=".ContentIMG"
             android:exported="false" />
-
-        <activity android:name=".Profile_User"
-            android:exported="false"/>
-
-
-
-<!--        <activity-->
-<!--            android:name=".ChapterComic"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".Profile_User"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ChapterComic" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".Profile_User"
             android:exported="false"
             tools:ignore="DuplicateActivity" />
-
         <activity
             android:name=".NguoiDungQly"
             android:exported="false" />
@@ -59,29 +60,11 @@
             tools:ignore="DuplicateActivity" />
         <activity
             android:name=".QLyDanhMuc"
-
             android:exported="false" />
-
-           <activity
-               android:name=".QLyDanhMuc"
+        <activity
+            android:name=".QLyDanhMuc"
             android:exported="false"
-               tools:ignore="DuplicateActivity" />
-<!--        <activity-->
-<!--            android:name=".NguoiDungQly"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".ThemDmuc"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".justatest"-->
-<!--            android:exported="false" />-->
-
-<!--        <activity-->
-<!--            android:name=".categorymanager"-->
-<!--            android:exported="false" />-->
-
-
-<!--            android:exported="false" /> &lt;!&ndash; <activity &ndash;&gt;-->
+            tools:ignore="DuplicateActivity" /> <!-- <activity -->
         <!-- android:name=".NguoiDungQly" -->
         <!-- android:exported="false" /> -->
         <!-- <activity -->
@@ -93,7 +76,18 @@
         <!-- <activity -->
         <!-- android:name=".categorymanager" -->
         <!-- android:exported="false" /> -->
-
+        <!-- android:exported="false" /> &lt;!&ndash; <activity &ndash;&gt; -->
+        <!-- android:name=".NguoiDungQly" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".ThemDmuc" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".justatest" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".categorymanager" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".add_chaptercomic"
             android:exported="false" />
@@ -124,33 +118,24 @@
         <activity
             android:name=".The_loai"
             android:exported="false" />
-
-
-
         <activity
             android:name=".Nhan_xet_cua_toi"
             android:exported="false" />
-
-
         <activity
             android:name=".Register_Author"
             android:exported="false" />
-
         <activity
             android:name=".Language_Setting"
             android:exported="false" />
-
         <activity
             android:name=".Content"
             android:exported="false" />
         <activity
             android:name=".Truyen_da_dang"
             android:exported="false" />
-
         <activity
             android:name=".Search"
             android:exported="false" />
-
         <activity
             android:name=".Truyen_da_xem"
             android:exported="false" />

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class Menu extends AppCompatActivity {
     int userid;
     int authorid;
     private SharedPreferences sharedPreferences;
-    LinearLayout History,List,Star,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn;
+    LinearLayout History,List,Star,TrangChu,Search,TheLoai,Menu,Truyen_cua_toi,ThemTruyen,LoginSignIn,Admintrator;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,7 +44,7 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         //btnTaiKhoan= findViewById(R.id.btnTaiKhoan);
         History = findViewById(R.id.History);
-        List = findViewById(R.id.List);
+
         Star= findViewById(R.id.Star);
         TrangChu = findViewById(R.id.TrangChu);
         Search = findViewById(R.id.Search);
@@ -55,6 +56,8 @@ public class Menu extends AppCompatActivity {
         LoginSignIn=findViewById(R.id.LoginSignIn);
         txtTK = findViewById(R.id.txtTK);
        txtLogOut = findViewById(R.id.txtLogOut);
+       Admintrator=findViewById(R.id.layoutAdmintrator);
+
 
         // TextView để hiển thị tên người dùng hoặc nút Đăng ký/Đăng nhập
         TextView txtTK = findViewById(R.id.txtTK);
@@ -175,7 +178,35 @@ public class Menu extends AppCompatActivity {
             }
         });
 
+        Admintrator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
+                int roleid = sharedPreferences.getInt("roleid", 0);
 
+                xulichuyenAdmin(roleid);
+
+            }
+        });
+
+
+
+
+
+
+    }
+    private void xulichuyenAdmin(int role)
+    {
+        if(role>2)
+        {
+            Intent intent=new Intent(Menu.this,Administrator.class);
+            startActivity(intent);
+
+        }
+        else
+        {
+            Toast.makeText(Menu.this," chỉ cho phép tài khoản admin truy cập",Toast.LENGTH_LONG).show();
+        }
     }
 
     private void getalias() {
