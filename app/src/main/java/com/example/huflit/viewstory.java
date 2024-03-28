@@ -1,8 +1,12 @@
 package com.example.huflit;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -17,32 +21,46 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.huflit.item.StoryFull;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class viewstory extends AppCompatActivity {
     private ImageView mbtBack, mbtRp, mbtLove, mbtFl, mbtDown, mbtCmt,mimgStory;
-   public int id;
-RatingBar ratingBar;
+    public int id;
+    RatingBar ratingBar;
 
     private Button mbtViewCmt, mbtRead, mbtViewChapter;
     TextView mtxtStrName,mtxtAlias,mtxtCate,mtxtType,txtDescipt,mtxtStt,mview,mtxtLoveNumber,txtchapnum,txtTimeUpdate;
     private String StrID;
 
+    private int storyId,SoSaoLAmTron;
+    private  double Star;
+
+    EditText ViewBinhLuan;
+
+    ImageView btnBinhluanok;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewstory);
+
+
         anhxa();
         setclick();
         // Nhận StrID từ Intent
         Intent intent = getIntent();
+
         if(intent!=null){
 
             id=intent.getIntExtra("id",0);
@@ -50,10 +68,10 @@ RatingBar ratingBar;
 
         }
 
-//        String strId = intent.getStringExtra("StrID");
-//        if (strId != null) {
-//            getData("https://huf-android.000webhostapp.com/Search.php?StrID=" + strId);
-//        }
+        String strId =intent.getStringExtra("StrID");
+        if (strId != null) {
+            getData("https://huf-android.000webhostapp.com/Search.php?StrID=" + strId);
+        }
     }
 
 
@@ -69,6 +87,9 @@ RatingBar ratingBar;
                             {
                                 JSONObject o= array.getJSONObject(i);
                                 int id = o.has("ID") ? o.getInt("ID") : 0;
+
+                                storyId=id;
+
                                 String ten= (String) o.get("tenTruyen");
                                 String anh=(String) o.getString("linkAnh");
                                 String tomat=(String) o.getString("tomTat");
@@ -87,15 +108,18 @@ RatingBar ratingBar;
                                 double rating=0.0;
                                 if (!o.isNull("rating")) {
                                     rating = o.getDouble("rating");
+                                    Star=rating;
+                                    SoSaoLAmTron=(int) Star;;
                                 }
                                 float rate=(float) rating;
                                 String update=(String) o.getString("lastUpdate");
                                 String type=(String)  o.getString("type");
                                 int num=0;
-                                if (!o.isNull("num")) {
+                                if (!o.isNull("num"))
+                                {
                                     num = o.getInt("num");
                                 }
-//
+
                                 Date currentDate = new Date();
                                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                                 try {
@@ -136,6 +160,77 @@ RatingBar ratingBar;
         queue.add(request);
     }
 
+    //ham them comment
+    public  void addcomment()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login", Context.MODE_PRIVATE);
+        int userid = sharedPreferences.getInt("userid",-1);
+
+        String Comment =ViewBinhLuan.getText().toString().trim();
+
+        int idTruyen =storyId;
+
+        // Kiểm tra xem nội dung bình luận có rỗng không
+        if(!Comment.isEmpty())
+        {
+            try{
+                // chuyen comment thanh endcode va sp Tieng Viet
+                Comment =URLEncoder.encode(Comment,"UTF-8");
+            }
+            catch(UnsupportedEncodingException e)
+            {
+                e.printStackTrace();
+            }
+
+
+            RequestQueue queue =Volley.newRequestQueue(this);
+
+
+            String url ="https://huf-android.000webhostapp.com/themBinhluan.php";
+
+            String finalComment =Comment;
+            StringRequest request=new StringRequest(Request.Method.POST,url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response)
+                        {
+
+                            Toast.makeText(viewstory.this,"Bình luận thành công",Toast.LENGTH_SHORT).show();
+                            ViewBinhLuan.setText(""); // Xóa nội dung trong EditText sau khi gửi
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // Xử lý lỗi khi gửi bình luận
+                            Toast.makeText(viewstory.this,"Xảy ra lỗi khi gửi bình luận",Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+                @Override
+                protected Map<String, String> getParams() {
+                    // Thêm nội dung bình luận vào các tham số
+                    Map<String, String> params =new HashMap<>();
+
+                    params.put("userID",String.valueOf(userid));
+                    params.put("StrID",String.valueOf(storyId));
+                    params.put("Content",finalComment);
+                    params.put("Star",String.valueOf(SoSaoLAmTron));
+                    return params;
+                }
+            };
+
+
+            queue.add(request);
+        }
+        else
+        {
+            nhacthemBinhluan();
+
+
+        }
+
+    }
+
     private void anhxa() {
         // Initialize your UI components here
         mbtBack = findViewById(R.id.btBack);
@@ -144,7 +239,7 @@ RatingBar ratingBar;
         mbtFl = findViewById(R.id.btFl);
         mbtDown = findViewById(R.id.btDown);
         mbtViewCmt = findViewById(R.id.btViewCmt);
-        mbtCmt = findViewById(R.id.btCmt);
+        mbtCmt = findViewById(R.id.btnBinhluanok);
         mbtRead = findViewById(R.id.btRead);
         mbtViewChapter = findViewById(R.id.btViewChapter);
         mtxtStrName=findViewById(R.id.txtStrName);
@@ -159,6 +254,9 @@ RatingBar ratingBar;
         ratingBar=findViewById(R.id.ratingView);
         txtchapnum=findViewById(R.id.txtChapterNumber);
         txtTimeUpdate=findViewById(R.id.txtTimeUpdate);
+
+        ViewBinhLuan=findViewById(R.id.viewstoryBinhluan);
+        btnBinhluanok=findViewById(R.id.btnBinhluanok);
     }
 
     private void setclick() {
@@ -187,7 +285,7 @@ RatingBar ratingBar;
         });
 
         mbtViewChapter.setOnClickListener(v -> {
-      Intent i=new Intent(viewstory.this, viewChapter.class);
+            Intent i=new Intent(viewstory.this, viewChapter.class);
             i.putExtra("id",id);
             i.putExtra("type",mtxtType.getText().toString());
             startActivity(i);
@@ -196,6 +294,39 @@ RatingBar ratingBar;
         mbtViewCmt.setOnClickListener(v -> {
 
         });
+        btnBinhluanok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences sharedPreferences = getSharedPreferences("tk_mk_login",Context.MODE_PRIVATE);
+                int user =sharedPreferences.getInt("userid",-1);
+
+                if (user == -1)
+                {
+                    // Người dùng chưa đăng nhập, hiển thị thông báo yêu cầu đăng nhập hoặc đăng ký
+                    Toast.makeText(viewstory.this, "Vui lòng đăng nhập hoặc đăng ký để đăng bình luận", Toast.LENGTH_SHORT).show();
+                }
+                else if(user>-1)
+                {
+                    addcomment();
+
+                }
+
+                else
+                {
+                    Toast.makeText(viewstory.this, "Erros", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+
+
+    }
+    // nhac nho
+    public  void nhacthemBinhluan(){
+
+        Toast.makeText(viewstory.this,"Vui long nhập  chi tiết bình luận", Toast.LENGTH_SHORT).show();
     }
 
 }
