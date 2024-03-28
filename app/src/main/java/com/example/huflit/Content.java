@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,14 +25,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Content extends AppCompatActivity {
     ImageView imgBack, imgMenu2;
     TextView txtTenChapter, txtConTent;
 
     RequestQueue requestQueue;
     String StrID;
+    Button btnPrevous,btnNext;
     int id;
     LinearLayout titleLayout,parentlayout;
+
+    int currentChapterId;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +47,38 @@ public class Content extends AppCompatActivity {
         setContentView(R.layout.activity_content);
         anhXa();
         setClick();
-        titleLayout = findViewById(R.id.titlelayout);
-        parentlayout=findViewById(R.id.layoutparent);
+      
 
-       parentlayout.setOnClickListener(new View.OnClickListener() {
+        Intent i = getIntent();
+        if (i != null) {
+            currentChapterId = i.getIntExtra("idchap", 0);
+            getData(); // Load data for the initial chapter
+        }
+        // Set click listeners for chapter navigation buttons
+        btnPrevous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Move to the previous chapter if not the first chapter
+                if (currentChapterId > 1) {
+                    currentChapterId--;
+                    getData(); // Load data for the new chapter
+                } else {
+                    // Notify user that it's the first chapter
+                    Toast.makeText(Content.this, "Đây là chương đầu tiên", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Move to the next chapter
+                currentChapterId++;
+                getData(); // Load data for the new chapter
+            }
+        });
+
+
+        parentlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -63,7 +100,7 @@ public class Content extends AppCompatActivity {
             }
         });
         //
-        Intent i=getIntent();
+
         if(i!=null)
         {id=i.getIntExtra("idchap",0);}
         getData();
@@ -74,7 +111,6 @@ public class Content extends AppCompatActivity {
             }
         });
     }
-
 
     private void setClick() {
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -90,11 +126,15 @@ public class Content extends AppCompatActivity {
         imgMenu2 = findViewById(R.id.imgMenu2);
         txtTenChapter = findViewById(R.id.txtTenChapter);
         txtConTent = findViewById(R.id.txtConTent);
+        btnNext = findViewById(R.id.btnNext);
+        btnPrevous = findViewById(R.id.btnPrevous);
+        titleLayout = findViewById(R.id.titlelayout);
+        parentlayout=findViewById(R.id.layoutparent);
     }
     private  void getData(){
 
         requestQueue= Volley.newRequestQueue(this);
-        String url = "https://huf-android.000webhostapp.com/noiDung.php?ChtID="+id ;
+        String url = "https://huf-android.000webhostapp.com/noiDung.php?ChtID="+currentChapterId ;
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override

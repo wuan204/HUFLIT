@@ -23,20 +23,23 @@
                 android:src="@drawable/back"
                 android:layout_marginLeft="10dp"
 
-                 />
+                />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:textSize="30dp"
                 android:text="Thêm chương mới" />
+
             <ImageView
                 android:id="@+id/btnfinal"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
 
                 android:src="@drawable/plus" />
+
         </LinearLayout>
 
         <TextView
@@ -79,21 +82,11 @@
             android:layout_height="wrap_content"
             android:text="Nội dung:" />
 
-        <GridView
-            android:id="@+id/GrVImgContent"
+        <EditText
+            android:id="@+id/contenttext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="top"
-            android:layout_weight="1"
-            android:horizontalSpacing="5dp"
-            android:verticalSpacing="5dp">
-
-        </GridView>
-        <Button
-            android:id="@+id/btnAddChapter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thêm ảnh" />
+            android:inputType="textMultiLine" />
 
     </LinearLayout>
 </LinearLayout>

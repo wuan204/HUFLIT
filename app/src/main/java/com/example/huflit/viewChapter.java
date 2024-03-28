@@ -2,6 +2,7 @@ package com.example.huflit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class viewChapter extends AppCompatActivity {
     String urlgetchap;
     int id;
     String type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,16 +44,18 @@ public class viewChapter extends AppCompatActivity {
         listView.setAdapter(adapter);
         Intent i=getIntent();
         if(i!=null){
-          id=i.getIntExtra("id",0);
-          type=i.getStringExtra("type");
+            id=i.getIntExtra("id",0);
+            type=i.getStringExtra("type");
             urlgetchap="https://huf-android.000webhostapp.com/getChapter.php?StrID="+id;
             getchap(urlgetchap);
-
-        }
-        else {
+        } else {
             Toast.makeText(this, "Không lấy được id truyện @@", Toast.LENGTH_LONG).show();
         }
+
+
         Toast.makeText(this, type, Toast.LENGTH_SHORT).show();
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,43 +63,59 @@ public class viewChapter extends AppCompatActivity {
                 int chapid=item.getId();
                 Intent intent;
                 String test="Truyện tranh";
-                if(type.equals(test))
-                {intent=new Intent(viewChapter.this, ContentIMG.class); }
-                else {intent=new Intent(viewChapter.this, Content.class); }
+                if(type.equals(test)) {
+                    intent=new Intent(viewChapter.this, ContentIMG.class);
+                } else {
+                    intent=new Intent(viewChapter.this, Content.class);
+                }
                 intent.putExtra("idchap",chapid);
                 startActivity(intent);
             }
         });
-
     }
 
     private void getchap(String url) {
-        RequestQueue queue= Volley.newRequestQueue(this);
-        StringRequest request=new StringRequest(Request.Method.GET, url,
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONArray array=new JSONArray(response);
-                            for(int i=0;i<array.length();i++)
-                            {  JSONObject o=array.getJSONObject(i);
-                                int id=o.getInt("ID");
-                                int strid=o.getInt("strid");
-                                String name=o.getString("name");
-                            Chapter chapter=new Chapter(id,strid,name);
-                            mylist.add(chapter);
-                            adapter.notifyDataSetChanged();
+                            JSONArray array = new JSONArray(response);
+                            for (int i = 0; i < array.length(); i++) {
+                                JSONObject o = array.getJSONObject(i);
+                                int id = o.getInt("ID");
+                                int strid = o.getInt("strid");
+                                String name = o.getString("name");
+                                Chapter chapter = new Chapter(id, strid, name);
+                                mylist.add(chapter);
+                                adapter.notifyDataSetChanged();
+                            }
+
+                            // Kiểm tra nếu danh sách chương không rỗng và kết quả trả về từ viewstory là RESULT_OK
+                            int resultCode = 0;
+                            if (!mylist.isEmpty() && resultCode == RESULT_OK) {
+                                Chapter firstChapter = mylist.get(0);
+                                int firstChapterId = firstChapter.getId();
+                                Intent intent;
+                                String test = "Truyện tranh";
+                                if (type.equals(test)) {
+                                    intent = new Intent(viewChapter.this, ContentIMG.class);
+                                } else {
+                                    intent = new Intent(viewChapter.this, Content.class);
+                                }
+                                intent.putExtra("idchap", firstChapterId);
+                                startActivity(intent);
+                                finish(); // Đảm bảo rằng sau khi chuyển hướng, hoạt động hiện tại sẽ kết thúc
                             }
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }
-
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(viewChapter.this, "Lỗi khi nhận dữ liệu từ server", Toast.LENGTH_SHORT).show();
-
             }
         });
         queue.add(request);
